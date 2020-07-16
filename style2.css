@@ -53,6 +53,11 @@ header{
     background: #ddd;
 }
 
+header nav a:hover{
+    background-color: #000;
+    color:white;
+}
+
 header h2{
     text-transform:uppercase;
 }
