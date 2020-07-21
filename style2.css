@@ -135,7 +135,11 @@ section{
     border: 2px solid #fff;
     margin-top:20px;
 }
-
+.banner-area .banner-img img:hover{
+    cursor:pointer;
+    transition: all 2s linear;
+    transform:rotateY(360deg);
+}
 .name{
     cursor:pointer;
     font-size:30px;
@@ -327,7 +331,7 @@ ul.hobbies-content li{
     margin-bottom: 25px;
 }
 
-.contact-content li p{
+.hobbies-content li p{
     margin:0;
 }
 @media(max-width:1000px){
