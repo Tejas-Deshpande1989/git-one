@@ -1,0 +1,40 @@
+/*Styling the tabs*/
+.tab{
+    overflow: hidden;
+    border: 1px solid #8FB7A5;
+    background-color: #8FB7A5;
+}
+
+/*Styling the Buttons*/
+.tab button{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;   /*for hovering effect*/
+    color: white;
+    font: 600 16px Lato, sans-serif;
+}
+
+/*Change color of the button when we hover over them*/
+
+.tab button:hover{
+    background-color: #61977E;
+}
+
+/*Change the color of active button*/
+
+.tab button.active{
+    background-color: #426756;
+}
+
+/*Style the Tab Contents*/
+
+.tabcontent{
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #426756;
+    border-top: none
+}
