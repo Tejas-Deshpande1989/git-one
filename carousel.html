@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carouselstyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="image-container">
+        <div class="carousel-container">
+            <div class="leftArrow" onclick="plusImages(-1)"><span class="arrow arrowLeft"></div>
+            <div class="rightArrow" onclick="plusImages(1)"><span class="arrow arrowRight"></div>
+            <div class="captionHolder"><p class="captionText"></p></div>
+            <div class="imageHolder">
+                <img src="images/nature1.jpg" alt="">
+                <p class="captionText">Caption Text-01</p>
+            </div>
+            <div class="imageHolder">
+                <img src="images/nature2.jpg" alt="">
+                <p class="captionText">Caption Text-02</p>
+            </div>
+            <div class="imageHolder">
+                <img src="images/nature3.jpg" alt="">
+                <p class="captionText">Caption Text-03</p>
+            </div>
+            <div class="imageHolder">
+                <img src="images/nature4.jpg" alt="">
+                <p class="captionText">Caption Text-04</p>
+            </div>
+            <!--<div class="row">
+                <div class="column">
+                  <img src="img_snow.jpg" alt="Snow" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="img_forest.jpg" alt="Forest" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+                </div>
+              </div>-->
+        </div>
+
+        <div id="dotsContainer">
+
+        </div>
+    </div>
+
+    <script>
+        var imageIndex, images, dots, captionText;
+        function initGallery(){
+            imageIndex = 0;
+            images= document.getElementsByClassName("imageHolder");
+            images[imageIndex].style.opacity=1;
+
+            captionText= document.querySelector(".captionHolder .captionText");
+            captionText.innerText = images[imageIndex].querySelector(".captionText").innerText;
+
+            /*for circular dots*/
+            dots=[];
+
+            var dotsContainer= document.getElementById("dotsContainer");
+
+            /*Creating the dots*/
+            for(var i=0;i<images.length;i++){
+                var dot= document.createElement("span");
+                dot.classList.add("dots");
+                dotsContainer.append(dot);
+                dot.setAttribute("onClick", "moveImage("+i+")");
+                dots.push(dot);
+            }
+            dots[imageIndex].classList.add("active");
+        }
+        initGallery();
+            
+        function plusImages(n){
+               moveImage(imageIndex+n);
+        }
+            /*Image Navigation*/
+            function moveImage(n){
+                var i,current,next;
+                var moveImageClass = {
+                    forCurrent: "", forNext:""
+                }
+
+                /*Identify whether we want to go to right direction or to the left direction*/
+                if(n>imageIndex){ /*This means user has clicked on the right button*/
+                    if(n>=images.length){n=0} /*Ths is to loop around after the last image is reached*/
+                    moveImageClass.forCurrent="moveLeftCurrentImage";
+                    moveImageClass.forNext="moveLeftNextImage";
+                }else if(n<imageIndex){ /*When user has pressed left button*/
+                    if(n<0){n=images.length-1;}
+                    moveImageClass.forCurrent="moveRightCurrentImage";
+                    moveImageClass.forNext="moveRightNextImage";
+                }
+                if(n!=imageIndex){
+                    next= images[n];
+                    current=images[imageIndex];
+                    for(i=0; i<images.length; i++){
+                        images[i].className= "imageHolder";
+                        images[i].style.opacity= 0;
+                        dots[i].classList.remove("active"); /*This will remove the darkness of the first dot after we move to other Images*/
+                    }
+                    current.classList.add(moveImageClass.forCurrent);
+                    next.classList.add(moveImageClass.forNext);
+                    dots[n].classList.add("active"); /*for n the dot will be gray*/
+                    imageIndex=n;
+                }
+            }
+
+    </script>
+</body>
+</html>
