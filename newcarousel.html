@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="newcarouselstyle.css">
+</head>
+<body>
+    <div class="image-wrapper"> <!--div for the wrapper-->
+        <img id= "slideLeft" class="arrow" src="images/arrowleft.png">
+    
+        <div id="slider"> <!--div for the slider/carousel itself-->
+            <div class="leftArrow"><span class="arrow arrowLeft"></div>
+            <div class="rightArrow"><span class="arrow arrowRight"></div>
+            <img class= "thumbnail" src="images/nature1.jpg" alt="">
+            <img class= "thumbnail" src="images/nature2.jpg" alt="">
+            <img class= "thumbnail" src="images/nature3.jpg" alt="">
+            <img class= "thumbnail" src="images/nature4.jpg" alt="">
+            <img class= "thumbnail" src="images/nature5.jpg" alt="">
+            <img class= "thumbnail" src="images/nature6.jpg" alt="">
+            <img class= "thumbnail" src="images/nature7.jpg" alt="">
+            <img class= "thumbnail" src="images/nature8.jpg" alt="">
+            <img class= "thumbnail" src="images/nature9.jpg" alt="">
+            <img class= "thumbnail" src="images/nature10.jpg" alt="">
+        </div>
+
+        <img id= "slideRight" class="arrow" src="images/right arrow.png">
+    </div>
+
+    <script>
+       var buttonRight= document.getElementById("slideRight");
+       var buttonLeft= document.getElementById("slideLeft");
+       buttonLeft.addEventListener('click',function(){
+           document.getElementById('slider').scrollLeft -= 180;
+       })
+
+       buttonRight.addEventListener('click',function(){
+           document.getElementById('slider').scrollLeft +=180;    
+       })
+    </script>
+</body>
+</html>
