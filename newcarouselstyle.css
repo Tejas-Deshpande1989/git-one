@@ -39,12 +39,8 @@
 /*Responsiveness*/
 @media (max-width: 760px){
     .image-wrapper, #slider{
-        height: auto;
-        flex-wrap: wrap;
-        transition: .5s linear;
+        height: 350px;
+        width: 100%;
     }
     
-    .arrow{
-        display: none;
-    }
 }
