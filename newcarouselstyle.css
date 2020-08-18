@@ -1,0 +1,49 @@
+.image-wrapper{
+    max-width: 800px;
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    margin: 0px auto;
+    
+}
+
+#slider{
+    width: 740px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+}
+
+.thumbnail{
+    object-fit: cover;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 5px;
+    border: 2px solid black;
+}
+
+.arrow{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.arrow:hover{
+    opacity: .5;
+    width: 45px;
+    height: 45px;
+}
+
+/*Responsiveness*/
+@media (max-width: 760px){
+    .image-wrapper, #slider{
+        height: auto;
+        flex-wrap: wrap;
+        transition: .5s linear;
+    }
+    
+    .arrow{
+        display: none;
+    }
+}
