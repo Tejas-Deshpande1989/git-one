@@ -37,7 +37,7 @@
        buttonRight.addEventListener('click', function(){
            slider.scrollLeft += n[0].offsetWidth;
            slideIndex += 1;
-           if(slideIndex === n.length-3){
+           if(slideIndex === n.length-2){
                slider.scrollLeft = n[0];
                slideIndex=0;
            }
@@ -49,7 +49,7 @@
            slideIndex -= 1;
            if(slideIndex <= 0){
                slider.scrollLeft = slider.scrollWidth;
-               slideIndex = n.length-3;
+               slideIndex = n.length-2;
            }
        })
        /*buttonLeft.addEventListener('click',function(){
