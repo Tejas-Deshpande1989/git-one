@@ -35,15 +35,6 @@
        var slideIndex=0;
       
        buttonRight.addEventListener('click', function(){
-        slider.scrollLeft += images[slideIndex].offsetWidth;
-           slideIndex += 1;
-           if(slideIndex === images.length-4){
-               slider.scrollLeft = images[0];
-               slideIndex=0;
-           }
-        })
-        
-       buttonLeft.addEventListener('click', functi  on(){
         slider.scrollLeft -= images[slideIndex].offsetWidth;
            slideIndex -= 1;
            if(slideIndex < 0){
@@ -52,6 +43,16 @@
            }
                  
        })
+        
+        
+       buttonLeft.addEventListener('click', function(){
+        slider.scrollLeft += images[slideIndex].offsetWidth;
+           slideIndex += 1;
+           if(slideIndex === images.length-4){
+               slider.scrollLeft = images[0];
+               slideIndex=0;
+           }
+        })
        /*buttonLeft.addEventListener('click',function(){
            document.getElementById('slider').scrollLeft -= 180;
        })
