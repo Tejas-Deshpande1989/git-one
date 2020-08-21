@@ -3,15 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="newcarouselstyle.css">
+    <link rel="stylesheet" href="newcarouselstyle2.css">
 </head>
 <body>
     <div class="image-wrapper"> <!--div for the wrapper-->
         <img id= "slideLeft" class="arrow" src="images/arrowleft.png">
     
         <div id="slider"> <!--div for the slider/carousel itself-->
-            <div class="leftArrow"><span class="arrow arrowLeft"></div>
-            <div class="rightArrow"><span class="arrow arrowRight"></div>
+            
             <img class= "thumbnail" src="images/nature1.jpg" alt="">
             <img class= "thumbnail" src="images/nature2.jpg" alt="">
             <img class= "thumbnail" src="images/nature3.jpg" alt="">
@@ -28,29 +27,30 @@
     </div>
 
     <script>
+      
        var buttonRight= document.getElementById("slideRight");
        var buttonLeft= document.getElementById("slideLeft");
-       var n= document.getElementsByClassName("thumbnail");
+       var images= document.getElementsByClassName("thumbnail");
        var slider= document.getElementById('slider');
        var slideIndex=0;
       
        buttonRight.addEventListener('click', function(){
-           slider.scrollLeft += n[0].offsetWidth;
+        slider.scrollLeft += images[slideIndex].offsetWidth;
            slideIndex += 1;
-           if(slideIndex === n.length-2){
-               slider.scrollLeft = n[0];
+           if(slideIndex === images.length-4){
+               slider.scrollLeft = images[0];
                slideIndex=0;
            }
         })
         
-        
-       buttonLeft.addEventListener('click', function(){
-           slider.scrollLeft -= n[0].offsetWidth;
+       buttonLeft.addEventListener('click', functi  on(){
+        slider.scrollLeft -= images[slideIndex].offsetWidth;
            slideIndex -= 1;
-           if(slideIndex <= 0){
+           if(slideIndex < 0){
                slider.scrollLeft = slider.scrollWidth;
-               slideIndex = n.length-2;
+               slideIndex = images.length-4;
            }
+                 
        })
        /*buttonLeft.addEventListener('click',function(){
            document.getElementById('slider').scrollLeft -= 180;
