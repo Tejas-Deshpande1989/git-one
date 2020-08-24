@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="trycarouselstyle.css">
+</head>
+<body>
+  <input type="text" id="image1" value="">
+  <input type="text" id="image2" value="">
+  <input type="text" id="image3" value="">
+  <input type="text" id="image4" value="">
+  <input type="text" id="image5" value="">
+  <input type="text" id="image6" value="">
+  <input type="text" id="image7" value="">
+  <input type="text" id="image8" value="">
+  <input type="text" id="image9" value="">
+  <input type="text" id="image10" value="">
+
+  <p>Please add any 10 images in the text field to make a slideshow</p>
+
+  <input type="radio" name="type" value="Same">Same Direction of the Arrow<br>
+  <input type="radio" name="type" value="Opposite">Opposite Direction of the Arrow<br>
+  <button onClick="myFunction()">Start Slideshow!</button>
+  
+  <div class="image-wrapper"> <!--div for the wrapper-->
+    <img id= "slideLeft" class="arrow" src="images/arrowleft.png">
+
+    <div id="slider"> <!--div for the slider/carousel itself-->
+      
+    </div>
+
+    <img id= "slideRight" class="arrow" src="images/right arrow.png">
+</div>
+  
+<!--  <p id="demo">Click on the button above and I will count forever.</p>
+
+  <button onClick="clearInterval(myTimer)">Stop Slideshow!</button>-->
+
+
+ <!-- <p id="demo"></p>-->
+
+  <script>
+  function myFunction() {
+
+    /*var user_img = new Array();
+    for(var i=0;i<10;i++)
+    {
+      user_img[i]= document.getElementsByTagName("input").value;
+    }
+    console.log(user_img);*/
+   /*getting the images from the user input*/
+   var a = document.getElementById("image1").value;
+   var b = document.getElementById("image2").value;
+   var c = document.getElementById("image3").value;
+   var d = document.getElementById("image4").value;
+   var e = document.getElementById("image5").value;
+   var f = document.getElementById("image6").value;
+   var g = document.getElementById("image7").value;
+   var h = document.getElementById("image8").value;
+   var i = document.getElementById("image9").value;
+   var j = document.getElementById("image10").value;
+   
+
+   /*creating new image tags for the slider according to the user input*/   
+   var random_img = new Array();
+   /*for(i=0;i<10;i++){
+     random_img[i] = document.createElement("img");
+     random_img[i].setAttribute("src",user_img[i]);
+   }*/
+   random_img[0] = document.createElement("img");
+   random_img[0].setAttribute("src", a);
+   random_img[0].setAttribute("class", "thumbnail");
+   
+   random_img[1] = document.createElement("img");
+   random_img[1].setAttribute("src", b);
+   random_img[1].setAttribute("class", "thumbnail");
+   
+   random_img[2] = document.createElement("img");
+   random_img[2].setAttribute("src", c);
+   random_img[2].setAttribute("class", "thumbnail");
+
+   random_img[3] = document.createElement("img");
+   random_img[3].setAttribute("src", d);
+   random_img[3].setAttribute("class", "thumbnail");
+
+   random_img[4] = document.createElement("img");
+   random_img[4].setAttribute("src", e);
+   random_img[4].setAttribute("class", "thumbnail");
+   
+   random_img[5] = document.createElement("img");
+   random_img[5].setAttribute("src", f);
+   random_img[5].setAttribute("class", "thumbnail");
+
+   random_img[6] = document.createElement("img");
+   random_img[6].setAttribute("src", g);
+   random_img[6].setAttribute("class", "thumbnail");
+   
+   random_img[7] = document.createElement("img");
+   random_img[7].setAttribute("src", h);
+   random_img[7].setAttribute("class", "thumbnail");
+   
+   random_img[8] = document.createElement("img");
+   random_img[8].setAttribute("src", i);
+   random_img[8].setAttribute("class", "thumbnail");
+   
+   random_img[9] = document.createElement("img");
+   random_img[9].setAttribute("src", j);
+   random_img[9].setAttribute("class", "thumbnail");
+   
+    var slider= document.getElementById('slider');
+    console.log(slider);
+    for(var i=0;i<random_img.length;i++)
+    {
+      slider.appendChild(random_img[i]);
+    }
+    
+       var buttonRight= document.getElementById("slideRight");
+       var buttonLeft= document.getElementById("slideLeft");
+       var images= document.getElementsByClassName("thumbnail");
+       var slider1= document.getElementById('slider');
+       var slideIndex=0;
+    
+       var direction = document.getElementsByName("type");
+
+       if(direction[0].checked){
+        buttonRight.addEventListener('click', function(){
+        slider1.scrollLeft -= images[slideIndex].offsetWidth;
+           slideIndex -= 1;
+           if(slideIndex < 0){
+               slider1.scrollLeft = slider1.scrollWidth;
+               slideIndex = images.length-4;
+           }
+                 
+       })
+        
+        buttonLeft.addEventListener('click', function(){
+        slider1.scrollLeft += images[slideIndex].offsetWidth;
+           slideIndex += 1;
+           if(slideIndex === images.length-4){
+               slider1.scrollLeft = images[0];
+               slideIndex=0;
+           }
+        })
+       }else if(direction[1].checked){
+        buttonRight.addEventListener('click', function(){
+          slider1.scrollLeft += images[slideIndex].offsetWidth;
+           slideIndex += 1;
+           if(slideIndex === images.length-4){
+               slider1.scrollLeft = images[0];
+               slideIndex=0;
+           }
+                 
+       })
+        
+        buttonLeft.addEventListener('click', function(){
+          slider1.scrollLeft -= images[slideIndex].offsetWidth;
+           slideIndex -= 1;
+           if(slideIndex < 0){
+               slider1.scrollLeft = slider1.scrollWidth;
+               slideIndex = images.length-4;
+           }
+        })
+       }
+       
+  }
+  </script>
+</body>
+</html>
+
