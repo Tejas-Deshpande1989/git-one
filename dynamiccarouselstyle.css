@@ -21,10 +21,9 @@
 }
 
 .thumbnail{
-    object-fit: contain;
-    background-size: cover;
-    background-position: center center;
-    box-sizing: border-box;
+    height: 150px;
+    object-fit: cover;
+    object-position: center center;
     width: 20%;
     
 }
@@ -55,11 +54,15 @@
     .image-wrapper, #slider{
         height: auto;
         width: 100%;
+        object-fit: cover;
+        object-position: center center;
     }
 }
 @media only screen and (orientation: portrait) {
     .image-wrapper, #slider{
         height: auto;
         width: 100%;
+        object-fit: cover;
+        object-position: center center;
     }
   }
