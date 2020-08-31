@@ -50,19 +50,25 @@
     right: 10px;
     position: absolute;
 }
-@media only screen and (max-width: 768px) {
-    .image-wrapper, #slider{
-        height: auto;
-        width: 100%;
-        object-fit: cover;
-        object-position: center center;
+@media screen and (max-width: 768px) {
+    .thumbnail{
+       width: 256px;
+       object-fit: cover;
+    object-position: center center;
     }
 }
-@media only screen and (orientation: portrait) {
-    .image-wrapper, #slider{
-        height: auto;
-        width: 100%;
-        object-fit: cover;
-        object-position: center center;
+@media screen and (orientation: portrait) {
+    .thumbnail{
+       width: 256px;
+       object-fit: cover;
+    object-position: center center;
     }
+  }
+
+  @media screen and (max-width: 375px){
+    .thumbnail{
+        width: 187px;
+        object-fit: cover;
+     object-position: center center;
+     }
   }
