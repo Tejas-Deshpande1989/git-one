@@ -35,12 +35,14 @@
        var slideIndex=0;
       
        buttonRight.addEventListener('click', function(){
-        slider.scrollLeft -= images[slideIndex].offsetWidth;
+           slider.scrollLeft -= images[slideIndex].offsetWidth;
 
            slideIndex -= 1;
            if(slideIndex <= 0){
                /*slider.scrollLeft = slider.scrollWidth;*/
+               
                slider.prepend(slider.lastElementChild);
+               
                /*slideIndex = images.length-4;*/
                slideIndex+=1;
            }
@@ -49,10 +51,13 @@
         
         
        buttonLeft.addEventListener('click', function(){
+        slider.style.scrollBehavior = 'smooth';
         slider.scrollLeft += images[slideIndex].offsetWidth;
            slideIndex += 1;
            if(slideIndex >= images.length-4){
-               slider.appendChild(slider.firstElementChild);
+                slider.style.transition = "0.3s linear";        
+                slider.appendChild(slider.firstElementChild);               
+               
                /*slider.scrollLeft = images[0];*/
                slideIndex -=1;
            }
