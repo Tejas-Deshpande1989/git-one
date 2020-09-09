@@ -1,18 +1,19 @@
-
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .image-wrapper{
     max-width: 100%;
     display: flex;
     min-height: 100px;
     align-items: center;
     margin: 0px auto;
-    
+    position: relative;
+    overflow: hidden;
 }
 
 #slider{
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: hidden;
+    position: relative;
     /*scroll-behavior: smooth;*/
 }
 
@@ -28,7 +29,24 @@
     
 }
 
-.arrow{
+.nav button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.nav .prev{
+    left: 0px;
+}
+.nav .next{
+    right: 0px;
+}
+/*.arrow{
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -49,7 +67,7 @@
 #slideRight{
     right: 10px;
     position: absolute;
-}
+}*/
 
 /*.arrow:hover{
     opacity: .5;
@@ -69,14 +87,14 @@
     .thumbnail{
        width: 256px;
        object-fit: cover;
-    object-position: center center;
+       object-position: center center;
     }
 }
 @media screen and (orientation: portrait) {
     .thumbnail{
        width: 256px;
        object-fit: cover;
-    object-position: center center;
+       object-position: center center;
     }
   }
 
