@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="newcarouselstyle3.css">
+</head>
+<body>
+    <div class="image-wrapper"> <!--div for the wrapper-->
+        
+    
+        <div id="slider"> <!--div for the slider/carousel itself-->
+            <!--<img class= "thumbnail" id ="lastClone" src="images/nature10.jpg" alt="">-->
+            <img class= "thumbnail" src="images/nature1.jpg" alt="">
+            <img class= "thumbnail" src="images/nature2.jpg" alt="">
+            <img class= "thumbnail" src="images/nature3.jpg" alt="">
+            <img class= "thumbnail" src="images/nature4.jpg" alt="">
+            <img class= "thumbnail" src="images/nature5.jpg" alt="">
+            <img class= "thumbnail" src="images/nature6.jpg" alt="">
+            <img class= "thumbnail" src="images/nature7.jpg" alt="">
+            <img class= "thumbnail" src="images/nature8.jpg" alt="">
+            <img class= "thumbnail" src="images/nature9.jpg" alt="">
+            <img class= "thumbnail" src="images/nature10.jpg" alt="">
+           <!-- <img class= "thumbnail" id= "firstClone" src="images/nature1.jpg" alt="">-->
+        </div>
+
+        <div class="nav">
+            <button class="prev"><span class="material-icons">
+                keyboard_arrow_left
+                </span></button>
+            <button class="next"><span class="material-icons">
+                keyboard_arrow_right
+                </span></button>
+        </div>
+    </div>  
+
+    <script>
+      var buttonRight= document.querySelector('.next');
+       var buttonLeft= document.querySelector('.prev');
+       var images= document.getElementsByClassName("thumbnail");
+       var slider= document.getElementById('slider');
+       var width= slider.offsetWidth;
+       var imagesSame = [];
+       imagesSame= Array.from(images);
+       var imgSource= [];
+       for(i=0;i<imagesSame.length;i++){
+          imgSource[i]= imagesSame[i].src;
+        }
+       
+
+       var slideIndex=0;
+      
+       buttonRight.addEventListener('click', function(){
+            slideIndex++;
+            console.log(slideIndex);
+            slider.style.transition= 'transform 0.4s ease-in-out';
+            slider.style.transform= 'translateX('+(-width * slideIndex)+'px)';            
+            
+            if((slideIndex+1) - 1 === slideIndex){
+                init(imagesSame);
+                console.log(slideIndex);
+            }                 
+       })
+
+       function init(slides){
+           for(var i=0;i<slides.length;i++){
+            imagesSame[i] = document.createElement("img");
+            imagesSame[i].setAttribute("src",imgSource[i]);
+            imagesSame[i].setAttribute("class","thumbnail");
+                }
+                
+               for(i=0;i<imagesSame.length;i++){
+                  slider.appendChild(imagesSame[i]);
+                }
+                console.log(slider);
+       }
+
+               
+       buttonLeft.addEventListener('click', function(){
+            slideIndex--;
+            console.log(slideIndex);
+            slider.style.transition= 'transform 0.4s ease-in-out';
+            slider.style.transform= 'translateX('+(-width * slideIndex)+'px)';
+
+            if((slideIndex-1) + 1 === slideIndex){
+                init1(imagesSame);
+                console.log(slideIndex);
+            } 
+            console.log(slider);
+        })
+
+        function init1(slides){
+           for(var i=0;i<slides.length;i++){
+            slides[i] = document.createElement("img");
+            slides[i].setAttribute("src",imgSource[i]);
+            slides[i].setAttribute("class","thumbnail");
+                }
+            
+            slides= slides.reverse();
+            for(i=0;i<slides.length;i++){
+                  slider.prepend(slides[i]);
+                }
+       }
+        
+    </script>
+</body>
+</html>
