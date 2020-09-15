@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="videoplayer2style.css">
+    <title>custom video player</title>
+</head>
+<body>
+    <div id="videoplayer-box">
+        <video autoplay id= "myVideo" width="550" height="320">
+            <source src="test-video.mp4">
+        </video>
+        <div id="controls-bar">
+            <button id="play-pause">pause</button>
+            <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+            <span id="curtimetext"></span> / <span id="durtimetext"></span>
+        </div>
+    </div>
+    <script>
+        var video, playbtn, seekslider, curtimetext, durtimetext;
+
+        function initializePlayer(){
+            // object references
+            video = document.getElementById('myVideo');
+            playbtn = document.getElementById('play-pause');
+            seekslider = document.getElementById('seekslider');
+            curtimetext = document.getElementById('curtimetext');
+            durtimetext = document.getElementById('durtimetext');
+            // event listeners
+            playbtn.addEventListener("click",playPause,false);
+            seekslider.addEventListener("change",vidSeek,false);
+            video.addEventListener("timeupdate",seektimeupdate,false);
+        }
+        window.onload = initializePlayer;
+
+        //toggle between play and pause button
+        function playPause(){
+            
+            if(video.paused){
+                video.play();
+                playbtn.innerHTML= "pause";
+            } else{
+                video.pause();
+                playbtn.innerHTML= "play";
+            }
+        }
+
+        // seek the video to a particular time
+        function vidSeek(){
+            var seekto= video.duration * (seekslider.value / 100);
+            video.currentTime = seekto;
+        }
+
+        //move the progress of the video slider
+        function seektimeupdate(){
+            var newTime= video.currentTime * (100/ video.duration);
+            seekslider.value = newTime; 
+            var curmins = Math.floor(video.currentTime / 60);
+            var cursecs = Math.floor(video.currentTime - curmins * 60);
+            var durmins = Math.floor(video.duration / 60);
+            var dursecs = Math.floor(video.duration - durmins * 60);
+            if(cursecs < 10){
+                cursecs = "0"+cursecs;
+            }
+            if(dursecs < 10){
+                dursecs = "0"+dursecs;
+            }
+            curtimetext.innerHTML = curmins+":"+cursecs;
+            durtimetext.innerHTML = durmins+":"+dursecs;
+        }
+    </script>
+</body>
+</html>

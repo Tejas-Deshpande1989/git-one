@@ -1,0 +1,10 @@
+#controls-bar{
+    background-color: #333;
+    padding: 10px;
+    color: #ccc;
+}
+#videoplayer-box{
+    width:550px;
+    background-color: #000;
+    margin: 0px auto;
+}
