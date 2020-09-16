@@ -3,8 +3,60 @@
     padding: 10px;
     color: #ccc;
 }
+
 #videoplayer-box{
     width:550px;
     background-color: #000;
     margin: 0px auto;
+}
+
+#seekslider{
+    width:180px;
+}
+
+#volumeslider{
+    width: 80px;
+}
+
+input[type='range']{
+    -webkit-appearance: none !important;
+    background: #000;
+    border: #666 1px solid;
+    height: 4px;
+}
+
+
+input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none !important;
+    background: red;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    cursor: pointer; 
+}
+
+#play-pause{
+    color: white;
+    background-color:#333;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#play-pause:hover{
+    opacity:1;
+}
+
+#mutebtn{
+    color: white;
+    background-color:#333;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#mutebtn:hover{
+    opacity:1;
 }
