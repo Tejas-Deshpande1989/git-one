@@ -3,21 +3,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="videoplayer2style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>custom video player</title>
 </head>
 <body>
+    <!--Video and control bar container-->
     <div id="videoplayer-box">
+        <!--Video-->
         <video autoplay id= "myVideo" width="550" height="320">
             <source src="test-video.mp4">
         </video>
+        <!--Control bar with buttons-->
         <div id="controls-bar">
-            <button id="play-pause">pause</button>
+            <!--Play-Pause button, slider, time in "mins/secs", mute button, 
+                volume slider, full screen-->
+            <button id="play-pause"><i class="fa fa-play"></i></button>
             <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
-            <span id="curtimetext"></span> / <span id="durtimetext"></span>
+            <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+            <button id="mutebtn"><i class="fa fa-volume-down"></i></button>
+            <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+            <button id="fullscreenbtn">[ &nbsp; ]</button>
         </div>
     </div>
     <script>
-        var video, playbtn, seekslider, curtimetext, durtimetext;
+        var video, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
 
         function initializePlayer(){
             // object references
@@ -26,10 +35,16 @@
             seekslider = document.getElementById('seekslider');
             curtimetext = document.getElementById('curtimetext');
             durtimetext = document.getElementById('durtimetext');
+            mutebtn = document.getElementById('mutebtn');
+            volumeslider = document.getElementById('volumeslider');
+            fullscreenbtn = document.getElementById('fullscreenbtn');
             // event listeners
             playbtn.addEventListener("click",playPause,false);
             seekslider.addEventListener("change",vidSeek,false);
             video.addEventListener("timeupdate",seektimeupdate,false);
+            mutebtn.addEventListener("click",vidMute,false);
+            volumeslider.addEventListener("change",setvolume,false);
+            fullscreenbtn.addEventListener("click",fullScreen,false);
         }
         window.onload = initializePlayer;
 
@@ -38,10 +53,10 @@
             
             if(video.paused){
                 video.play();
-                playbtn.innerHTML= "pause";
+                playbtn.innerHTML= '<i class="fa fa-pause"></i>';
             } else{
                 video.pause();
-                playbtn.innerHTML= "play";
+                playbtn.innerHTML= '<i class="fa fa-play"></i>';
             }
         }
 
@@ -55,18 +70,44 @@
         function seektimeupdate(){
             var newTime= video.currentTime * (100/ video.duration);
             seekslider.value = newTime; 
-            var curmins = Math.floor(video.currentTime / 60);
+            var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
             var cursecs = Math.floor(video.currentTime - curmins * 60);
-            var durmins = Math.floor(video.duration / 60);
+            var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
             var dursecs = Math.floor(video.duration - durmins * 60);
-            if(cursecs < 10){
-                cursecs = "0"+cursecs;
-            }
-            if(dursecs < 10){
-                dursecs = "0"+dursecs;
-            }
+            //if it is a single digit then prepend 0
+            if(cursecs < 10){cursecs = "0"+cursecs;}
+            if(dursecs < 10){dursecs = "0"+dursecs;}
+            if(curmins < 10){curmins = "0"+curmins;}
+            if(durmins < 10){durmins = "0"+durmins;}
             curtimetext.innerHTML = curmins+":"+cursecs;
             durtimetext.innerHTML = durmins+":"+dursecs;
+        }
+
+        //toggle between mute or unmute
+        function vidMute(){
+            if(video.muted){
+                video.muted = false;
+                mutebtn.innerHTML= '<i class="fa fa-volume-down"></i>';
+                volumeslider.value = 100;
+            } else{
+                video.muted = true;
+                mutebtn.innerHTML= '<i class="fas fa-volume-mute"></i>';
+                volumeslider.value= 0;
+            }
+        }
+
+        function setvolume(){
+            video.volume = volumeslider.value / 100;
+        }
+
+        function fullScreen(){
+            if(video.requestFullScreen){
+                video.requestFullScreen();
+            } else if(video.webkitRequestFullScreen){
+                video.webkitRequestFullScreen();
+            } else if(video.mozRequestFullScreen){
+                video.mozRequestFullScreen();
+            }
         }
     </script>
 </body>
