@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="videoplayer2style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <title>custom video player</title>
 </head>
 <body>
@@ -20,13 +21,21 @@
             <button id="play-pause"><i class="fa fa-play"></i></button>
             <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
             <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
-            <button id="mutebtn"><i class="fa fa-volume-down"></i></button>
+            <button id="mutebtn"><i class='fa fa-volume-up'></i></button>
             <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
-            <button id="fullscreenbtn">[ &nbsp; ]</button>
+            <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>            
+            <select name="" id="speedlist">
+                <option value="1">change speed</option>
+                <option value="0.5">0.5</option>
+                <option value="1">normal speed</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+            </select>
         </div>
     </div>
     <script>
-        var video, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
+        var video, playbtn, seekslider, curtimetext, durtimetext;
+        var mutebtn, volumeslider, fullscreenbtn, speedlist;
 
         function initializePlayer(){
             // object references
@@ -38,6 +47,7 @@
             mutebtn = document.getElementById('mutebtn');
             volumeslider = document.getElementById('volumeslider');
             fullscreenbtn = document.getElementById('fullscreenbtn');
+            speedlist = document.getElementById('speedlist');
             // event listeners
             playbtn.addEventListener("click",playPause,false);
             seekslider.addEventListener("change",vidSeek,false);
@@ -45,6 +55,7 @@
             mutebtn.addEventListener("click",vidMute,false);
             volumeslider.addEventListener("change",setvolume,false);
             fullscreenbtn.addEventListener("click",fullScreen,false);
+            speedlist.addEventListener("change",changespeed,false);
         }
         window.onload = initializePlayer;
 
@@ -87,27 +98,37 @@
         function vidMute(){
             if(video.muted){
                 video.muted = false;
-                mutebtn.innerHTML= '<i class="fa fa-volume-down"></i>';
+                mutebtn.innerHTML= "<i class='fa fa-volume-up'></i>";
                 volumeslider.value = 100;
             } else{
                 video.muted = true;
-                mutebtn.innerHTML= '<i class="fas fa-volume-mute"></i>';
+                mutebtn.innerHTML= "<i class='fa fa-volume-off'></i>";
                 volumeslider.value= 0;
             }
         }
 
         function setvolume(){
             video.volume = volumeslider.value / 100;
+            if(video.volume===0){
+                mutebtn.innerHTML= "<i class='fa fa-volume-off'></i>";
+            }
         }
 
         function fullScreen(){
             if(video.requestFullScreen){
                 video.requestFullScreen();
+               
             } else if(video.webkitRequestFullScreen){
                 video.webkitRequestFullScreen();
+                
             } else if(video.mozRequestFullScreen){
                 video.mozRequestFullScreen();
+              
             }
+        }
+
+        function changespeed(event){
+            video.playbackRate = event.target.value;//or speedlist.value
         }
     </script>
 </body>
