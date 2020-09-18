@@ -11,7 +11,7 @@
     <!--Video and control bar container-->
     <div id="videoplayer-box">
         <!--Video-->
-        <video autoplay id= "myVideo" width="550" height="320">
+        <video autoplay id= "myVideo">
             <source src="test-video.mp4">
         </video>
         <!--Control bar with buttons-->
@@ -53,6 +53,7 @@
             playbtn.addEventListener("click",playPause,false);
             seekslider.addEventListener("change",vidSeek,false);
             video.addEventListener("timeupdate",seektimeupdate,false);
+            video.addEventListener("click",playPause,false);
             mutebtn.addEventListener("click",vidMute,false);
             volumeslider.addEventListener("change",setvolume,false);
             fullscreenbtn.addEventListener("click",fullScreen,false);
@@ -71,6 +72,9 @@
                 playbtn.innerHTML= '<i class="fa fa-play"></i>';
             }
         }
+
+        //play the video on cliking the video
+        
 
         // seek the video to a particular time
         function vidSeek(){
@@ -93,6 +97,7 @@
             if(durmins < 10){durmins = "0"+durmins;}
             curtimetext.innerHTML = curmins+":"+cursecs;
             durtimetext.innerHTML = durmins+":"+dursecs;
+            
         }
 
         //toggle between mute or unmute
