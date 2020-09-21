@@ -5,22 +5,12 @@
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 #videoplayer-box{
     width:550px;
     background-color: #000;
     margin: 0px auto;
-}
-
-#myVideo{
-    max-width:"550";
-    height:"320";
-}
-
-#videoplayer-box:before{
-    padding-top: 56.25%;
 }
 
 #seekslider{
