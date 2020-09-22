@@ -2,113 +2,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="videoplayer2style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <title>custom video player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="videoplayer3style.css">
+    <title>Document</title>
 </head>
 <body>
-    <!--Video and control bar container-->
-    <div id="videoplayer-box">
-        <!--Video-->
-        <video autoplay id= "myVideo" width="550" height="308" allowfullscreen>
-            <source src="test-video.mp4">
-        </video>
-        <button type="button" id="button">
-            <img src="playimg.png" id="icon">
-        </button>
-        <!--Control bar with buttons-->
-        <div id="controls-bar">
-            
-            <progress id= "progress" value="0"></progress>
-            
-            <button id="play-pause"><i class="fa fa-play"></i></button>
-            <span id="curtimetext">00:00</span>/<span id="durtimetext">00:00</span>
-            <button id="mutebtn"><i class='fa fa-volume-up'></i></button>
-            <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
-            <select name="" id="speedlist">
-                <option value="1">speed</option>
-                <option value="0.5">0.5</option>
-                <option value="1">normal speed</option>
-                <option value="1.5">1.5</option>
-                <option value="2">2</option>
-            </select>
-            <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>            
-                       
+    <div class="container">
+        <div class="videoplayer">
+            <video class= "video" src="test-video.mp4"></video>
+            <button type="button" id="button">
+                <img src="images/play3.png" id="icon">
+            </button>
+            <div class="controls">
+                <div class="statusbar">
+                    <div class="progress"></div>
+                </div>
+                <div class="buttons">
+                    <button id= "backward"><i class="fa fa-fast-backward"></i></button>
+                    <button id="play-pause"><i class="fa fa-play"></i></button>
+                    <button id= "forward"><i class="fa fa-fast-forward"></i></button>
+                    <button id="mutebtn"><i class='fa fa-volume-up'></i></button>
+                    <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+                    <span id="curtimetext">00:00</span>/<span id="durtimetext">00:00</span>
+                    <select name="" id="speedlist">
+                        <option value="1">speed</option>
+                        <option value="0.5">0.5</option>
+                        <option value="1">normal speed</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                    </select>
+                    <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
+                    <button id="compresscreenbtn"><i class="fas fa-compress"></i></button>
+                </div>
+            </div>
         </div>
     </div>
+
     <script>
-        var video, playbtn, seekslider, curtimetext, durtimetext, progress,button;
-        var mutebtn, volumeslider, fullscreenbtn, speedlist, fillbar, currentTime;
+        var video,progress, playbtn, backward,forward,mutebtn, volumeslider,speedlist;
+        var fullscreenbtn,button,videoplayer,compresscreenbtn;
+        button= document.getElementById("button");
+        video= document.querySelector('.video');
+        progress= document.querySelector('.progress');
+        playbtn= document.getElementById('play-pause');
+        backward= document.getElementById('backward');
+        forward = document.getElementById('forward');
+        mutebtn = document.getElementById('mutebtn');
+        volumeslider = document.getElementById('volumeslider');
+        speedlist = document.getElementById('speedlist');
+        fullscreenbtn = document.getElementById('fullscreenbtn');
+        compresscreenbtn= document.getElementById('compresscreenbtn');
+        videoplayer= document.querySelector('.videoplayer');
 
-        function initializePlayer(){
-            // object references
-            video = document.getElementById('myVideo');
-           // fillbar= document.getElementById('fill');
-           // seekbar = document.getElementById('seekbar');
-            button= document.getElementById("button");
-            progress = document.getElementById('progress');
-            playbtn = document.getElementById('play-pause');           
-            curtimetext = document.getElementById('curtimetext');
-            durtimetext = document.getElementById('durtimetext');
-            mutebtn = document.getElementById('mutebtn');
-            volumeslider = document.getElementById('volumeslider');
-            fullscreenbtn = document.getElementById('fullscreenbtn');
-            speedlist = document.getElementById('speedlist');
+        button.addEventListener("click",playpause,false);
+        video.addEventListener("click",playpause,false);
+        backward.addEventListener("click",goback,false);
+        forward.addEventListener("click",goahead,false);
+        playbtn.addEventListener("click",playpause,false);
+        mutebtn.addEventListener("click",vidMute,false);
+        volumeslider.addEventListener("change",setvolume,false);
+        speedlist.addEventListener("change",changespeed,false);
+        fullscreenbtn.addEventListener("click",fullScreen,false);
+        compresscreenbtn.addEventListener("click",closeFullScreen,false);
 
-            // event listeners
-            button.addEventListener("click",playPause,false);
-            playbtn.addEventListener("click",playPause,false);     
-           // seekbar.addEventListener("click",vidSeek,false);
-            progress.addEventListener("click",vidSeek,false);
-            video.addEventListener("timeupdate",seektimeupdate,false);
-            video.addEventListener("click",playPause,false);
-            mutebtn.addEventListener("click",vidMute,false);
-            volumeslider.addEventListener("change",setvolume,false);
-            fullscreenbtn.addEventListener("click",fullScreen,false);
-            speedlist.addEventListener("change",changespeed,false);
-        }
-        window.onload = initializePlayer;
 
         //toggle between play and pause button
-        function playPause(){
+        function playpause(){
             if(video.paused){
                 video.play();
                 playbtn.innerHTML= '<i class="fa fa-pause"></i>';
                 button.style.display= "none";
-                
-            } else{
+            }
+            else{
                 video.pause();
                 playbtn.innerHTML= '<i class="fa fa-play"></i>';
                 button.style.display= "block";
             }
         }
 
-        
-        // seek the video to a particular time
-        function vidSeek(){
-            var seekto= video.duration * (progress.value / 10);
-            video.currentTime = seekto;
+        //toggle forward or backward in the video
+        function goback(){
+            video.currentTime--;
+        }
+        function goahead(){
+            video.currentTime++;
         }
 
-        //move the progress of the video slider
-        function seektimeupdate(){
-            progress.value= video.currentTime / video.duration;
-            var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
-            var cursecs = Math.floor(video.currentTime - curmins * 60);
-            var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
-            var dursecs = Math.floor(video.duration - durmins * 60);
-            //if it is a single digit then prepend 0
-            if(cursecs < 10){cursecs = "0"+cursecs;}
-            if(dursecs < 10){dursecs = "0"+dursecs;}
-            if(curmins < 10){curmins = "0"+curmins;}
-            if(durmins < 10){durmins = "0"+durmins;}
-            curtimetext.innerHTML = curmins+":"+cursecs;
-            durtimetext.innerHTML = durmins+":"+dursecs;
-            
-        }
-
-        
         //toggle between mute or unmute
         function vidMute(){
             if(video.muted){
@@ -132,24 +112,54 @@
                 mutebtn.innerHTML= "<i class='fa fa-volume-up'></i>";
             }
         }
-
-        //toggle to full screen mode
-        function fullScreen(){
-            if(video.requestFullScreen){
-                video.requestFullScreen();
-                
-            } else if(video.webkitRequestFullScreen){
-                video.webkitRequestFullScreen();
-                
-            } else if(video.mozRequestFullScreen){
-                video.mozRequestFullScreen();
-                               
-            }
-        }
-
+        
         //change the playback speed of the video
         function changespeed(event){
             video.playbackRate = event.target.value;//or speedlist.value
+        }
+
+        video.addEventListener('timeupdate', function(){
+            var progressPos= video.currentTime / video.duration;
+            progress.style.width = progressPos * 100 + "%";
+
+            var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
+            var cursecs = Math.floor(video.currentTime - curmins * 60);
+            var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
+            var dursecs = Math.floor(video.duration - durmins * 60);
+            //if it is a single digit then prepend 0
+            if(cursecs < 10){cursecs = "0"+cursecs;}
+            if(dursecs < 10){dursecs = "0"+dursecs;}
+            if(curmins < 10){curmins = "0"+curmins;}
+            if(durmins < 10){durmins = "0"+durmins;}
+            curtimetext.innerHTML = curmins+":"+cursecs;
+            durtimetext.innerHTML = durmins+":"+dursecs;            
+        })
+
+        //toggle to full screen mode
+        function fullScreen(){
+            if(videoplayer.requestFullScreen){
+                videoplayer.requestFullScreen();
+                fullscreenbtn.style.display= "none";
+                compresscreenbtn.style.display="block";
+            } else if(videoplayer.webkitRequestFullScreen){
+                videoplayer.webkitRequestFullScreen();
+                fullscreenbtn.style.display= "none";
+                compresscreenbtn.style.display="block";                
+            } else if(videoplayer.mozRequestFullScreen){
+                videoplayer.mozRequestFullScreen();
+                fullscreenbtn.style.display= "none";
+                compresscreenbtn.style.display="block";                               
+            }
+        }   
+        
+        function closeFullScreen(){
+            if(videoplayer.exitFullscreen){
+                videoplayer.exitFullscreen();
+            } else if(videoplayer.webkitExitFullscreen){
+                videoplayer.webkitExitFullscreen();
+            } else if(videoplayer.mozCancelFullScreen){
+                videoplayer.mozCancelFullScreen();
+            }
         }
     </script>
 </body>
