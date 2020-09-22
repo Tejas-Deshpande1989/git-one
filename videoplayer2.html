@@ -4,23 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="videoplayer2style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
     <title>custom video player</title>
 </head>
 <body>
     <!--Video and control bar container-->
     <div id="videoplayer-box">
         <!--Video-->
-        <video autoplay id= "myVideo" width="550" height="320">
+        <video autoplay id= "myVideo" width="550" height="308" allowfullscreen>
             <source src="test-video.mp4">
         </video>
+        <button type="button" id="button">
+            <img src="playimg.png" id="icon">
+        </button>
         <!--Control bar with buttons-->
         <div id="controls-bar">
-            <!--Play-Pause button, slider, time in "mins/secs", mute button, 
-                volume slider, full screen-->
+            
+            <progress id= "progress" value="0"></progress>
+            
             <button id="play-pause"><i class="fa fa-play"></i></button>
-            <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
-            <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+            <span id="curtimetext">00:00</span>/<span id="durtimetext">00:00</span>
             <button id="mutebtn"><i class='fa fa-volume-up'></i></button>
             <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
             <select name="" id="speedlist">
@@ -35,23 +38,29 @@
         </div>
     </div>
     <script>
-        var video, playbtn, seekslider, curtimetext, durtimetext;
-        var mutebtn, volumeslider, fullscreenbtn, speedlist;
+        var video, playbtn, seekslider, curtimetext, durtimetext, progress,button;
+        var mutebtn, volumeslider, fullscreenbtn, speedlist, fillbar, currentTime;
 
         function initializePlayer(){
             // object references
             video = document.getElementById('myVideo');
-            playbtn = document.getElementById('play-pause');
-            seekslider = document.getElementById('seekslider');
+           // fillbar= document.getElementById('fill');
+           // seekbar = document.getElementById('seekbar');
+            button= document.getElementById("button");
+            progress = document.getElementById('progress');
+            playbtn = document.getElementById('play-pause');           
             curtimetext = document.getElementById('curtimetext');
             durtimetext = document.getElementById('durtimetext');
             mutebtn = document.getElementById('mutebtn');
             volumeslider = document.getElementById('volumeslider');
             fullscreenbtn = document.getElementById('fullscreenbtn');
             speedlist = document.getElementById('speedlist');
+
             // event listeners
-            playbtn.addEventListener("click",playPause,false);
-            seekslider.addEventListener("change",vidSeek,false);
+            button.addEventListener("click",playPause,false);
+            playbtn.addEventListener("click",playPause,false);     
+           // seekbar.addEventListener("click",vidSeek,false);
+            progress.addEventListener("click",vidSeek,false);
             video.addEventListener("timeupdate",seektimeupdate,false);
             video.addEventListener("click",playPause,false);
             mutebtn.addEventListener("click",vidMute,false);
@@ -63,29 +72,28 @@
 
         //toggle between play and pause button
         function playPause(){
-            
             if(video.paused){
                 video.play();
                 playbtn.innerHTML= '<i class="fa fa-pause"></i>';
+                button.style.display= "none";
+                
             } else{
                 video.pause();
                 playbtn.innerHTML= '<i class="fa fa-play"></i>';
+                button.style.display= "block";
             }
         }
 
-        //play the video on cliking the video
         
-
         // seek the video to a particular time
         function vidSeek(){
-            var seekto= video.duration * (seekslider.value / 100);
+            var seekto= video.duration * (progress.value / 10);
             video.currentTime = seekto;
         }
 
         //move the progress of the video slider
         function seektimeupdate(){
-            var newTime= video.currentTime * (100/ video.duration);
-            seekslider.value = newTime; 
+            progress.value= video.currentTime / video.duration;
             var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
             var cursecs = Math.floor(video.currentTime - curmins * 60);
             var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
@@ -100,6 +108,7 @@
             
         }
 
+        
         //toggle between mute or unmute
         function vidMute(){
             if(video.muted){
@@ -128,13 +137,13 @@
         function fullScreen(){
             if(video.requestFullScreen){
                 video.requestFullScreen();
-               
+                
             } else if(video.webkitRequestFullScreen){
                 video.webkitRequestFullScreen();
                 
             } else if(video.mozRequestFullScreen){
                 video.mozRequestFullScreen();
-              
+                               
             }
         }
 
