@@ -1,0 +1,144 @@
+.container{
+    display: flex;
+    background: #ccc;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.video{
+    width: 100%;
+}
+
+.videoplayer{
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.videoplayer:hover .controls{
+    transform: translateY(0);
+}
+
+.controls{
+    display: flex;
+    position: absolute;
+    color: #ccc;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(100%) translateY(-5px);
+    transition: all 0.2s;
+    
+}
+
+.statusbar{
+    height: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ccc;
+}
+.progress{
+    height: 5px;
+    background-color: orangered;
+
+}
+#fullscreenbtn{
+    position: absolute;
+    right:0;
+}
+#compresscreenbtn{
+    display:none;
+    position: absolute;
+    right:0;
+    top:15;
+}
+.buttons:before{
+    display:inline-block;
+}
+#backward,#play-pause,#forward,#mutebtn,#fullscreenbtn,#compresscreenbtn{
+    color: white; 
+    background-color:transparent;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 20px;
+    outline: 0;
+}
+#backward:hover{
+    opacity:1;
+}
+#play-pause:hover{
+    opacity:1;
+}
+#forward:hover{
+    opacity:1;
+}
+#mutebtn:hover{
+    opacity:1;
+}
+#fullscreenbtn:hover{
+    opacity:1;
+}
+#compresscreenbtn:hover{
+    opacity:1;
+}
+#volumeslider{
+    margin-top: 0;
+    width: 80px;
+    outline: 0;
+}
+input[type='range']{
+    -webkit-appearance: none !important;
+    background: #000;
+    border: #666 1px solid;
+    height: 4px;
+}
+
+input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none !important;
+    background: orangered;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    cursor: pointer; 
+}
+.dropdown{
+    display:inline-block;
+}
+#speedlist{
+    color: white;
+    background-color:black;
+    opacity: 0.5; 
+    height:20px;
+    margin-left:30px;
+    outline: 0;
+}
+#speedlist:hover{
+    opacity:1;
+}
+#button,img{
+    cursor:pointer;
+    width: 50px;
+    height: 50px;
+    border: none;    
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    transition: .5s ease;
+    -webkit-transition: .5s ease;
+}
+#button{
+    border-radius: 50%;
+    background-color: black;
+    background-color: transparent;
+    outline:0;
+}
+video::-webkit-media-controls {
+    display:none !important;
+}
