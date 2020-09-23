@@ -51,16 +51,11 @@
     position: absolute;
     right:0;
 }
-#compresscreenbtn{
-    display:none;
-    position: absolute;
-    right:0;
-    top:15;
-}
+
 .buttons:before{
     display:inline-block;
 }
-#backward,#play-pause,#forward,#mutebtn,#fullscreenbtn,#compresscreenbtn{
+#backward,#play-pause,#forward,#mutebtn,#fullscreenbtn{
     color: white; 
     background-color:transparent;
     border: none;
