@@ -35,32 +35,60 @@
     
 }
 
-.statusbar{
+#seekbar{
+    height: 5px;
+    width: 100%;
+    top:0;
+    left:-0.5%;
+    cursor:pointer;
+}
+#seekbar input[type="range"]{
+    position: absolute;
+    height: 5px;
+    width:100%;
+    border:none;
+    outline:0;
+    cursor: pointer;
+    -webkit-appearance: none !important;
+}
+#seekbar input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none !important;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    top:0;
+    border-radius: 50%;
+    background: orangered;
+    transition: 0.5s ease-in-out;
+    cursor:pointer;
+    opacity:0;
+}
+#seekbar input[type="range"]:hover::-webkit-slider-thumb{
+    opacity:1;
+}
+/*.statusbar{
     height: 5px;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #ccc;
+    cursor:pointer;
 }
 .progress{
     height: 5px;
     background-color: orangered;
+    cursor:pointer;
 
-}
+}*/
 #fullscreenbtn{
     position: absolute;
     right:0;
 }
-#compresscreenbtn{
-    display:none;
-    position: absolute;
-    right:0;
-    top:15;
-}
+
 .buttons:before{
     display:inline-block;
 }
-#backward,#play-pause,#forward,#mutebtn,#fullscreenbtn,#compresscreenbtn{
+#backward,#play-pause,#forward,#mutebtn,#fullscreenbtn{
     color: white; 
     background-color:transparent;
     border: none;
@@ -88,7 +116,6 @@
     opacity:1;
 }
 #volumeslider{
-    margin-top: 0;
     width: 80px;
     outline: 0;
 }
@@ -97,6 +124,7 @@ input[type='range']{
     background: #000;
     border: #666 1px solid;
     height: 4px;
+    margin-bottom: 20px;
 }
 
 input[type='range']::-webkit-slider-thumb{
@@ -121,7 +149,7 @@ input[type='range']::-webkit-slider-thumb{
 #speedlist:hover{
     opacity:1;
 }
-#button,img{
+#button,#button img{
     cursor:pointer;
     width: 50px;
     height: 50px;
@@ -132,6 +160,28 @@ input[type='range']::-webkit-slider-thumb{
     transform: translate(-50%,-50%);
     transition: .5s ease;
     -webkit-transition: .5s ease;
+    
+}
+#button2,#button2 img{
+    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    border: none;    
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    transition: .5s ease;
+    -webkit-transition: .5s ease;
+}
+
+#button2{
+    border-radius: 50%;
+    background-color: black;
+    background-color: transparent;
+    outline:0;
+    display:none;
+    opacity:0;
 }
 #button{
     border-radius: 50%;
@@ -139,6 +189,20 @@ input[type='range']::-webkit-slider-thumb{
     background-color: transparent;
     outline:0;
 }
+
 video::-webkit-media-controls {
     display:none !important;
+}
+
+.fadeout{
+    animation: fadeOut 3s;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
 }
