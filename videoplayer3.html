@@ -12,11 +12,18 @@
         <div class="videoplayer">
             <video class= "video" src="test-video.mp4"></video>
             <button type="button" id="button">
-                <img src="images/play3.png" id="icon">
+                <img src="images/play3.png">
+            </button>
+            <button type="button" id="button2" class="fadeout">
+                <img src="images/pause.png">
             </button>
             <div class="controls">
-                <div class="statusbar">
+                <!--<div class="statusbar" id="progressbar">
                     <div class="progress"></div>
+                </div>-->
+                <div id="seekbar">
+                    <input type="range" id="seek" name="seek" value="0" max="100" min="0">
+                    <div class="orange" id="orange" style="background:orangered;position: absolute;height:5px;width:0%;top:0;left:0;"></div>
                 </div>
                 <div class="buttons">
                     <button id= "backward"><i class="fa fa-fast-backward"></i></button>
@@ -33,7 +40,6 @@
                         <option value="2">2</option>
                     </select>
                     <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
-                    <button id="compresscreenbtn"><i class="fas fa-compress"></i></button>
                 </div>
             </div>
         </div>
@@ -41,10 +47,13 @@
 
     <script>
         var video,progress, playbtn, backward,forward,mutebtn, volumeslider,speedlist;
-        var fullscreenbtn,button,videoplayer,compresscreenbtn;
+        var fullscreenbtn,button,videoplayer,progressbar,seekbar, seekslide, button2;
         button= document.getElementById("button");
+        button2= document.getElementById("button2");
         video= document.querySelector('.video');
-        progress= document.querySelector('.progress');
+        //progress= document.querySelector('.progress');
+        seekbar = document.getElementById("seek");
+        seekslide = document.getElementById("orange");
         playbtn= document.getElementById('play-pause');
         backward= document.getElementById('backward');
         forward = document.getElementById('forward');
@@ -52,11 +61,13 @@
         volumeslider = document.getElementById('volumeslider');
         speedlist = document.getElementById('speedlist');
         fullscreenbtn = document.getElementById('fullscreenbtn');
-        compresscreenbtn= document.getElementById('compresscreenbtn');
+        //progressbar= document.getElementById('progressbar');
         videoplayer= document.querySelector('.videoplayer');
 
         button.addEventListener("click",playpause,false);
+        //button2.addEventListener("click",playpause,false);
         video.addEventListener("click",playpause,false);
+        seekbar.addEventListener("change",seekupdate,false);
         backward.addEventListener("click",goback,false);
         forward.addEventListener("click",goahead,false);
         playbtn.addEventListener("click",playpause,false);
@@ -64,20 +75,33 @@
         volumeslider.addEventListener("change",setvolume,false);
         speedlist.addEventListener("change",changespeed,false);
         fullscreenbtn.addEventListener("click",fullScreen,false);
-        compresscreenbtn.addEventListener("click",closeFullScreen,false);
+        //progressbar.addEventListener("mousedown",seekVid,false);        
 
+       // function seekVid(event){
+         //   var clickedPosition = event.clientX - event.target.offsetLeft;
+            //video.currentTime = (clickedPosition / event.target.offsetWidth) * video.duration;
+           // var seekto = video.duration * (clickedPosition / 100);
+        //    video.currentTime = seekto;
+       // }
 
+        function seekupdate(){
+            var seekto = video.duration * (seekbar.value / 100);
+            video.currentTime = seekto;
+        }
         //toggle between play and pause button
         function playpause(){
             if(video.paused){
                 video.play();
                 playbtn.innerHTML= '<i class="fa fa-pause"></i>';
                 button.style.display= "none";
+                button2.style.display="block";
+                
             }
             else{
                 video.pause();
                 playbtn.innerHTML= '<i class="fa fa-play"></i>';
                 button.style.display= "block";
+                button2.style.display="none";
             }
         }
 
@@ -119,9 +143,12 @@
         }
 
         video.addEventListener('timeupdate', function(){
-            var progressPos= video.currentTime / video.duration;
-            progress.style.width = progressPos * 100 + "%";
+         //   var progressPos= video.currentTime / video.duration;
+         //   progress.style.width = progressPos * 100 + "%";
 
+            var width = video.currentTime * (100 / video.duration);
+            seekbar.value = width;
+            seekslide.style.width = width + '%';
             var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
             var cursecs = Math.floor(video.currentTime - curmins * 60);
             var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
@@ -135,32 +162,47 @@
             durtimetext.innerHTML = durmins+":"+dursecs;            
         })
 
-        //toggle to full screen mode
+        //toggle between full screen and compress screen
         function fullScreen(){
-            if(videoplayer.requestFullScreen){
-                videoplayer.requestFullScreen();
-                fullscreenbtn.style.display= "none";
-                compresscreenbtn.style.display="block";
-            } else if(videoplayer.webkitRequestFullScreen){
-                videoplayer.webkitRequestFullScreen();
-                fullscreenbtn.style.display= "none";
-                compresscreenbtn.style.display="block";                
-            } else if(videoplayer.mozRequestFullScreen){
-                videoplayer.mozRequestFullScreen();
-                fullscreenbtn.style.display= "none";
-                compresscreenbtn.style.display="block";                               
-            }
-        }   
+         if ( document.fullscreenElement || document.webkitFullscreenElement || 
+         document.mozFullScreenElement || document.msFullscreenElement) {
+               if (document.exitFullscreen) {
+                     document.exitFullscreen();
+                     fullscreenbtn.innerHTML="<i class='fa fa-expand'></i>";
+                } else if (document.webkitExitFullscreen) {
+                     document.webkitExitFullscreen();
+                     fullscreenbtn.innerHTML="<i class='fa fa-expand'></i>";
+                } else if (document.mozCancelFullScreen) {
+                     document.mozCancelFullScreen();
+                     fullscreenbtn.innerHTML="<i class='fa fa-expand'></i>";
+                } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                        fullscreenbtn.innerHTML="<i class='fa fa-expand'></i>";
+                }
+                fullscreenbtn.setAttribute("class", "");
+                } else{
+                if ( document.fullscreenEnabled || 
+                document.webkitFullscreenEnabled || document.mozFullScreenEnabled || 
+                document.msFullscreenEnabled){
+                if (videoplayer.requestFullscreen) {
+                        videoplayer.requestFullscreen();
+                        fullscreenbtn.innerHTML='<i class="fas fa-compress"></i>';
+                } else if (videoplayer.webkitRequestFullscreen) {
+                        videoplayer.webkitRequestFullscreen();
+                        fullscreenbtn.innerHTML='<i class="fas fa-compress"></i>';
+                } else if (videoplayer.mozRequestFullScreen) {
+                        videoplayer.mozRequestFullScreen();
+                        fullscreenbtn.innerHTML='<i class="fas fa-compress"></i>';
+                } else if (videoplayer.msRequestFullscreen) {
+                        videoplayer.msRequestFullscreen();
+                        fullscreenbtn.innerHTML='<i class="fas fa-compress"></i>';
+                }
+            fullscreenbtn.setAttribute("class", "fullscreen");  
+        } 
+    }
+}
         
-        function closeFullScreen(){
-            if(videoplayer.exitFullscreen){
-                videoplayer.exitFullscreen();
-            } else if(videoplayer.webkitExitFullscreen){
-                videoplayer.webkitExitFullscreen();
-            } else if(videoplayer.mozCancelFullScreen){
-                videoplayer.mozCancelFullScreen();
-            }
-        }
+        
     </script>
 </body>
 </html>
