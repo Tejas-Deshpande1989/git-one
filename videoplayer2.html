@@ -71,12 +71,11 @@
         fullscreenbtn.addEventListener("click",fullScreen,false);
         window.addEventListener("resize",displaywh,false);
         
+        //to adjust the videoplayer to device width
         function displaywh(event){
             var ww = window.innerWidth;
             var wh= window.innerHeight;
-            console.log("Window width: "+ww);
-            console.log("window height: "+wh);
-
+            
             if(ww===812 && wh=== 375){
                 videoplayer.style.width= "812px";
                 videoplayer.style.height= "375px";
@@ -88,10 +87,13 @@
                 videoplayer.style.height= "auto";
             }
         }
+        
+        //seek the video to a selected position on the progress bar
         function seekupdate(){
             var seekto = video.duration * (seekbar.value / 100);
             video.currentTime = seekto;
         }
+        
         //toggle between play and pause button
         function playpause(){
             if(video.paused){
@@ -146,6 +148,7 @@
             video.playbackRate = event.target.value;//or speedlist.value
         }
 
+        //calculate and display the current time and duration of the video in mins and secs
         video.addEventListener('timeupdate', function(){
             var width = video.currentTime * (100 / video.duration);
             seekbar.value = width;
