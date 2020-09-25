@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <link rel="stylesheet" href="videoplayer2style.css">
+    <link rel="stylesheet" href="videoplayer3style.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,9 +18,6 @@
                 <img src="images/pause.png">
             </button>
             <div class="controls">
-                <!--<div class="statusbar" id="progressbar">
-                    <div class="progress"></div>
-                </div>-->
                 <div id="seekbar">
                     <input type="range" id="seek" name="seek" value="0" max="100" min="0">
                     <div class="orange" id="orange" style="background:orangered;position: absolute;height:5px;width:0%;top:0;left:0;"></div>
@@ -51,7 +48,6 @@
         button= document.getElementById("button");
         button2= document.getElementById("button2");
         video= document.querySelector('.video');
-        //progress= document.querySelector('.progress');
         seekbar = document.getElementById("seek");
         seekslide = document.getElementById("orange");
         playbtn= document.getElementById('play-pause');
@@ -61,11 +57,9 @@
         volumeslider = document.getElementById('volumeslider');
         speedlist = document.getElementById('speedlist');
         fullscreenbtn = document.getElementById('fullscreenbtn');
-        //progressbar= document.getElementById('progressbar');
         videoplayer= document.querySelector('.videoplayer');
 
         button.addEventListener("click",playpause,false);
-        //button2.addEventListener("click",playpause,false);
         video.addEventListener("click",playpause,false);
         seekbar.addEventListener("change",seekupdate,false);
         backward.addEventListener("click",goback,false);
@@ -75,15 +69,25 @@
         volumeslider.addEventListener("change",setvolume,false);
         speedlist.addEventListener("change",changespeed,false);
         fullscreenbtn.addEventListener("click",fullScreen,false);
-        //progressbar.addEventListener("mousedown",seekVid,false);        
+        window.addEventListener("resize",displaywh,false);
+        
+        function displaywh(event){
+            var ww = window.innerWidth;
+            var wh= window.innerHeight;
+            console.log("Window width: "+ww);
+            console.log("window height: "+wh);
 
-       // function seekVid(event){
-         //   var clickedPosition = event.clientX - event.target.offsetLeft;
-            //video.currentTime = (clickedPosition / event.target.offsetWidth) * video.duration;
-           // var seekto = video.duration * (clickedPosition / 100);
-        //    video.currentTime = seekto;
-       // }
-
+            if(ww===812 && wh=== 375){
+                videoplayer.style.width= "812px";
+                videoplayer.style.height= "375px";
+            } else if(ww===375 && wh=== 812){
+                videoplayer.style.width= "375px";
+                videoplayer.style.height= "auto";
+            } else{
+                videoplayer.style.width="800px";
+                videoplayer.style.height= "auto";
+            }
+        }
         function seekupdate(){
             var seekto = video.duration * (seekbar.value / 100);
             video.currentTime = seekto;
@@ -143,9 +147,6 @@
         }
 
         video.addEventListener('timeupdate', function(){
-         //   var progressPos= video.currentTime / video.duration;
-         //   progress.style.width = progressPos * 100 + "%";
-
             var width = video.currentTime * (100 / video.duration);
             seekbar.value = width;
             seekslide.style.width = width + '%';
@@ -162,6 +163,7 @@
             durtimetext.innerHTML = durmins+":"+dursecs;            
         })
 
+        
         //toggle between full screen and compress screen
         function fullScreen(){
          if ( document.fullscreenElement || document.webkitFullscreenElement || 
