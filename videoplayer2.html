@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <link rel="stylesheet" href="videoplayer2style.css">
+    <link rel="stylesheet" href="videoplayer3style.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,22 +20,22 @@
             <div class="controls">
                 <div id="seekbar">
                     <input type="range" id="seek" name="seek" value="0" max="100" min="0">
-                    <div class="orange" id="orange" style="background:orangered;position: absolute;height:5px;width:0%;top:0;left:0;"></div>
+                    <div class="orange" id="orange" style="background:paleturquoise;position: absolute;height:6px;width:0%;top:0;left:0.5%;border-radius:3px;"></div>
                 </div>
                 <div class="buttons">
-                    <button id= "backward"><i class="fa fa-fast-backward"></i></button>
+                    <button id= "backward"><i class="fas fa-step-backward"></i></button>
                     <button id="play-pause"><i class="fa fa-play"></i></button>
-                    <button id= "forward"><i class="fa fa-fast-forward"></i></button>
+                    <button id= "forward"><i class="fas fa-step-forward"></i></button>
                     <button id="mutebtn"><i class='fa fa-volume-up'></i></button>
                     <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
-                    <span id="curtimetext">00:00</span>/<span id="durtimetext">00:00</span>
-                    <select name="" id="speedlist">
+                    <span id="curtimetext">00:00</span>  /  <span id="durtimetext">00:00</span>
+                    <!--<select name="" id="speedlist">
                         <option value="1">speed</option>
                         <option value="0.5">0.5</option>
                         <option value="1">normal speed</option>
                         <option value="1.5">1.5</option>
                         <option value="2">2</option>
-                    </select>
+                    </select>-->
                     <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
                 </div>
             </div>
@@ -45,6 +45,7 @@
     <script>
         var video,progress, playbtn, backward,forward,mutebtn, volumeslider,speedlist;
         var fullscreenbtn,button,videoplayer,progressbar,seekbar, seekslide, button2;
+        
         button= document.getElementById("button");
         button2= document.getElementById("button2");
         video= document.querySelector('.video');
@@ -55,7 +56,7 @@
         forward = document.getElementById('forward');
         mutebtn = document.getElementById('mutebtn');
         volumeslider = document.getElementById('volumeslider');
-        speedlist = document.getElementById('speedlist');
+        //speedlist = document.getElementById('speedlist');
         fullscreenbtn = document.getElementById('fullscreenbtn');
         videoplayer= document.querySelector('.videoplayer');
 
@@ -67,33 +68,50 @@
         playbtn.addEventListener("click",playpause,false);
         mutebtn.addEventListener("click",vidMute,false);
         volumeslider.addEventListener("change",setvolume,false);
-        speedlist.addEventListener("change",changespeed,false);
+        //speedlist.addEventListener("change",changespeed,false);
         fullscreenbtn.addEventListener("click",fullScreen,false);
         window.addEventListener("resize",displaywh,false);
         
-        //to adjust the videoplayer to device width
+        //to hide the controls on mouse inactivity
+        document.onmousemove = (function() {
+        var onmousestop = function() {
+            document.querySelector(".controls").style.transform = "translateY(100%) translateY(-5px)";
+        }, thread;
+
+            return function() {
+            clearTimeout(thread);
+            thread = setTimeout(onmousestop, 4000);
+            };
+        })();
+
+        //to show the controls by hovering on the player
+        videoplayer.addEventListener("mousemove",showcontrols, false);
+        function showcontrols(){
+            document.querySelector(".controls").style.transform = "translateY(0)";
+        }
+
+        //To adjust the video player width and height according to the device
         function displaywh(event){
             var ww = window.innerWidth;
             var wh= window.innerHeight;
-            
+            console.log("Window width: "+ww);
+            console.log("window height: "+wh);
+
             if(ww===812 && wh=== 375){
                 videoplayer.style.width= "812px";
                 videoplayer.style.height= "375px";
             } else if(ww===375 && wh=== 812){
                 videoplayer.style.width= "375px";
                 videoplayer.style.height= "auto";
-            } else{
-                videoplayer.style.width="800px";
-                videoplayer.style.height= "auto";
+            } else if(ww===1024 && wh===768){
+                videoplayer.style.width="1024px";
+                videoplayer.style.height= "768px";
             }
         }
-        
-        //seek the video to a selected position on the progress bar
         function seekupdate(){
             var seekto = video.duration * (seekbar.value / 100);
             video.currentTime = seekto;
         }
-        
         //toggle between play and pause button
         function playpause(){
             if(video.paused){
@@ -144,11 +162,10 @@
         }
         
         //change the playback speed of the video
-        function changespeed(event){
-            video.playbackRate = event.target.value;//or speedlist.value
-        }
+       // function changespeed(event){
+         //   video.playbackRate = event.target.value;//or speedlist.value
+        //}
 
-        //calculate and display the current time and duration of the video in mins and secs
         video.addEventListener('timeupdate', function(){
             var width = video.currentTime * (100 / video.duration);
             seekbar.value = width;
