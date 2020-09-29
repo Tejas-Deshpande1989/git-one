@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="videoplayer" width="947" height="657">
+        <div class="videoplayer" >
             <video class= "video" src="test-video.mp4"></video>
             <button type="button" id="button">
                 <img src="images/play3.png">
@@ -106,6 +106,12 @@
             } else if(ww===1024 && wh===768){
                 videoplayer.style.width="1024px";
                 videoplayer.style.height= "768px";
+            } else if(ww===768 && wh===1024){
+                videoplayer.style.width="768px";
+                videoplayer.style.height= "1024px";
+            } else{
+                videoplayer.style.width="947px";
+                videoplayer.style.height= "657px";
             }
         }
         function seekupdate(){
