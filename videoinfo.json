@@ -3,21 +3,21 @@
         "Id": 101,
         "Name": "Disha Encounter",
         "Desc": "Movie on Disha by Ram Gopal Varma",
-        "Src": "https://youtu.be/GgmSBzgv2UE",
+        "Src": "https://www.youtube.com/embed/GgmSBzgv2UE",
         "Views": 0
     },
     {
         "Id": 102,
         "Name": "Sooryavanshi",
         "Desc": "Akshay, Ajay, Ranveer,Katrina and movie by Rohit Shetty",
-        "Src": "https://youtu.be/u5r77-OQwa8",
+        "Src": "https://www.youtube.com/embed/u5r77-OQwa8",
         "Views": 0
     },
     {
         "Id": 103,
         "Name": "Ginny weds Sunny",
         "Desc": "Vikrant Massey, Yami Gautam & Ayesha Raza",
-        "Src": "https://youtu.be/WTJW2Ol1c0g",
+        "Src": "https://www.youtube.com/embed/WTJW2Ol1c0g",
         "Views": 0
     }    
 ]
