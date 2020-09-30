@@ -24,21 +24,21 @@
         "Id": 104,
         "Name": "Mr India 2",
         "Desc": "Invisible Superhero, Sci-fi Series",
-        "Src": "https://youtu.be/UWhMSxeu9to",
+        "Src": "https://www.youtube.com/embed/UWhMSxeu9to",
         "Views": 0
     },
     {
         "Id": 105,
         "Name": "Harami",
         "Desc": "Emraan Hashmi, Busan International Festival",
-        "Src": "https://youtu.be/a_IIsWfpepE",
+        "Src": "https://www.youtube.com/embed/a_IIsWfpepE",
         "Views": 0
     },
     {
         "Id": 106,
         "Name": "Khaali Peeli",
         "Desc": "Ishan Khatter, Ananya Panday, Maqbool Khan",
-        "Src": "https://youtu.be/lB_nEHhqq3U",
+        "Src": "https://www.youtube.com/embed/lB_nEHhqq3U",
         "Views": 0
     }
 ]
