@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardlayoutstyle.css">
-    <title>Card Layout with Flexbox</title>
+    <link rel="stylesheet" href="newcardlayoutstyle.css">
+    <title>New Card Layout with Flexbox</title>
 </head>
 <body>
    <div class="container">
@@ -15,7 +15,7 @@
            <div class="profile-card">
                <div class="profile-content">
                    <div class="profile-image">
-                       <img src="images/nature2.jpg" alt="first">
+                       <img src="images/disha encounter.jpg" alt="first">
                    </div>
                    <div class="desc">
                        <h2>Tejas</h2>
@@ -24,13 +24,14 @@
                    <div class="views">
                        <span>Views</span>
                    </div>
+                   <button class="viewbutton" style= "margin-top: 15px;"id ="101"onclick="togglepopup(this.id)">View More</button>
                </div>
            </div>
            <!--second card-->
            <div class="profile-card">
                 <div class="profile-content">
                     <div class="profile-image">
-                        <img src="images/nature3.jpg" alt="first">
+                        <img src="images/sooryavanshi.jpg" alt="first">
                     </div>
                     <div class="desc">
                         <h2>Tejas</h2>
@@ -39,13 +40,14 @@
                     <div class="views">
                         <span>Views</span>
                     </div>
+                    <button class="viewbutton" id ="102"onclick="togglepopup(this.id)">View More</button>
                 </div>
             </div>
             <!--third card-->
             <div class="profile-card">
                 <div class="profile-content">
                     <div class="profile-image">
-                        <img src="images/nature4.jpg" alt="first">
+                        <img src="images/Ginny weds Sunny.jpg" alt="first">
                     </div>
                     <div class="desc">
                         <h2>Tejas</h2>
@@ -54,13 +56,14 @@
                     <div class="views">
                         <span>Views</span>
                     </div>
+                    <button class="viewbutton" id ="103"onclick="togglepopup(this.id)">View More</button>
                 </div>
             </div>
             <!--fourth card-->
             <div class="profile-card">
                 <div class="profile-content">
                     <div class="profile-image">
-                        <img src="images/nature7.jpg" alt="first">
+                        <img src="images/Mr India 2.jpg" alt="first">
                     </div>
                     <div class="desc">
                         <h2>Tejas</h2>
@@ -69,13 +72,14 @@
                     <div class="views">
                         <span>Views</span>
                     </div>
+                    <button class="viewbutton" style="margin-top: 15px;"id ="104"onclick="togglepopup(this.id)">View More</button>
                 </div>
             </div>
             <!--fifth card-->
             <div class="profile-card">
                 <div class="profile-content">
                     <div class="profile-image">
-                        <img src="images/nature9.jpg" alt="first">
+                        <img src="images/Harami.jpg" alt="first">
                     </div>
                     <div class="desc">
                         <h2>Tejas</h2>
@@ -84,13 +88,14 @@
                     <div class="views">
                         <span>Views</span>
                     </div>
+                    <button class="viewbutton" id ="105"onclick="togglepopup(this.id)">View More</button>
                 </div>
             </div>
             <!--sixth card-->
             <div class="profile-card">
                 <div class="profile-content">
                     <div class="profile-image">
-                        <img src="images/nature10.jpg" alt="first">
+                        <img src="images/Khaali peeli.jpg" alt="first">
                     </div>
                     <div class="desc">
                         <h2>Tejas</h2>
@@ -99,16 +104,46 @@
                     <div class="views">
                         <span>Views</span>
                     </div>
+                    <button class="viewbutton" id ="106"onclick="togglepopup(this.id)">View More</button>
                 </div>
             </div>
            
+            <div class="popup" id="popup1">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglepopup()">&times;</div>
+                    <iframe class="vid" src="" frameborder="0"></iframe>
+                </div>
+            </div>
        </div>
    </div>
 
    <script>
-        //var video = document.getElementsByClassName("vd");
         var name1 = document.getElementsByTagName("H2");
         var desc = document.getElementsByTagName("P");
+        var video= document.querySelector(".vid");  
+              
+        function togglepopup(clicked_id){
+                if(clicked_id==="101"){
+                    video.src = "https://www.youtube.com/embed/GgmSBzgv2UE";
+                } else if(clicked_id==="102")
+                {
+                    video.src = "https://www.youtube.com/embed/u5r77-OQwa8";
+                } else if(clicked_id==="103")
+                {
+                    video.src = "https://www.youtube.com/embed/WTJW2Ol1c0g";
+                } else if(clicked_id==="104")
+                {
+                    video.src = "https://www.youtube.com/embed/UWhMSxeu9to";
+                }else if(clicked_id==="105")
+                {
+                    video.src = "https://www.youtube.com/embed/a_IIsWfpepE";
+                }else if(clicked_id==="106")
+                {
+                    video.src = "https://www.youtube.com/embed/lB_nEHhqq3U";
+                }
+                document.getElementById("popup1").classList.toggle("active");
+        }
         //var views = document.getElementsByTagName("P");
 
         var ourRequest = new XMLHttpRequest();
@@ -122,21 +157,13 @@
         function renderHTML(data){
             for(var i=0;i<6;i++)
             {   
-                //video[i].src = data[i].Src;
-                //video[i].id = data[i].Id;
                 name1[i].innerHTML = data[i].Name;
                 desc[i].innerHTML = data[i].Desc;
                 //views[i].innerHTML = data[i].Views + "Views";
-
             }
-           // window.addEventListener("click", viewsCount,false);
-
-             //   function viewsCount(e){
-               //     console.log(e.target);
-               // }
-
-                        
+           
         }
+
    </script>
 </body>
 </html>
