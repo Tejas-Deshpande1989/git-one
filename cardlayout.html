@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardlayoutstyle.css">
+    <link rel="stylesheet" href="newcardlayoutstyle2.css">
     <title>New Card Layout with Flexbox</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
                    </div>
                    <div class="views">
-                       <span>Views</span>
+                       <span class="count">Views</span>
                    </div>
                    <button class="viewbutton" style= "margin-top: 15px;"id ="101"onclick="togglepopup(this.id)">View More</button>
                </div>
@@ -38,7 +38,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span>Views</span>
+                        <span class="count">Views</span>
                     </div>
                     <button class="viewbutton" id ="102"onclick="togglepopup(this.id)">View More</button>
                 </div>
@@ -54,7 +54,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span>Views</span>
+                        <span class="count">Views</span>
                     </div>
                     <button class="viewbutton" id ="103"onclick="togglepopup(this.id)">View More</button>
                 </div>
@@ -70,7 +70,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span>Views</span>
+                        <span class="count">Views</span>
                     </div>
                     <button class="viewbutton" style="margin-top: 15px;"id ="104"onclick="togglepopup(this.id)">View More</button>
                 </div>
@@ -86,7 +86,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span>Views</span>
+                        <span class="count">Views</span>
                     </div>
                     <button class="viewbutton" id ="105"onclick="togglepopup(this.id)">View More</button>
                 </div>
@@ -102,7 +102,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span>Views</span>
+                        <span class="count">Views</span>
                     </div>
                     <button class="viewbutton" id ="106"onclick="togglepopup(this.id)">View More</button>
                 </div>
@@ -111,7 +111,7 @@
             <div class="popup" id="popup1">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" onclick="togglepopup()">&times;</div>
+                    <div class="close-btn" id ="close"onclick="togglepopup(this.id)">&times;</div>
                     <iframe class="vid" src="" frameborder="0"></iframe>
                 </div>
             </div>
@@ -121,36 +121,17 @@
    <script>
         var name1 = document.getElementsByTagName("H2");
         var desc = document.getElementsByTagName("P");
-        var video= document.querySelector(".vid");  
+        var video= document.querySelector(".vid");
+        var views = document.getElementsByClassName("count");
+        var count= [0,0,0,0,0,0];  
+        var vidData;
               
-        function togglepopup(clicked_id){
-                if(clicked_id==="101"){
-                    video.src = "https://www.youtube.com/embed/GgmSBzgv2UE";
-                } else if(clicked_id==="102")
-                {
-                    video.src = "https://www.youtube.com/embed/u5r77-OQwa8";
-                } else if(clicked_id==="103")
-                {
-                    video.src = "https://www.youtube.com/embed/WTJW2Ol1c0g";
-                } else if(clicked_id==="104")
-                {
-                    video.src = "https://www.youtube.com/embed/UWhMSxeu9to";
-                }else if(clicked_id==="105")
-                {
-                    video.src = "https://www.youtube.com/embed/a_IIsWfpepE";
-                }else if(clicked_id==="106")
-                {
-                    video.src = "https://www.youtube.com/embed/lB_nEHhqq3U";
-                }
-                document.getElementById("popup1").classList.toggle("active");
-        }
-        //var views = document.getElementsByTagName("P");
-
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('GET','https://tejas-deshpande1989.github.io/git-one/vidinfo.json');
         ourRequest.onload= function(){
             var ourData = JSON.parse(ourRequest.responseText);
-            renderHTML(ourData);
+            vidData = ourData;
+            renderHTML(ourData);   
         };
         ourRequest.send();
 
@@ -158,10 +139,45 @@
             for(var i=0;i<6;i++)
             {   
                 name1[i].innerHTML = data[i].Name;
-                desc[i].innerHTML = data[i].Desc;
-                //views[i].innerHTML = data[i].Views + "Views";
+                desc[i].innerHTML = data[i].Desc;   
             }
-           
+            
+        }
+
+        function togglepopup(clicked_id){
+                if(clicked_id==vidData[0].Id){
+                    video.src = vidData[0].Src;
+                    count[0] +=1;
+                    views[0].innerHTML = count[0] + " Views";
+                } else if(clicked_id==vidData[1].Id)
+                {
+                    video.src = vidData[1].Src;
+                    count[1] +=1;
+                    views[1].innerHTML = count[1] + " Views";
+                                        
+                } else if(clicked_id==vidData[2].Id)
+                {
+                    video.src = vidData[2].Src;
+                    count[2] +=1;
+                    views[2].innerHTML = count[2] + " Views";
+                } else if(clicked_id==vidData[3].Id)
+                {
+                    video.src = vidData[3].Src;
+                    count[3] +=1;
+                    views[3].innerHTML = count[3] + " Views";
+                    
+                }else if(clicked_id==vidData[4].Id)
+                {
+                    video.src = vidData[4].Src;
+                    count[4] +=1;
+                    views[4].innerHTML = count[4] + " Views";
+                }else if(clicked_id==vidData[5].Id)
+                {
+                    video.src = vidData[5].Src;
+                    count[5] +=1;
+                    views[5].innerHTML = count[5] + " Views";
+                }
+                document.getElementById("popup1").classList.toggle("active");
         }
 
    </script>
