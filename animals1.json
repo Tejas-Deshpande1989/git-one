@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Meowsy",
+        "species":"cat",
+        "foods" : {
+            "likes": ["tuna","catnip"],
+            "dislikes": ["ham","ccc"]
+        }
+    },
+    {
+        "name":"cowsy",
+        "species":"rat",
+        "foods" : {
+            "likes": ["aaa","bbb"],
+            "dislikes": ["ccc","ddd"]
+        }
+    },
+    {
+        "name":"dowsy",
+        "species":"bat",
+        "foods" : {
+            "likes": ["fff","ggg"],
+            "dislikes": ["hhh","jjj"]
+        }
+    }
+]
