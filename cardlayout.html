@@ -2,14 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardlayoutstyle.css">
+    <link rel="stylesheet" href="newcardlayoutstyle2.css">
     <title>New Card Layout with Flexbox</title>
 </head>
 <body>
    <div class="container">
-       <div class="team-container">
-            <div class="text">Watch Our Videos</div>
-       </div>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
        <div class="row">
            <!--first card-->
            <div class="profile-card">
@@ -111,7 +114,7 @@
             <div class="popup" id="popup1">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" id ="close"onclick="togglepopup(this.id)">&times;</div>
+                    <div class="close-btn" id ="close"onclick="togglepopup()">&times;</div>
                     <iframe class="vid" src="" frameborder="0"></iframe>
                 </div>
             </div>
@@ -123,9 +126,14 @@
         var desc = document.getElementsByTagName("P");
         var video= document.querySelector(".vid");
         var views = document.getElementsByClassName("count");
+        var content = document.getElementsByClassName("content");
         var count= [0,0,0,0,0,0];  
         var vidData;
-              
+        
+        window.addEventListener("keydown", keyPress, false);
+        
+
+        //accessing JSON file through AJAX
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('GET','https://tejas-deshpande1989.github.io/git-one/vidinfo.json');
         ourRequest.onload= function(){
@@ -135,6 +143,7 @@
         };
         ourRequest.send();
 
+        //to get the data from the JSON file and rendering into HTML
         function renderHTML(data){
             for(var i=0;i<6;i++)
             {   
@@ -143,7 +152,15 @@
             }
             
         }
+        // function to close the modal window on pressing of an escape key
+        function keyPress(e){
+            if(e.keyCode=="27"){
+                togglepopup();
+            }
+        }
 
+        
+        // function to display specific video on a particular button click
         function togglepopup(clicked_id){
                 if(clicked_id==vidData[0].Id){
                     video.src = vidData[0].Src;
@@ -179,6 +196,7 @@
                 }
                 document.getElementById("popup1").classList.toggle("active");
         }
+
 
    </script>
 </body>
