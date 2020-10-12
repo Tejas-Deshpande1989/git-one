@@ -1,203 +1,201 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardlayoutstyle.css">
-    <title>New Card Layout with Flexbox</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="newcardlayoutstyle.css">
+  <title>New Card Layout with Flexbox</title>
 </head>
+
 <body>
-   <div class="container">
+  <div class="container">
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="row">
+      <!--first card-->
+      <div class="profile-card" id="101" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/disha encounter.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
+
+        </div>
       </div>
-       <div class="row">
-           <!--first card-->
-           <div class="profile-card">
-               <div class="profile-content">
-                   <div class="profile-image">
-                       <img src="images/disha encounter.jpg" alt="first">
-                   </div>
-                   <div class="desc">
-                       <h2>Tejas</h2>
-                       <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                   </div>
-                   <div class="views">
-                       <span class="count">Views</span>
-                   </div>
-                   <button class="viewbutton" style= "margin-top: 15px;"id ="101"onclick="togglepopup(this.id)">View More</button>
-               </div>
-           </div>
-           <!--second card-->
-           <div class="profile-card">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="images/sooryavanshi.jpg" alt="first">
-                    </div>
-                    <div class="desc">
-                        <h2>Tejas</h2>
-                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                    </div>
-                    <div class="views">
-                        <span class="count">Views</span>
-                    </div>
-                    <button class="viewbutton" id ="102"onclick="togglepopup(this.id)">View More</button>
-                </div>
-            </div>
-            <!--third card-->
-            <div class="profile-card">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="images/Ginny weds Sunny.jpg" alt="first">
-                    </div>
-                    <div class="desc">
-                        <h2>Tejas</h2>
-                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                    </div>
-                    <div class="views">
-                        <span class="count">Views</span>
-                    </div>
-                    <button class="viewbutton" id ="103"onclick="togglepopup(this.id)">View More</button>
-                </div>
-            </div>
-            <!--fourth card-->
-            <div class="profile-card">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="images/Mr India 2.jpg" alt="first">
-                    </div>
-                    <div class="desc">
-                        <h2>Tejas</h2>
-                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                    </div>
-                    <div class="views">
-                        <span class="count">Views</span>
-                    </div>
-                    <button class="viewbutton" style="margin-top: 15px;"id ="104"onclick="togglepopup(this.id)">View More</button>
-                </div>
-            </div>
-            <!--fifth card-->
-            <div class="profile-card">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="images/Harami.jpg" alt="first">
-                    </div>
-                    <div class="desc">
-                        <h2>Tejas</h2>
-                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                    </div>
-                    <div class="views">
-                        <span class="count">Views</span>
-                    </div>
-                    <button class="viewbutton" id ="105"onclick="togglepopup(this.id)">View More</button>
-                </div>
-            </div>
-            <!--sixth card-->
-            <div class="profile-card">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="images/Khaali peeli.jpg" alt="first">
-                    </div>
-                    <div class="desc">
-                        <h2>Tejas</h2>
-                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
-                    </div>
-                    <div class="views">
-                        <span class="count">Views</span>
-                    </div>
-                    <button class="viewbutton" id ="106"onclick="togglepopup(this.id)">View More</button>
-                </div>
-            </div>
-           
-            <div class="popup" id="popup1">
-                <div class="overlay"></div>
-                <div class="content">
-                    <div class="close-btn" id ="close"onclick="togglepopup()">&times;</div>
-                    <iframe class="vid" src="" frameborder="0"></iframe>
-                </div>
-            </div>
-       </div>
-   </div>
+      <!--second card-->
+      <div class="profile-card" id="102" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/sooryavanshi.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
 
-   <script>
-        var name1 = document.getElementsByTagName("H2");
-        var desc = document.getElementsByTagName("P");
-        var video= document.querySelector(".vid");
-        var views = document.getElementsByClassName("count");
-        var content = document.getElementsByClassName("content");
-        var count= [0,0,0,0,0,0];  
-        var vidData;
-        
-        window.addEventListener("keydown", keyPress, false);
-        
+        </div>
+      </div>
+      <!--third card-->
+      <div class="profile-card" id="103" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/Ginny weds Sunny.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
 
-        //accessing JSON file through AJAX
-        var ourRequest = new XMLHttpRequest();
-        ourRequest.open('GET','https://tejas-deshpande1989.github.io/git-one/vidinfo.json');
-        ourRequest.onload= function(){
-            var ourData = JSON.parse(ourRequest.responseText);
-            vidData = ourData;
-            renderHTML(ourData);   
-        };
-        ourRequest.send();
+        </div>
+      </div>
+      <!--fourth card-->
+      <div class="profile-card" id="104" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/Mr India 2.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
 
-        //to get the data from the JSON file and rendering into HTML
-        function renderHTML(data){
-            for(var i=0;i<6;i++)
-            {   
-                name1[i].innerHTML = data[i].Name;
-                desc[i].innerHTML = data[i].Desc;   
-            }
-            
-        }
-        // function to close the modal window on pressing of an escape key
-        function keyPress(e){
-            if(e.keyCode=="27"){
-                togglepopup();
-            }
-        }
+        </div>
+      </div>
+      <!--fifth card-->
+      <div class="profile-card" id="105" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/Harami.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
 
-        
-        // function to display specific video on a particular button click
-        function togglepopup(clicked_id){
-                if(clicked_id==vidData[0].Id){
-                    video.src = vidData[0].Src;
-                    count[0] +=1;
-                    views[0].innerHTML = count[0] + " Views";
-                } else if(clicked_id==vidData[1].Id)
-                {
-                    video.src = vidData[1].Src;
-                    count[1] +=1;
-                    views[1].innerHTML = count[1] + " Views";
-                                        
-                } else if(clicked_id==vidData[2].Id)
-                {
-                    video.src = vidData[2].Src;
-                    count[2] +=1;
-                    views[2].innerHTML = count[2] + " Views";
-                } else if(clicked_id==vidData[3].Id)
-                {
-                    video.src = vidData[3].Src;
-                    count[3] +=1;
-                    views[3].innerHTML = count[3] + " Views";
-                    
-                }else if(clicked_id==vidData[4].Id)
-                {
-                    video.src = vidData[4].Src;
-                    count[4] +=1;
-                    views[4].innerHTML = count[4] + " Views";
-                }else if(clicked_id==vidData[5].Id)
-                {
-                    video.src = vidData[5].Src;
-                    count[5] +=1;
-                    views[5].innerHTML = count[5] + " Views";
-                }
-                document.getElementById("popup1").classList.toggle("active");
-        }
+        </div>
+      </div>
+      <!--sixth card-->
+      <div class="profile-card" id="106" onclick="togglepopup(this.id)">
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="images/Khaali peeli.jpg" alt="first">
+          </div>
+          <div class="desc">
+            <h2>Tejas</h2>
+            <p>Hi There. This is Tejas. This is my first time building this layout</p>
+          </div>
+          <div class="views">
+            <span class="count">Views</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="popup" id="popup1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="close-btn" id="close" onclick="togglepopup()">&times;</div>
+          <iframe class="vid" src="" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var name1 = document.getElementsByTagName("H2");
+    var desc = document.getElementsByTagName("P");
+    var video = document.querySelector(".vid");
+    var views = document.getElementsByClassName("count");
+    var content = document.getElementsByClassName("content");
+    var card = document.getElementsByClassName("profile-card");
+    var count = [0, 0, 0, 0, 0, 0];
+    var vidData;
+
+    window.addEventListener("keydown", keyPress, false);
 
 
-   </script>
+    //accessing JSON file through AJAX
+    var ourRequest = new XMLHttpRequest();
+    ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/vidinfo.json');
+    ourRequest.onload = function () {
+      var ourData = JSON.parse(ourRequest.responseText);
+      vidData = ourData;
+      renderHTML(ourData);
+    };
+    ourRequest.send();
+
+    //to get the data from the JSON file and rendering into HTML
+    function renderHTML(data) {
+      for (var i = 0; i < 6; i++) {
+        name1[i].innerHTML = data[i].Name;
+        desc[i].innerHTML = data[i].Desc;
+      }
+
+    }
+    // function to close the modal window on pressing of an escape key
+    function keyPress(e) {
+      if (e.keyCode == "27") {
+        togglepopup();
+      }
+    }
+
+
+    // function to display specific video on a particular button click
+    function togglepopup(clicked_id) {
+      if (clicked_id == vidData[0].Id) {
+        video.src = vidData[0].Src;
+        count[0] += 1;
+        views[0].innerHTML = count[0] + " Views";
+      } else if (clicked_id == vidData[1].Id) {
+        video.src = vidData[1].Src;
+        count[1] += 1;
+        views[1].innerHTML = count[1] + " Views";
+
+      } else if (clicked_id == vidData[2].Id) {
+        video.src = vidData[2].Src;
+        count[2] += 1;
+        views[2].innerHTML = count[2] + " Views";
+      } else if (clicked_id == vidData[3].Id) {
+        video.src = vidData[3].Src;
+        count[3] += 1;
+        views[3].innerHTML = count[3] + " Views";
+
+      } else if (clicked_id == vidData[4].Id) {
+        video.src = vidData[4].Src;
+        count[4] += 1;
+        views[4].innerHTML = count[4] + " Views";
+      } else if (clicked_id == vidData[5].Id) {
+        video.src = vidData[5].Src;
+        count[5] += 1;
+        views[5].innerHTML = count[5] + " Views";
+      }
+      document.getElementById("popup1").classList.toggle("active");
+    }
+
+
+  </script>
 </body>
+
 </html>
