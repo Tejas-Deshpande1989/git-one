@@ -4,7 +4,7 @@
     margin:0;
 }
 body{
-    background-color: #ccc;
+   
     font-family: sans-serif;
 }
 .topnav {
@@ -55,7 +55,9 @@ body{
     width: 270px;
     height: 250px;
     margin: 20px 10px 10px 10px;
+    cursor: pointer;
 }
+
 @media (max-width: 468px){
     .profile-card{
         width: 290px;
@@ -69,6 +71,9 @@ img{
     width:220px;
     height: 100px;
     object-fit: cover;
+}
+img:hover{
+    filter: grayscale(50%);
 }
 .profile-image{
     text-align: center;
@@ -89,7 +94,7 @@ img{
     color: black;
 }
 .views{
-    text-align: center;
+    text-align: left;
 }
 button{
     cursor: pointer;
