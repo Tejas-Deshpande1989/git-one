@@ -1,0 +1,248 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+body{
+   
+    font-family: sans-serif;
+}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.row{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+}
+@media (max-width: 768px){
+    .row{
+        width: 100%;
+    }
+}
+.profile-card{
+    background-color: white;
+    width: 270px;
+    height: 250px;
+    margin: 20px 10px 10px 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 468px){
+    .profile-card{
+        width: 290px;
+        height:250px;
+    }
+}
+.profile-content{
+    padding: 15px;
+}
+img{
+    width:220px;
+    height: 100px;
+    object-fit: cover;
+}
+img:hover{
+    filter: grayscale(50%);
+}
+.profile-image{
+    text-align: center;
+}
+.desc{
+    text-align:center;
+}
+.desc h2{
+    margin-top: 5px;
+    color: rgb(12,172,150);
+    font-size: 20px;
+}
+.desc p{
+    font-size: 13px;
+    line-height: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+.views{
+    text-align: left;
+}
+button{
+    cursor: pointer;
+    background-color: #4CAF50;
+    outline: none;
+    font-weight: 100;
+    font-size: 17px;
+    font-family: sans-serif;
+    border: none;
+    padding: 4px;
+    color: white;
+}
+button:hover{
+    background-color: green;
+}
+
+.popup .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index:1;
+    display: none;
+}
+
+.popup .content{
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    width: 550px;
+    height: 320px;
+    z-index:2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.popup .vid{
+    width: 400px;
+    height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    z-index:3;
+    align-items: center;
+    box-sizing: border-box;
+}
+.popup .close-btn{
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: 20px; 
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup.active .overlay{
+    display: block;
+}
+
+.popup.active .content{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup.active .vid{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.controls{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 48px;
+    z-index:4;
+    align-items: center;
+    color: white;
+    border: none;
+    left:13.7%;
+    width: 72.7%;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.3);
+}
+#play-pause{
+    color: white; 
+    background-color:transparent;
+    border: none;
+    opacity: 1;
+    cursor: pointer;
+    outline: 0;
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .popup .content{
+            position: fixed;
+            width: 380px;
+            height: 220px;
+        }
+        .popup .vid{
+            width: 270px;
+            height: 180px;
+        }   
+        .profile-card{
+            width: 350px;
+            height: 270px;
+            margin: 10px 0px 10px 0px;
+        }
+        .controls{
+            left:15%;
+            width: 70.5%;
+            bottom: 34px;
+        }
+    }
+
+    @media only screen 
+    and (device-width : 812px) 
+    and (device-height : 375px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .popup .content{
+            position: fixed;
+        }
+    }
+
+    @media all 
+    and (device-width: 1024px) 
+    and (device-height: 768px) 
+    and (orientation:landscape) {
+        .popup .content{
+            position: fixed;
+        }
+    }
