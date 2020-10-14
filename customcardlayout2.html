@@ -122,6 +122,9 @@
                     <!--<iframe class="vid" src="" frameborder="0"></iframe>-->
                     <video class="vid" src=""></video>
                     <div class="controls">
+                        <div class="statusbar">
+                            <div class="progress"></div>
+                        </div>
                         <button id="play-pause"><i class="fa fa-play"></i></button>
                     </div>
                 </div>
@@ -137,6 +140,7 @@
         var content = document.getElementsByClassName("content");
         var card = document.getElementsByClassName("profile-card");
         var playbtn = document.getElementById("play-pause");
+        var progress = document.querySelector('.progress');
         var count = [0, 0, 0, 0, 0, 0];
         var vidData;
 
@@ -181,6 +185,14 @@
                 playbtn.innerHTML = '<i class="fa fa-play"></i>';
             }
         }
+
+        video.addEventListener('timeupdate', function () {
+            var progressPos = video.currentTime / video.duration;
+            progress.style.width = progressPos * 100 + "%";
+            if (video.ended) {
+                playbtn.innerHTML = '<i class="fa fa-play"></i>';
+            }
+        })
 
         function moveModal() {
             console.log("scrolled!");
