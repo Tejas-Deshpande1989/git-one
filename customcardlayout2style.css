@@ -279,4 +279,46 @@ button:hover{
         .popup .content{
             position: fixed;
         }
+        .popup .content{
+            position: fixed;
+        }
+        .row{
+            width: 100%;
+        }
+        .profile-card{
+            width: 450px;
+            height: 350px;
+        }
+        img{
+            width:450px;
+            height: 230px;
+            object-fit: cover;
+        }
+    }
+
+    @media all 
+    and (device-width: 768px) 
+    and (device-height: 1024px) 
+    and (orientation:portrait) {
+        .popup .content{
+            position: fixed;
+            width: 380px;
+            height: 220px;
+        }
+        .popup .vid{
+            width: 270px;
+            height: 180px;
+        }   
+        .profile-card{
+            width: 330px;
+            height: 270px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 0;
+        }
+        img{
+            width:325px;
+            height: 150px;
+            object-fit: cover;
+        }
     }
