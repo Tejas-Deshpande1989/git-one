@@ -258,6 +258,18 @@ button:hover{
         .popup .content{
             position: fixed;
         }
+        .row{
+            width: 100%;
+        }
+        .profile-card{
+            width: 330px;
+            height: 270px;
+        }
+        img{
+            width:325px;
+            height: 150px;
+            object-fit: cover;
+        }
     }
 
     @media all 
