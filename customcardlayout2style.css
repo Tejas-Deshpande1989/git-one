@@ -196,6 +196,7 @@ button:hover{
     height: 30px;
     background: rgba(0, 0, 0, 0.3);
 }
+
 #play-pause{
     color: white; 
     background-color:transparent;
@@ -203,6 +204,19 @@ button:hover{
     opacity: 1;
     cursor: pointer;
     outline: 0;
+}
+.statusbar{
+    height: 3px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.6;
+    background-color: lightgrey;
+}
+.progress{
+    height: 3px;
+    width:0;
+    background-color: red;
 }
 
 @media only screen 
