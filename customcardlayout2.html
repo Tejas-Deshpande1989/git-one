@@ -118,18 +118,25 @@
             <div class="popup" id="popup1">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" id="close" onclick="togglepopup()">&times;</div>
+                    <div class="close-btn" id="close" onclick="togglepopup(this.id)">&times;</div>
                     <!--<iframe class="vid" src="" frameborder="0"></iframe>-->
-                    <video class="vid" src=""></video>
-                    <div class="controls">
-                        <div class="statusbar">
-                            <div class="progress"></div>
+                    <div class="wrapper">
+                        <video class="vid" src=""></video>
+                        <div class="controls">
+                            <div class="statusbar">
+                                <div class="progress"></div>
+                            </div>
+                            <button id="play-pause" style="margin-left: 5px;"><i class="fa fa-play"></i></button>
+                            <span id="curtimetext" style="font-size: 14px; margin-left: 20px;">00:00</span>
+                            <span>/</span>
+                            <span id="durtimetext" style="font-size: 14px;">00:00</span>
+                            <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
                         </div>
-                        <button id="play-pause"><i class="fa fa-play"></i></button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
@@ -137,16 +144,61 @@
         var desc = document.getElementsByTagName("P");
         var video = document.querySelector(".vid");
         var views = document.getElementsByClassName("count");
-        var content = document.getElementsByClassName("content");
+        var content = document.querySelector(".content");
         var card = document.getElementsByClassName("profile-card");
         var playbtn = document.getElementById("play-pause");
+        var popup = document.querySelector(".popup");
         var progress = document.querySelector('.progress');
+        var fullscreenbtn = document.getElementById('fullscreenbtn');
+        var wrapper = document.querySelector(".wrapper");
+        var controls = document.getElementsByClassName("controls");
         var count = [0, 0, 0, 0, 0, 0];
         var vidData;
 
         window.addEventListener("keydown", keyPress, false);
-        window.addEventListener("scroll", moveModal, false);
         playbtn.addEventListener("click", playpause, false);
+        fullscreenbtn.addEventListener("click", fullScreen, false);
+
+
+        //toggle between full screen and compress screen
+        function fullScreen() {
+            if (document.fullscreenElement || document.webkitFullscreenElement ||
+                document.mozFullScreenElement || document.msFullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                }
+                fullscreenbtn.setAttribute("class", "");
+            } else {
+                if (document.fullscreenEnabled ||
+                    document.webkitFullscreenEnabled || document.mozFullScreenEnabled ||
+                    document.msFullscreenEnabled) {
+                    if (wrapper.requestFullscreen) {
+                        wrapper.requestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    } else if (wrapper.webkitRequestFullscreen) {
+                        wrapper.webkitRequestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    } else if (wrapper.mozRequestFullScreen) {
+                        wrapper.mozRequestFullScreen();
+                        fullscreenbtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    } else if (wrapper.msRequestFullscreen) {
+                        wrapper.msRequestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    }
+                    fullscreenbtn.setAttribute("class", "fullscreen");
+                }
+            }
+        }
 
 
         //accessing JSON file through AJAX
@@ -186,6 +238,7 @@
             }
         }
 
+        //to show the progress of the video
         video.addEventListener('timeupdate', function () {
             var progressPos = video.currentTime / video.duration;
             progress.style.width = progressPos * 100 + "%";
@@ -194,12 +247,31 @@
             }
         })
 
-        function moveModal() {
-            console.log("scrolled!");
-        }
+        //to show the duration of the video from total time
+        video.addEventListener('timeupdate', function () {
+
+            var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
+            var cursecs = Math.floor(video.currentTime - curmins * 60);
+            var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
+            var dursecs = Math.floor(video.duration - durmins * 60);
+            //if it is a single digit then prepend 0
+            if (cursecs < 10) { cursecs = "0" + cursecs; }
+            if (dursecs < 10) { dursecs = "0" + dursecs; }
+            if (curmins < 10) { curmins = "0" + curmins; }
+            if (durmins < 10) { durmins = "0" + durmins; }
+            curtimetext.innerHTML = curmins + ":" + cursecs;
+            durtimetext.innerHTML = durmins + ":" + dursecs;
+        })
+
+
         // function to display specific video on a particular button click
         function togglepopup(clicked_id) {
-            if (clicked_id == vidData[0].Id) {
+            if (clicked_id === "close") {
+                video.pause();
+                playbtn.innerHTML = '<i class="fa fa-play"></i>';
+                progress.style.width = "0";
+            } else if (clicked_id == vidData[0].Id) {
+                //video.src = "test-video.mp4";
                 video.src = vidData[0].Src;
                 count[0] += 1;
                 views[0].innerHTML = count[0] + " views";
