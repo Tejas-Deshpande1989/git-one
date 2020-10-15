@@ -121,15 +121,14 @@
                     <div class="close-btn" id="close" onclick="togglepopup(this.id)">&times;</div>
                     <!--<iframe class="vid" src="" frameborder="0"></iframe>-->
                     <div class="wrapper">
-                        <video class="vid" src=""></video>
+                        <video class="vid" src="test-video.mp4"></video>
                         <div class="controls">
                             <div class="statusbar">
                                 <div class="progress"></div>
                             </div>
                             <button id="play-pause" style="margin-left: 5px;"><i class="fa fa-play"></i></button>
-                            <span id="curtimetext" style="font-size: 14px; margin-left: 20px;">00:00</span>
-                            <span>/</span>
-                            <span id="durtimetext" style="font-size: 14px;">00:00</span>
+                            <span id="curtimetext" style="margin-left: 10px;">00:00</span> <span> / </span>
+                            <span id="durtimetext">00:00</span>
                             <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
                         </div>
                     </div>
@@ -261,6 +260,7 @@
             if (durmins < 10) { durmins = "0" + durmins; }
             curtimetext.innerHTML = curmins + ":" + cursecs;
             durtimetext.innerHTML = durmins + ":" + dursecs;
+
         })
 
 
