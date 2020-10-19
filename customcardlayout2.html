@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="customcardlayout2style.css">
+    <link rel="stylesheet" href="customcardlayoutstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>New Card Layout with Flexbox</title>
 </head>
 
@@ -29,7 +30,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -45,7 +46,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -61,7 +62,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -77,7 +78,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -93,7 +94,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -109,7 +110,7 @@
                         <p>Hi There. This is Tejas. This is my first time building this layout</p>
                     </div>
                     <div class="views">
-                        <span class="count">views</span>
+                        <span class="count">0 views</span>
                     </div>
 
                 </div>
@@ -118,15 +119,17 @@
             <div class="popup" id="popup1">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" id="close" onclick="togglepopup(this.id)">&times;</div>
+                    <img src="images/closebtn.jpg" alt="" class="close-btn" id="close" onclick="togglepopup(this.id)">
+                    <!--<div class="close-btn" id="close" onclick="togglepopup(this.id)"><span id="cross">&times;</span>
+                    </div>-->
                     <!--<iframe class="vid" src="" frameborder="0"></iframe>-->
                     <div class="wrapper">
-                        <video class="vid" src="test-video.mp4"></video>
+                        <video class="vid" src="test-video.mp4" autoplay></video>
                         <div class="controls">
                             <div class="statusbar">
                                 <div class="progress"></div>
                             </div>
-                            <button id="play-pause" style="margin-left: 5px;"><i class="fa fa-play"></i></button>
+                            <button id="play-pause" style="margin-left: 5px;"><i class="fa fa-pause"></i></button>
                             <span id="curtimetext" style="margin-left: 10px;">00:00</span> <span> / </span>
                             <span id="durtimetext">00:00</span>
                             <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
@@ -139,6 +142,7 @@
     </div>
 
     <script>
+
         var name1 = document.getElementsByTagName("H2");
         var desc = document.getElementsByTagName("P");
         var video = document.querySelector(".vid");
@@ -157,7 +161,6 @@
         window.addEventListener("keydown", keyPress, false);
         playbtn.addEventListener("click", playpause, false);
         fullscreenbtn.addEventListener("click", fullScreen, false);
-
 
         //toggle between full screen and compress screen
         function fullScreen() {
@@ -248,7 +251,6 @@
 
         //to show the duration of the video from total time
         video.addEventListener('timeupdate', function () {
-
             var curmins = Math.floor(video.currentTime / 60);//Math.floor is to round up the no
             var cursecs = Math.floor(video.currentTime - curmins * 60);
             var durmins = Math.floor(video.duration / 60); // we can also use Math.ceil or Math.round
@@ -265,10 +267,12 @@
 
 
         // function to display specific video on a particular button click
+
         function togglepopup(clicked_id) {
+
             if (clicked_id === "close") {
                 video.pause();
-                playbtn.innerHTML = '<i class="fa fa-play"></i>';
+                playbtn.innerHTML = '<i class="fa fa-pause"></i>';
                 progress.style.width = "0";
             } else if (clicked_id == vidData[0].Id) {
                 //video.src = "test-video.mp4";
@@ -299,6 +303,7 @@
                 views[5].innerHTML = count[5] + " views";
             }
             document.getElementById("popup1").classList.toggle("active");
+
         }
 
 
