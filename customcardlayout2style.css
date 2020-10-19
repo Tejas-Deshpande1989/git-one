@@ -5,7 +5,8 @@
 }
 body{
    
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: lightgray;
 }
 .topnav {
     background-color: #333;
@@ -55,18 +56,19 @@ body{
     width: 270px;
     height: 250px;
     /*border: 1px solid black;*/
-    margin: 20px 10px 10px 10px;
+    margin: 20px 20px 20px 20px;
     cursor: pointer;
 }
-
+.profile-card:hover{
+    z-index:1;
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
 @media (max-width: 468px){
     .profile-card{
         width: 290px;
         height:250px;
     }
-}
-.profile-content{
-    
 }
 img{
     width:270px;
@@ -88,11 +90,12 @@ img:hover{
     font-size: 20px;
 }
 .desc p{
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.3em;
     margin-top: 10px;
     margin-bottom: 10px;
     color: black;
+    padding: 2px;
 }
 .views{
     text-align: left;
@@ -103,7 +106,7 @@ button{
     outline: none;
     font-weight: 100;
     font-size: 17px;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     border: none;
     padding: 4px;
     color: white;
@@ -125,13 +128,14 @@ button:hover{
 
 .popup .content{
     position: absolute;
-    overflow: hidden;
+    position: fixed;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
     background: #fff;
-    width: 550px;
-    height: 320px;
+    width: 750px;
+    height: 520px;
     z-index:2;
     text-align: center;
     padding: 20px;
@@ -139,10 +143,11 @@ button:hover{
 }
 .popup .wrapper{
     display: flex;
-    margin: 0 auto;
-    width: 400px;
-    height: 280px;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-content: flex-end;
+    overflow: hidden;
 }
 .popup .vid{
     width: 100%;
@@ -152,24 +157,24 @@ button:hover{
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
     background: #fff;
-    z-index:3;
     align-items: center;
-    box-sizing: border-box;
+    object-fit: cover;
 }
 .popup .close-btn{
     position: absolute;
     cursor: pointer;
-    right: 20px;
-    top: 20px; 
-    width: 30px;
-    height: 30px;
+    right: 0rem;
+    top: -1.5rem; 
+    width: 20px;
+    height: 20px;
     background: #222;
     color: #fff;
     font-size: 25px;
     font-weight: 600;
     line-height: 30px;
     text-align: center;
-    border-radius: 50%;
+    
+    z-index: 4;
 }
 
 .popup.active .overlay{
@@ -188,17 +193,18 @@ button:hover{
     display:flex;
     justify-content: center;
     align-items: center;
+    z-index:1;
 }
 .controls{
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    bottom: 48px;
     z-index:4;
+    left: 0;
     align-items: center;
     color: white;
     border: none;
-    bottom: 27px;
+    bottom: 0px;
     width: 100%;
     height: 40px;
     background: rgba(0, 0, 0, 0);
@@ -240,7 +246,7 @@ video::-webkit-media-controls {
     and (-webkit-device-pixel-ratio : 3) { 
         .popup .content{
             position: fixed;
-            width: 380px;
+            width: 350px;
             height: 220px;
         }
         .popup .wrapper{
@@ -255,13 +261,18 @@ video::-webkit-media-controls {
             margin-bottom: 10px;
             margin-left: 0;
         }
+        .profile-card:hover{
+            z-index:1;
+            box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+        }
         img{
             width:325px;
             height: 150px;
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -365,7 +376,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -387,16 +398,15 @@ video::-webkit-media-controls {
         }
         .popup .content{
             position: fixed;
-            width: 380px;
-            height: 220px;
+            width: 320px;
+            height: 200px;
         }
         .popup .wrapper{
-            margin: 0 auto;
-            width: 270px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -427,7 +437,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -458,7 +468,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -489,7 +499,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -523,7 +533,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -545,16 +555,15 @@ video::-webkit-media-controls {
         }
         .popup .content{
             position: fixed;
-            width: 350px;
-            height: 220px;
+            width: 290px;
+            height: 200px;
         }
         .popup .wrapper{
-            margin: 0 auto;
-            width: 240px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
         }
         .controls{
-            bottom: 18px;
+            bottom: 0px;
         }
     }
 
@@ -585,7 +594,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 18px;
+            bottom: 0px;
         }
     }
 
@@ -607,7 +616,7 @@ video::-webkit-media-controls {
         }
         .popup .content{
             position: fixed;
-            width: 380px;
+            width: 350px;
             height: 220px;
         }
         .popup .wrapper{
@@ -616,7 +625,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -647,7 +656,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -670,7 +679,7 @@ video::-webkit-media-controls {
         .popup .content{
             position: fixed;
             width: 380px;
-            height: 220px;
+            height: 230px;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -678,7 +687,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -712,7 +721,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -746,7 +755,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 35px;
+            bottom: 0px;
         }
     }
 
@@ -757,7 +766,7 @@ video::-webkit-media-controls {
         .popup .content{
             position: fixed;
             width: 620px;
-            height: 440px;
+            height: 340px;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -780,7 +789,7 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 60px;
+            bottom: 0px;
         }
     }
 
@@ -833,7 +842,7 @@ video::-webkit-media-controls {
             height: 200px;
             }
             .controls{
-                bottom: 30px;
+                bottom: 0px;
                 width: 100%;
                 font-size: 10px;
                 height: 30px ;
@@ -867,7 +876,7 @@ video::-webkit-media-controls {
         .popup .content{
             position: fixed;
             width: 380px;
-            height: 220px;
+            height: 240px;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -875,7 +884,7 @@ video::-webkit-media-controls {
             height: 180px;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
 
@@ -909,6 +918,6 @@ video::-webkit-media-controls {
             object-fit: cover;
         }
         .controls{
-            bottom: 15px;
+            bottom: 0px;
         }
     }
