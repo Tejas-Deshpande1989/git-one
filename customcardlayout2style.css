@@ -95,10 +95,12 @@ img:hover{
     margin-top: 10px;
     margin-bottom: 10px;
     color: black;
-    padding: 2px;
+    padding: 0px 10px 0px;
 }
+
 .views{
     text-align: left;
+    padding: 0px 10px 0px;
 }
 button{
     cursor: pointer;
@@ -267,12 +269,16 @@ video::-webkit-media-controls {
             transform: scale(1.05);
         }
         img{
-            width:325px;
+            width:330px;
             height: 150px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -282,6 +288,9 @@ video::-webkit-media-controls {
     and (-webkit-device-pixel-ratio : 3) { 
         .popup .content{
             position: fixed;
+            width: 812px;
+            height: 330px;
+            top: 56%;
         }
         .row{
             width: 100%;
@@ -291,9 +300,13 @@ video::-webkit-media-controls {
             height: 270px;
         }
         img{
-            width:325px;
+            width:330px;
             height: 150px;
             object-fit: cover;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -303,9 +316,9 @@ video::-webkit-media-controls {
     and (orientation:landscape) {
         .popup .content{
             position: fixed;
-        }
-        .popup .content{
-            position: fixed;
+            width: 1024px;
+            height: 720px;
+            top: 53%;
         }
         .row{
             width: 100%;
@@ -318,6 +331,10 @@ video::-webkit-media-controls {
             width:450px;
             height: 230px;
             object-fit: cover;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -343,9 +360,13 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:325px;
+            width:330px;
             height: 150px;
             object-fit: cover;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -355,8 +376,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 640px;
+            height: 310px;
+            top: 56%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -371,12 +393,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width: 278px;
+            width: 280px;
             height: 140px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -392,7 +418,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:318px;
+            width:320px;
             height: 150px;
             object-fit: cover;
         }
@@ -408,6 +434,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -422,7 +452,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:360px;
             height: 190px;
             object-fit: cover;
         }
@@ -439,6 +469,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -447,8 +481,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 731px;
+            height: 370px;
+            top: 55%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -463,12 +498,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:338px;
+            width:340px;
             height: 160px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -484,7 +523,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:360px;
             height: 190px;
             object-fit: cover;
         }
@@ -501,6 +540,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -509,8 +552,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 822px;
+            height: 360px;
+            top:55%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -528,12 +572,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:360px;
             height: 140px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0.5rem;
         }
     }
 
@@ -549,7 +597,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:288px;
+            width:290px;
             height: 140px;
             object-fit: cover;
         }
@@ -565,6 +613,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -579,14 +631,15 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:360px;
             height: 140px;
             object-fit: cover;
         }
         .popup .content{
             position: fixed;
-            width: 350px;
-            height: 220px;
+            width: 568px;
+            height: 280px;
+            top:56%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -595,6 +648,10 @@ video::-webkit-media-controls {
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -610,7 +667,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:318px;
+            width:320px;
             height: 150px;
             object-fit: cover;
         }
@@ -627,6 +684,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -635,8 +696,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 667px;
+            height: 330px;
+            top: 56%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -651,12 +713,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:298px;
+            width:300px;
             height: 140px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -672,7 +738,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:360px;
             height: 190px;
             object-fit: cover;
         }
@@ -689,6 +755,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -697,8 +767,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 736px;
+            height: 370px;
+            top:56%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -716,12 +787,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:328px;
+            width:330px;
             height: 140px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -750,12 +825,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width: 468px;
+            width: 470px;
             height: 230px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -765,8 +844,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 620px;
-            height: 340px;
+            width: 1366px;
+            height: 980px;
+            top:52%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -784,12 +864,16 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width: 598px;
+            width: 600px;
             height: 320px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
 
@@ -808,7 +892,7 @@ video::-webkit-media-controls {
             }
             .popup .wrapper{
             margin: 0 auto;
-            width: 160px;
+            width: 180px;
             height: 100px;
             }
             .controls{
@@ -824,6 +908,8 @@ video::-webkit-media-controls {
                 width:20px;
                 align-items: center;
                 height:20px;
+                top: 0rem;
+                right:0rem;
             }
         }
 
@@ -833,8 +919,9 @@ video::-webkit-media-controls {
         and (orientation:landscape){
             .popup .content{
             position: fixed;
-            width: 350px;
+            width: 653px;
             height: 240px;
+            top: 57%;
             }
             .popup .wrapper{
             margin: 0 auto;
@@ -851,9 +938,11 @@ video::-webkit-media-controls {
                 font-size: 10px;
             }
             .popup .close-btn{
-                width:30px;
+                width:20px;
                 align-items: center;
-                height:30px;
+                height:20px;
+                top: 0rem;
+                right:0rem;
             }
         }
 
@@ -869,7 +958,7 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:358px;
+            width:380px;
             height: 190px;
             object-fit: cover;
         }
@@ -886,6 +975,10 @@ video::-webkit-media-controls {
         .controls{
             bottom: 0px;
         }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
+        }
     }
 
     @media all 
@@ -894,8 +987,9 @@ video::-webkit-media-controls {
     and (orientation:landscape){
         .popup .content{
             position: fixed;
-            width: 420px;
-            height: 240px;
+            width: 720px;
+            height: 500px;
+            top: 54%;
         }
         .popup .wrapper{
             margin: 0 auto;
@@ -913,11 +1007,15 @@ video::-webkit-media-controls {
             margin-left: 0;
         }
         img{
-            width:278px;
-            height: 140px;
+            width:280px;
+            height: 110px;
             object-fit: cover;
         }
         .controls{
             bottom: 0px;
+        }
+        .popup .close-btn{
+            top: 0rem;
+            right:0rem;
         }
     }
