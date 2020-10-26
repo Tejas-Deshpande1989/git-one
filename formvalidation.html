@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formvalidationstyle.css">
+    <title>Form validation</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#GitHub" onclick="openLink(this.id)" id="1">GitHub</a></li>
+        <li><a href="#contact" onclick="openLink(this.id)" id="2">Contact</a></li>
+    </ul>
+
+    <div class="wrapper">
+
+        <form action="" id="myform" onsubmit="return validation()">
+            <div class="inputfield">
+                <input type="text" placeholder="First Name*" id="fname" autocomplete="off">
+                <span id="username" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+            </div>
+            <div class="inputfield">
+                <input type="text" placeholder="Last Name*" id="lname" autocomplete="off">
+                <span id="lastname" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+            </div>
+            <div class="inputfield">
+                <input type="text" placeholder="Email Address*" id="email" autocomplete="off">
+                <span id="emailadd" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+            </div>
+            <div class="inputfield">
+                <input type="text" placeholder="Phone*" id="phone" autocomplete="off">
+                <span id="number" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+            </div>
+            <div class="inputfield">
+                <textarea placeholder="Comments" id="comments" cols="30" rows="10" autocomplete="off"></textarea>
+            </div>
+            <div class="btn">
+                <input type="submit" placeholder="Last Name*" id="lname">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        //for opening the link in a new tab
+        function openLink(clicked_id) {
+            if (clicked_id == "1") {
+                window.open("https://github.com/Tejas-Deshpande1989/git-one");
+            } else if (clicked_id == "2") {
+                window.open("https://tejas-deshpande1989.github.io/git-one/new%20layout.html");
+            }
+        }
+        //for validating the form fields
+        function validation() {
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var comments = document.getElementById("comments").value;
+
+            //for validating First Name
+            if (fname == "") {
+                document.getElementById("username").innerHTML = "*Please fill the First Name";
+                return false;
+            }
+            if ((fname.length < 3) || (fname.length > 10)) {
+                document.getElementById("username").innerHTML = "*First Name must be between 3 and 10";
+                return false;
+            }
+            if (!isNaN(fname)) {
+                document.getElementById("username").innerHTML = "*Only characters are allowed";
+                return false;
+            }
+
+            //for validating Last Name
+            if (lname == "") {
+                document.getElementById("lastname").innerHTML = "*Please fill the Last Name";
+                return false;
+            }
+            if ((lname.length < 3) || (lname.length > 15)) {
+                document.getElementById("lastname").innerHTML = "*Last Name must be between 3 and 15";
+                return false;
+            }
+            if (!isNaN(lname)) {
+                document.getElementById("lastname").innerHTML = "*Only characters are allowed";
+                return false;
+            }
+
+            //for validating Email Address
+            if (email == "") {
+                document.getElementById("emailadd").innerHTML = "*Please fill the Email Address";
+                return false;
+            }
+            if (email.indexOf("@") <= 0) {
+                document.getElementById("emailadd").innerHTML = "*Invalid position of @";
+                return false;
+            }
+            if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.legnth - 3) != '.')) {
+                document.getElementById("emailadd").innerHTML = "*Invalid position of .";
+                return false;
+            }
+
+            //for validating phone number
+            if (phone == "") {
+                document.getElementById("number").innerHTML = "*Please fill the Phone Number";
+                return false;
+            }
+            if (isNaN(phone)) {
+                document.getElementById("number").innerHTML = "*Only numbers allowed";
+                return false;
+            }
+            if (phone.length != 10) {
+                document.getElementById("number").innerHTML = "*Mobile number must be 10 digits";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

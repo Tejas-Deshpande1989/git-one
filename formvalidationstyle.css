@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #ccc;
+}
+
+/*styling the nav bar*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #167f8c;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+
+/*styling the wrapper of the form*/
+.wrapper{
+    position: absolute;
+    top:25%;
+    left:55%;
+    /*transform:translate(-50%,-50%);*/
+    max-width: 250px;
+    width: 100%;
+    background-color: #23968c;
+    padding: 25px;
+}
+
+.wrapper .inputfield{
+    margin-bottom: 10px;
+}
+
+.wrapper .inputfield input[type="text"],
+.wrapper textarea{
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    padding: 4px;
+}
+
+.wrapper textarea{
+    height: 50px;
+    /*resize: none; if you want to remove the two lines in the right bottom corner for resize*/
+}
+
+.wrapper .btn input[type="submit"]{
+    border: 0;
+    margin-top: 15px;
+    padding: 10px;
+    background: #167f8c;
+    color: #fff;
+    float: right;
+    cursor: pointer;
+}
