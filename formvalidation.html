@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formvalidationstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Form validation</title>
 </head>
 
 <body>
     <ul>
         <li><a href="#GitHub" onclick="openLink(this.id)" id="1">GitHub</a></li>
-        <li><a href="#contact" onclick="openLink(this.id)" id="2">Contact</a></li>
+        <li><a href="#About Me" onclick="openLink(this.id)" id="2">About Me</a></li>
     </ul>
+
+    <video class="vid" src="test-video.mp4" controls></video>
+
 
     <div class="wrapper">
 
         <form action="" id="myform" onsubmit="return validation()">
+            <i class="fa fa-envelope"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-facebook"></i>
             <div class="inputfield">
                 <input type="text" placeholder="First Name*" id="fname" autocomplete="off">
                 <span id="username" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
@@ -40,8 +47,78 @@
             </div>
         </form>
     </div>
+    <div class="row">
+        <!--first card-->
+        <div class="profile-card active" id="101" onclick="togglepopup(this.id)">
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="images/Friends at sunset.png" class="thumbnail" alt="first">
+                </div>
+                <div class="desc">
+                    <h2>Tejas</h2>
+                    <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                </div>
+            </div>
+        </div>
+        <!--second card-->
+        <div class="profile-card" id="102" onclick="togglepopup(this.id)">
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="images/Jetski at Ocean.png" class="thumbnail" alt="first">
+                </div>
+                <div class="desc">
+                    <h2>Tejas</h2>
+                    <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                </div>
+            </div>
+        </div>
+        <!--third card-->
+        <div class="profile-card" id="103" onclick="togglepopup(this.id)">
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="images/Houses near Rocks.png" class="thumbnail" alt="first">
+                </div>
+                <div class="desc">
+                    <h2>Tejas</h2>
+                    <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                </div>
+            </div>
+        </div>
+        <!--fourth card-->
+        <div class="profile-card" id="104" onclick="togglepopup(this.id)">
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="images/Back to school.png" class="thumbnail" alt="first">
+                </div>
+                <div class="desc">
+                    <h2>Tejas</h2>
+                    <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
+
+        var cards = document.getElementsByClassName("profile-card");
+        var activeCard = document.getElementsByClassName("active");
+        var video = document.querySelector(".vid");
+
+        function togglepopup(clicked_card) {
+            console.log(clicked_card);
+            if (clicked_card == "101") {
+                console.log("you have clicked 101");
+                video.src = "friends at sunset.mp4";
+            } else if (clicked_card == "102") {
+                console.log("you have clicked 102");
+                video.src = "jetski at ocean.mp4";
+            } else if (clicked_card == "103") {
+                video.src = "houses near rocks.mp4";
+            } else if (clicked_card == "104") {
+                video.src = "back to school.mp4";
+            }
+        }
+
         //for opening the link in a new tab
         function openLink(clicked_id) {
             if (clicked_id == "1") {
