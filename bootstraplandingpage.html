@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="blandingpagestyle.css">
+
+    <title>Bootstrap Landing Page</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#GitHub" onclick="openLink(this.id)" id="1">GitHub</a></li>
+        <li><a href="#About Me" onclick="openLink(this.id)" id="2">About Me</a></li>
+    </ul>
+
+    <div class="container my-container">
+        <div class="row my-row">
+            <div class="my-col col-md-3 offset-7">
+                <h6>Nunc Systems</h6>
+                <p>Melange Towers, <br>Near Ratnadeep Store, <br>Madhapur, Hyderabad <br>9881258073</p>
+            </div>
+        </div>
+    </div>
+    <div class="container my-container">
+        <div class="row my-row justify-content-center">
+            <div class="my-col col-md-8">
+                <div class="videocontainer">
+                    <video class="vid" src="test-video.mp4"></video>
+                </div>
+            </div>
+            <div class="my-col col-md-4 ">
+                <div class="wrapper">
+                    <form action="" id="myform" onsubmit="return validation()">
+                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
+                        <div class="inputfield">
+                            <input type="text" placeholder="First Name*" id="fname" autocomplete="off">
+                            <span id="username" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+                        </div>
+                        <div class="inputfield">
+                            <input type="text" placeholder="Last Name*" id="lname" autocomplete="off">
+                            <span id="lastname" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+                        </div>
+                        <div class="inputfield">
+                            <input type="text" placeholder="Email Address*" id="email" autocomplete="off">
+                            <span id="emailadd" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+                        </div>
+                        <div class="inputfield">
+                            <input type="text" placeholder="Phone*" id="phone" autocomplete="off">
+                            <span id="number" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
+                        </div>
+                        <div class="inputfield">
+                            <textarea placeholder="Comments" id="comments" cols="30" rows="10"
+                                autocomplete="off"></textarea>
+                        </div>
+                        <div class="btn">
+                            <input type="submit" placeholder="Last Name*" id="lname">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-container">
+        <div class="row my-row justify-content-center">
+            <!--first card-->
+            <div class="profile-card active" id="101" onclick="togglepopup(this.id)">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="images/Friends at sunset.png" class="thumbnail" alt="first">
+                    </div>
+                    <div class="desc">
+                        <h2>Tejas</h2>
+                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                    </div>
+                </div>
+            </div>
+            <!--second card-->
+            <div class="profile-card" id="102" onclick="togglepopup(this.id)">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="images/Jetski at Ocean.png" class="thumbnail" alt="first">
+                    </div>
+                    <div class="desc">
+                        <h2>Tejas</h2>
+                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                    </div>
+                </div>
+            </div>
+            <!--third card-->
+            <div class="profile-card" id="103" onclick="togglepopup(this.id)">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="images/Houses near Rocks.png" class="thumbnail" alt="first">
+                    </div>
+                    <div class="desc">
+                        <h2>Tejas</h2>
+                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                    </div>
+                </div>
+            </div>
+            <!--fourth card-->
+            <div class="profile-card" id="104" onclick="togglepopup(this.id)">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="images/Back to school.png" class="thumbnail" alt="first">
+                    </div>
+                    <div class="desc">
+                        <h2>Tejas</h2>
+                        <p>Hi There. This is Tejas. This is my first time building this layout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
