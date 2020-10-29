@@ -1,18 +1,19 @@
 .my-container{
-    border: 1px solid green;
+    /*border: 1px solid green;*/
+    margin-left: 150px;
 }
 
-.my-row{
+/*.my-row{
     border: 3px solid red;
 }
 
 .my-col{
     border: 3px solid blue;
-}
+}*/
 body{
     background: #f8f8f8;
 }
-/*styling the nav bar*/
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -20,10 +21,11 @@ ul {
     overflow: hidden;
     background-color: #167f8c;
     height: 35px;
+    text-align: center;
   }
   
   li {
-    float: right;
+    display: inline-block;
   }
   
   li a {
@@ -31,10 +33,13 @@ ul {
     color: white;
     font-size: 15px;
     text-align: center;
-    padding: 15px;
+    padding: 5px;
     text-decoration: none;
   }
-
+  li a:hover{
+      text-decoration: none;
+      color: white;
+  }
   /*styling the wrapper of the form*/
 .wrapper{
     position: absolute;
@@ -43,7 +48,7 @@ ul {
     width: 100%;
     background-color: #23968c;
     padding: 15px;
-    height: 300px;
+    height: 305px;
 }
 
 .wrapper:after{
@@ -62,7 +67,9 @@ ul {
 .wrapper textarea{
     width: 100%;
     border: 1px solid #e0e0e0;
-    padding: 4px;
+    padding: 3px;
+    border-radius:5px;
+    outline: none;
 }
 
 .wrapper textarea{
@@ -73,23 +80,69 @@ ul {
 .wrapper .btn input[type="submit"]{
     border:0;
     margin-left: 100px;
+    background:#167f8c;
+    color: white;
+    outline:none;
+    margin-top: 0px;
 }
-
+i{
+    font-size: 12px !important;
+    margin-bottom: 4px;
+    float: right;
+    margin-right: 10px;
+    color: lightgray;
+}
 .videocontainer{
-    width: 520px;
-    height: 301px;
+    width: 492px;
+    height: 265px;
     float: right; 
+    overflow:hidden;
 }
 .vid{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    
 }
-
-.row{
+.controls{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    align-items: center;
+    color: white;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    height: 40px;
+    bottom:40px;
+    width: 74%;
+}
+#play-pause{
+    color: white; 
+    background-color:transparent;
+    border: none;
+    opacity: 1;
+    cursor: pointer;
+    outline: 0;
+}
+.statusbar{
+    height: 3px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.6;
+    background-color: lightgrey;
+}
+.progress{
+    height: 3px;
+    width:0;
+    background-color: red;
+}
+#row3{
     max-width: 950px;
     width: 100%;
     margin: auto;
-    
+    margin-top: 10px;
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -99,7 +152,7 @@ ul {
 
 .profile-card{
     background-color: #f8f8f8;
-    width: 177px;
+    width: 170px;
     height: 170px;
     /*border: 1px solid black;*/
     margin-left: 20px;
@@ -107,7 +160,7 @@ ul {
 }
 
 img{
-    width: 177px;
+    width: 170px;
     height: 90px;
     object-fit: cover;
 }
@@ -129,4 +182,8 @@ img{
     margin-bottom: 10px;
     color: black;
     padding: 0px 10px 0px;
+}
+footer{
+    background: #167f8c;
+    height: 35px;
 }
