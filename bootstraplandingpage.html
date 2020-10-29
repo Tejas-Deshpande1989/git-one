@@ -43,7 +43,7 @@
                             <div class="progress"></div>
                         </div>
                         <button id="play-pause" style="margin-left: 5px;"><i class="fa fa-play"></i></button>
-
+                        <button id="fullscreenbtn"><i class='fa fa-expand'></i></button>
                     </div>
                 </div>
             </div>
@@ -148,10 +148,11 @@
         var desc = document.getElementsByClassName("cardDesc");
         var cards = document.getElementsByClassName("profile-card");
         var activeCard = document.getElementsByClassName("active");
+        var fullscreenbtn = document.getElementById('fullscreenbtn');
+        var videocontainer = document.querySelector(".videocontainer");
 
-        console.log(name1);
-        console.log(desc);
         playbtn.addEventListener("click", playpause, false);
+        fullscreenbtn.addEventListener("click", fullScreen, false);
 
         //toggle between play and pause button
         function playpause() {
@@ -162,6 +163,46 @@
             else {
                 video.pause();
                 playbtn.innerHTML = '<i class="fa fa-play"></i>';
+            }
+        }
+
+        //toggle between full screen and compress screen
+        function fullScreen() {
+            if (document.fullscreenElement || document.webkitFullscreenElement ||
+                document.mozFullScreenElement || document.msFullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                    fullscreenbtn.innerHTML = "<i class='fa fa-expand'></i>";
+                }
+                fullscreenbtn.setAttribute("class", "");
+            } else {
+                if (document.fullscreenEnabled ||
+                    document.webkitFullscreenEnabled || document.mozFullScreenEnabled ||
+                    document.msFullscreenEnabled) {
+                    if (videocontainer.requestFullscreen) {
+                        videocontainer.requestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fa fa-compress"></i>';
+                    } else if (videocontainer.webkitRequestFullscreen) {
+                        videocontainer.webkitRequestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fa fa-compress"></i>';
+                    } else if (videocontainer.mozRequestFullScreen) {
+                        videocontainer.mozRequestFullScreen();
+                        fullscreenbtn.innerHTML = '<i class="fa fa-compress"></i>';
+                    } else if (videocontainer.msRequestFullscreen) {
+                        videocontainer.msRequestFullscreen();
+                        fullscreenbtn.innerHTML = '<i class="fa fa-compress"></i>';
+                    }
+                    fullscreenbtn.setAttribute("class", "fullscreen");
+                }
             }
         }
 
