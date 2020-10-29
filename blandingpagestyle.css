@@ -97,6 +97,7 @@ i{
     height: 265px;
     float: right; 
     overflow:hidden;
+    position: relative;
 }
 .vid{
     width: 100%;
@@ -112,17 +113,25 @@ i{
     color: white;
     border: none;
     background: rgba(0, 0, 0, 0);
-    height: 40px;
+    height: 0px;
     bottom:40px;
-    width: 74%;
+    width: 100%;
 }
-#play-pause{
+#play-pause,#fullscreenbtn{
     color: white; 
     background-color:transparent;
     border: none;
     opacity: 1;
     cursor: pointer;
     outline: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+#fullscreenbtn{
+    position: absolute;
+    right:0;
+    margin-top: 45px;
 }
 .statusbar{
     height: 3px;
