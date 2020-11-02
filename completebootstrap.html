@@ -1,0 +1,157 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="completebootstrapstyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-sm bg-info justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" style="outline:none;" href="#" onclick="openLink(this.id)"
+                                id="1">Link 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="openLink(this.id)" id="2">Link 2</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7">
+                <video src="test-video.mp4" controls id="vid"></video>
+            </div>
+            <div class="col-lg-5">
+                <div class="card card-body" id="formcard">
+                    <form action="" class="needs-validation" id="form1" novalidate>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fname" placeholder="First Name*" name="uname"
+                                required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname" id="lname" class="form-control" placeholder="Last Name*"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email Address*"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comments" id="comments" cols="29" rows="2"
+                                placeholder="Comments"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary bg-info" style="border:none;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!--First Card-->
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="card text-center" style="border: none;">
+                    <div class="card-block">
+                        <img src="images/Friends at sunset.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h6>Tejas</h6>
+                        </div>
+                        <div class="card-text">
+                            <p>This is some sample Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Second Card-->
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="card text-center" style="border: none;">
+                    <div class="card-block">
+                        <img src="images/Jetski at Ocean.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h6>Tejas</h6>
+                        </div>
+                        <div class="card-text">
+                            <p>This is some sample Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--First Card-->
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="card text-center" style="border: none;">
+                    <div class="card-block">
+                        <img src="images/Houses near Rocks.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h6>Tejas</h6>
+                        </div>
+                        <div class="card-text">
+                            <p>This is some sample Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--First Card-->
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="card text-center" style="border: none;">
+                    <div class="card-block">
+                        <img src="images/Back to school.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h6>Tejas</h6>
+                        </div>
+                        <div class="card-text">
+                            <p>This is some sample Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        //for opening the link in a new tab
+        function openLink(clicked_id) {
+            if (clicked_id == "1") {
+                window.open("https://github.com/Tejas-Deshpande1989/git-one");
+            } else if (clicked_id == "2") {
+                window.open("https://tejas-deshpande1989.github.io/git-one/new%20layout.html");
+            }
+        }
+    </script>
+</body>
+
+</html>
