@@ -2,9 +2,10 @@
     padding-left: 0;
     padding-right: 0;
 }
-.container{
-    margin-left: 150px;
-}
+
+/*.col{
+    border: 1px solid red;
+}*/
 #row2{
     margin-top: 5px;
 }
@@ -12,7 +13,7 @@
     margin-top: 20px;
 }
 #vid{
-    width: 540px; 
+    width: 470px; 
     float:right;
     outline: none;
 }
@@ -23,15 +24,12 @@
     cursor: pointer;
     border: none;
 }
-.card-group{
-    margin-right: 40px;
-}
 .card-text{
     font-size: 10px;
     padding: 2px;
 }
 #formcard{
-    width: 260px;
+    width: 276px;
     height: 340px; 
     background: #23968c;
     border-radius: 0;
@@ -45,7 +43,7 @@
     border-right: 40px solid #167f8c;
 }
 #form1{
-    width: 220px;
+    width: 230px;
 }
 #form1 .form-group input[type="text"]{
     outline: none;
@@ -74,9 +72,7 @@ i{
     font-size: 10px;
     padding: 2px;
 }*/
-.card{
-    width: 200px;
-}
+
 /*#row4{
     margin-left: 0px;
 }*/
@@ -111,14 +107,14 @@ i{
         }
         #formcard{
             margin-top:10px;
-            width: 782px;
+            width: 690px;
             border: none;
         }
         #form1{
-            width: 740px;
+            width: 650px;
         }
         #form1 textarea{
-            width: 740px;
+            width: 650px;
         }
     }
 
@@ -132,13 +128,13 @@ i{
         }
         #formcard{
             margin-top:10px;
-            width: 738px;
+            width: 690px;
         }
         #form1{
-            width: 690px;
+            width: 650px;
         }
         #form1 textarea{
-            width: 690px;
+            width: 650px;
         }
     }
 
@@ -155,10 +151,10 @@ i{
             width: 100%;
         }
         #form1{
-            width: 356px;
+            width: 330px;
         }
         #form1 textarea{
-            width: 356px;
+            width: 330px;
         }
     }
 
@@ -173,12 +169,13 @@ i{
         #formcard{
             margin-top:10px;
             width: 100%;
+            border: none;
         }
         #form1{
-            width: 570px;
+            width: 470px;
         }
         #form1 textarea{
-            width: 570px;
+            width: 470px;
         }
     }
 
@@ -235,10 +232,10 @@ i{
             width: 100%;
         }
         #form1{
-            width: 660px;
+            width: 470px;
         }
         #form1 textarea{
-            width: 660px;
+            width: 470px;
         }
     }
 
@@ -275,10 +272,10 @@ i{
             width: 100%;
         }
         #form1{
-            width: 750px;
+            width: 650px;
         }
         #form1 textarea{
-            width: 750px;
+            width: 650px;
         }
     }
 
@@ -355,10 +352,10 @@ i{
             width: 100%;
         }
         #form1{
-            width: 595px;
+            width: 470px;
         }
         #form1 textarea{
-            width: 595px;
+            width: 470px;
         }
     }
 
@@ -395,9 +392,9 @@ i{
             width: 100%;
         }
         #form1{
-            width: 660px;
+            width: 470px;
         }
         #form1 textarea{
-            width: 660px;
+            width: 470px;
         }
     }
