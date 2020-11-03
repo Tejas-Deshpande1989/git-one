@@ -1,14 +1,85 @@
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+.container{
+    margin-left: 150px;
+}
+#row2{
+    margin-top: 5px;
+}
+#row4{
+    margin-top: 20px;
+}
 #vid{
-    width: 450px; 
+    width: 540px; 
     float:right;
+    outline: none;
+}
+.navbar{
+    height: 40px;
+}
+.card{
+    cursor: pointer;
+    border: none;
+}
+.card-group{
+    margin-right: 40px;
+}
+.card-text{
+    font-size: 10px;
+    padding: 2px;
 }
 #formcard{
-    width: 260px; 
+    width: 260px;
+    height: 340px; 
     background: #23968c;
+    border-radius: 0;
+    border: none;
+}
+#formcard:after{
+    content: "";
+    position: absolute;
+    bottom: 0;left: 0;
+    border-bottom: 40px solid white;
+    border-right: 40px solid #167f8c;
 }
 #form1{
     width: 220px;
 }
+#form1 .form-group input[type="text"]{
+    outline: none;
+    height: 30px;
+}
+#form1 textarea{
+    height: 35px;
+    border-radius: 5px;
+    outline: none;
+}
+#form1 .text-right input[type="submit"]{
+    border: 0;
+    outline:none;
+}
+i{
+    font-size: 12px !important;
+    margin-bottom: 15px;
+    float: right;
+    margin-right: 10px;
+    color: lightgray;
+}
+/*.card-title{
+    margin-top: 10px;
+}
+.cardDesc{
+    font-size: 10px;
+    padding: 2px;
+}*/
+.card{
+    width: 200px;
+}
+/*#row4{
+    margin-left: 0px;
+}*/
 @media only screen 
     and (device-width : 375px) 
     and (device-height : 812px) 
@@ -18,9 +89,14 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 345px;
+            border: none;
         }
         #form1{
+            width: 300px;
+        }
+        #form1 textarea{
             width: 300px;
         }
     }
@@ -34,9 +110,14 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 782px;
+            border: none;
         }
         #form1{
+            width: 740px;
+        }
+        #form1 textarea{
             width: 740px;
         }
     }
@@ -50,9 +131,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 738px;
         }
         #form1{
+            width: 690px;
+        }
+        #form1 textarea{
             width: 690px;
         }
     }
@@ -66,9 +151,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 356px;
+        }
+        #form1 textarea{
             width: 356px;
         }
     }
@@ -82,9 +171,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 570px;
+        }
+        #form1 textarea{
             width: 570px;
         }
     }
@@ -98,9 +191,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 290px;
+        }
+        #form1 textarea{
             width: 290px;
         }
     }
@@ -114,9 +211,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 340px;
+        }
+        #form1 textarea{
             width: 340px;
         }
     }
@@ -130,9 +231,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 660px;
+        }
+        #form1 textarea{
             width: 660px;
         }
     }
@@ -146,9 +251,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 340px;
+        }
+        #form1 textarea{
             width: 340px;
         }
     }
@@ -162,9 +271,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 750px;
+        }
+        #form1 textarea{
             width: 750px;
         }
     }
@@ -178,9 +291,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 250px;
+        }
+        #form1 textarea{
             width: 250px;
         }
     }
@@ -194,9 +311,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 495px;
+        }
+        #form1 textarea{
             width: 495px;
         }
     }
@@ -210,9 +331,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 300px;
+        }
+        #form1 textarea{
             width: 300px;
         }
     }
@@ -226,9 +351,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 595px;
+        }
+        #form1 textarea{
             width: 595px;
         }
     }
@@ -242,9 +371,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 340px;
+        }
+        #form1 textarea{
             width: 340px;
         }
     }
@@ -258,9 +391,13 @@
             float: left;
         }
         #formcard{
+            margin-top:10px;
             width: 100%;
         }
         #form1{
+            width: 660px;
+        }
+        #form1 textarea{
             width: 660px;
         }
     }
