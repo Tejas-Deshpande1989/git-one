@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="completebootstrapstyle.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" id="row1">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-sm bg-info justify-content-center">
                     <ul class="navbar-nav">
@@ -26,122 +27,104 @@
                 </nav>
             </div>
         </div>
+    </div>
 
-        <div class="row">
+    <div class="container">
+        <div class="row" id="row2">
+            <div class="col-lg-7">
+
+            </div>
+            <div class="col-lg-5">
+                <p style="font-size: 14px; margin-bottom: 0; margin-top: 5px; font-weight:bold;">Nunc Systems</p>
+                <p style="font-size: 10px;">Melange Towers, <br>Near Ratnadeep Store, <br>Madhapur, Hyderabad
+                    <br>9881258073</p>
+            </div>
+        </div>
+
+        <div class="row" id="row3">
             <div class="col-lg-7">
                 <video src="test-video.mp4" controls id="vid"></video>
             </div>
             <div class="col-lg-5">
                 <div class="card card-body" id="formcard">
-                    <form action="" class="needs-validation" id="form1" novalidate>
+                    <form action="" id="form1">
+                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="fname" placeholder="First Name*" name="uname"
-                                required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">Please fill out this field.</div>
+                            <input type="text" class="form-control" id="fname" placeholder="First Name*"
+                                autocomplete="off" name="uname" required>
+                            <span id="username" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="lastname" id="lname" class="form-control" placeholder="Last Name*"
-                                required>
+                            <input type="text" name="lastname" id="lname" class="form-control" autocomplete="off"
+                                placeholder="Last Name*" required>
+                            <span id="lastname" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Email Address*"
-                                required>
+                            <input type="text" name="email" id="email" autocomplete="off" class="form-control"
+                                placeholder="Email Address*" required>
+                            <span id="emailadd" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone"
-                                required>
+                            <input type="text" name="phone" id="phone" autocomplete="off" class="form-control"
+                                placeholder="Phone" required>
+                            <span id="number" style="color:darkred; font-weight: bold; font-size: 12px;"></span>
                         </div>
                         <div class="form-group">
-                            <textarea name="comments" id="comments" cols="29" rows="2"
+                            <textarea name="comments" id="comments" autocomplete="off" cols="29" rows="2"
                                 placeholder="Comments"></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary bg-info" style="border:none;">Submit</button>
+                            <button type="submit" onclick="return validation()"
+                                class="btn btn-sm bg-info text-white">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <!--First Card-->
-            <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="card text-center" style="border: none;">
-                    <div class="card-block">
-                        <img src="images/Friends at sunset.png" alt="" class="img-fluid">
-                        <div class="card-title">
-                            <h6>Tejas</h6>
-                        </div>
-                        <div class="card-text">
-                            <p>This is some sample Text</p>
-                        </div>
+        <div class="row justify-content-center" id="row4">
+            <div class="card-group text-center">
+                <div class="card" id="101" onclick="togglepopup(this.id)">
+                    <img src="images/Friends at sunset.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">Card title</h6>
+                        <p class="card-text">This is a wider card</p>
                     </div>
                 </div>
-            </div>
-            <!--Second Card-->
-            <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="card text-center" style="border: none;">
-                    <div class="card-block">
-                        <img src="images/Jetski at Ocean.png" alt="" class="img-fluid">
-                        <div class="card-title">
-                            <h6>Tejas</h6>
-                        </div>
-                        <div class="card-text">
-                            <p>This is some sample Text</p>
-                        </div>
+                <div class="card ml-2" id="102" onclick="togglepopup(this.id)">
+                    <img src="images/Jetski at Ocean.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">Card title</h6>
+                        <p class="card-text">This card has supporting text</p>
                     </div>
                 </div>
-            </div>
-            <!--First Card-->
-            <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="card text-center" style="border: none;">
-                    <div class="card-block">
-                        <img src="images/Houses near Rocks.png" alt="" class="img-fluid">
-                        <div class="card-title">
-                            <h6>Tejas</h6>
-                        </div>
-                        <div class="card-text">
-                            <p>This is some sample Text</p>
-                        </div>
+                <div class="card ml-2" id="103" onclick="togglepopup(this.id)">
+                    <img src="images/Houses near Rocks.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">Card title</h6>
+                        <p class="card-text">This card has supporting text </p>
                     </div>
                 </div>
-            </div>
-            <!--First Card-->
-            <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="card text-center" style="border: none;">
-                    <div class="card-block">
-                        <img src="images/Back to school.png" alt="" class="img-fluid">
-                        <div class="card-title">
-                            <h6>Tejas</h6>
-                        </div>
-                        <div class="card-text">
-                            <p>This is some sample Text</p>
-                        </div>
+                <div class="card ml-2 mr-5" id="104" onclick="togglepopup(this.id)">
+                    <img src="images/Back to school.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">Card title</h6>
+                        <p class="card-text">This is a wider card </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
     <script>
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Get the forms we want to add validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
+
+        var video = document.querySelector("#vid");
+        var name1 = document.getElementsByTagName("H6");
+        var desc = document.getElementsByClassName("card-text");
 
         //for opening the link in a new tab
         function openLink(clicked_id) {
@@ -149,6 +132,116 @@
                 window.open("https://github.com/Tejas-Deshpande1989/git-one");
             } else if (clicked_id == "2") {
                 window.open("https://tejas-deshpande1989.github.io/git-one/new%20layout.html");
+            }
+        }
+
+        //to display the chosen card video in the video container
+        function togglepopup(clicked_card) {
+            console.log(clicked_card);
+            if (clicked_card == "101") {
+                video.src = "friends at sunset.mp4";
+            } else if (clicked_card == "102") {
+                video.src = "jetski at ocean.mp4";
+            } else if (clicked_card == "103") {
+                video.src = "houses near rocks.mp4";
+            } else if (clicked_card == "104") {
+                video.src = "back to school.mp4";
+            }
+        }
+
+        //accessing JSON file through AJAX
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/vidinfo3.json');
+        ourRequest.onload = function () {
+            var ourData = JSON.parse(ourRequest.responseText);
+            vidData = ourData;
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+
+        //to get the data from the JSON file and rendering into HTML
+        function renderHTML(data) {
+            for (var i = 0; i < 4; i++) {
+                name1[i].innerHTML = data[i].Name;
+                desc[i].innerHTML = data[i].Desc;
+            }
+        }
+
+        //for validating the form fields
+        function validation() {
+            console.log("You have entered into a function to validate your form");
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var comments = document.getElementById("comments").value;
+
+            //for validating First Name
+            if (fname == "") {
+                document.getElementById("username").innerHTML = "*Please fill the First Name";
+                return false;
+            }
+            if ((fname.length < 3) || (fname.length > 10)) {
+                document.getElementById("username").innerHTML = "*First Name must be between 3 and 10";
+                return false;
+            }
+            if (!isNaN(fname)) {
+                document.getElementById("username").innerHTML = "*Only characters are allowed";
+                return false;
+            }
+            else {
+                document.getElementById("username").innerHTML = "";
+            }
+
+            //for validating Last Name
+            if (lname == "") {
+                document.getElementById("lastname").innerHTML = "*Please fill the Last Name";
+                return false;
+            }
+            if ((lname.length < 3) || (lname.length > 15)) {
+                document.getElementById("lastname").innerHTML = "*Last Name must be between 3 and 15";
+                return false;
+            }
+            if (!isNaN(lname)) {
+                document.getElementById("lastname").innerHTML = "*Only characters are allowed";
+                return false;
+            }
+            else {
+                document.getElementById("lastname").innerHTML = "";
+            }
+
+            //for validating Email Address
+            if (email == "") {
+                document.getElementById("emailadd").innerHTML = "*Please fill the Email Address";
+                return false;
+            }
+            if (email.indexOf("@") <= 0) {
+                document.getElementById("emailadd").innerHTML = "*Invalid position of @";
+                return false;
+            }
+            if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.legnth - 3) != '.')) {
+                document.getElementById("emailadd").innerHTML = "*Invalid position of .";
+                return false;
+            }
+            else {
+                document.getElementById("emailadd").innerHTML = "";
+            }
+
+            //for validating phone number
+            if (phone == "") {
+                document.getElementById("number").innerHTML = "*Please fill the Phone Number";
+                return false;
+            }
+            if (isNaN(phone)) {
+                document.getElementById("number").innerHTML = "*Only numbers allowed";
+                return false;
+            }
+            if (phone.length != 10) {
+                document.getElementById("number").innerHTML = "*Mobile number must be 10 digits";
+                return false;
+            }
+            else {
+                document.getElementById("number").innerHTML = "";
             }
         }
     </script>
