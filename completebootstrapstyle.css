@@ -29,7 +29,7 @@
     padding: 2px;
 }
 #formcard{
-    width: 276px;
+    width: 280px;
     height: 340px; 
     background: #23968c;
     border-radius: 0;
@@ -43,7 +43,7 @@
     border-right: 40px solid #167f8c;
 }
 #form1{
-    width: 230px;
+    width: 240px;
 }
 #form1 .form-group input[type="text"]{
     outline: none;
