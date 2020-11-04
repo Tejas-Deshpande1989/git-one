@@ -1,24 +1,38 @@
+@viewport { width:device-width;}
+html,body {
+    max-width: 100%; /*Disable the horizontal scrollbar and white spacing even in device mode*/
+    overflow-x: hidden; /* Hide scrollbars */
+}
 .container-fluid{
     padding-left: 0;
     padding-right: 0;
 }
-
+/*.container{
+    border: 1px solid green;
+}*/
 /*.col{
     border: 1px solid red;
 }*/
+a:link{
+    text-decoration: underline;
+}
 #row2{
     margin-top: 5px;
 }
-#row4{
-    margin-top: 20px;
-}
+
 #vid{
-    width: 470px; 
+    width: 100%; 
     float:right;
     outline: none;
 }
 .navbar{
     height: 40px;
+}
+.navbar ul{
+    margin-right: 250px;
+}
+.navbar ul li a{
+    text-decoration: none;
 }
 .card{
     cursor: pointer;
@@ -29,8 +43,8 @@
     padding: 2px;
 }
 #formcard{
-    width: 280px;
-    height: 340px; 
+    width: 350px;
+    height: 440px; 
     background: #23968c;
     border-radius: 0;
     border: none;
@@ -43,14 +57,14 @@
     border-right: 40px solid #167f8c;
 }
 #form1{
-    width: 240px;
+    width: 305px;
 }
 #form1 .form-group input[type="text"]{
     outline: none;
-    height: 30px;
+    height: 40px;
 }
 #form1 textarea{
-    height: 35px;
+    height: 45px;
     border-radius: 5px;
     outline: none;
 }
@@ -59,23 +73,13 @@
     outline:none;
 }
 i{
-    font-size: 12px !important;
+    font-size: 16px !important;
     margin-bottom: 15px;
     float: right;
     margin-right: 10px;
     color: lightgray;
 }
-/*.card-title{
-    margin-top: 10px;
-}
-.cardDesc{
-    font-size: 10px;
-    padding: 2px;
-}*/
 
-/*#row4{
-    margin-left: 0px;
-}*/
 @media only screen 
     and (device-width : 375px) 
     and (device-height : 812px) 
@@ -85,12 +89,18 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 345px;
             border: none;
         }
+        #row4{
+            margin-top:20px;
+        }
         .navbar{
             height: 100px;
+        }
+        .navbar ul{
+            margin-right: 0px;
         }
         #form1{
             width: 300px;
@@ -109,9 +119,12 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 690px;
             border: none;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 650px;
@@ -130,8 +143,11 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 690px;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 650px;
@@ -150,14 +166,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:0px;
             width: 100%;
         }
         #form1{
-            width: 330px;
+            width: 250px;
         }
         #form1 textarea{
-            width: 330px;
+            width: 250px;
         }
     }
 
@@ -170,9 +186,12 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
             border: none;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 470px;
@@ -190,9 +209,16 @@ i{
             width: 100%;
             float: left;
         }
+        .navbar ul{
+            margin-right: 0px;
+        }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
+            border: none;
+        }
+        #row4{
+            margin-top:20px;
         }
         .navbar{
             height: 100px;
@@ -214,9 +240,12 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
             border:none;
+        }
+        #row4{
+            margin-top:20px;
         }
         .navbar{
             height: 100px;
@@ -238,11 +267,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
         }
         #form1{
             width: 470px;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1 textarea{
             width: 470px;
@@ -258,11 +290,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
         }
         .navbar{
             height: 100px;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 340px;
@@ -281,11 +316,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
         }
         #form1{
             width: 650px;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1 textarea{
             width: 650px;
@@ -301,11 +339,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
         }
         .navbar{
-            height: 100px;
+            height: 100%;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 250px;
@@ -324,8 +365,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
+        }
+        #row4{
+            margin-top:20px;
+        }
+        .navbar{
+            height: 100%;
         }
         #form1{
             width: 495px;
@@ -344,11 +391,14 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
         }
         .navbar{
             height: 100px;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 300px;
@@ -367,8 +417,11 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 470px;
@@ -387,8 +440,11 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
+        }
+        #row4{
+            margin-top:20px;
         }
         .navbar{
             height: 100px;
@@ -410,13 +466,40 @@ i{
             float: left;
         }
         #formcard{
-            margin-top:10px;
+            margin-top:20px;
             width: 100%;
+        }
+        #row4{
+            margin-top:20px;
         }
         #form1{
             width: 470px;
         }
         #form1 textarea{
             width: 470px;
+        }
+    }
+
+    @media all 
+    and (device-width: 1024px) 
+    and (device-height: 1366px)
+    and (orientation:portrait){
+        #formcard{
+            width: 320px;
+        }
+        #form1{
+            width: 280px;
+        }
+        #form1 textarea{
+            width: 280px;
+        }
+    }
+
+    @media all 
+    and (device-width: 1366px) 
+    and (device-height: 1024px)
+    and (orientation:landscape){
+        #form1 textarea{
+            width: 305px;
         }
     }
