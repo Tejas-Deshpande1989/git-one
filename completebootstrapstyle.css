@@ -47,14 +47,15 @@ a:link{
     height: 440px; 
     background: #23968c;
     border-radius: 0;
-    border: none;
+    overflow: hidden;
 }
 #formcard:after{
-    content: "";
+    content:"";
     position: absolute;
-    bottom: 0;left: 0;
-    border-bottom: 40px solid white;
-    border-right: 40px solid #167f8c;
+    bottom:0; left:0;
+    border: 30px solid #167f8c;
+    border-color: #167f8c #167f8c white white;
+    width:0;
 }
 #form1{
     width: 305px;
@@ -91,7 +92,6 @@ i{
         #formcard{
             margin-top:20px;
             width: 345px;
-            border: none;
         }
         #row4{
             margin-top:20px;
@@ -121,7 +121,6 @@ i{
         #formcard{
             margin-top:20px;
             width: 690px;
-            border: none;
         }
         #row4{
             margin-top:20px;
@@ -188,7 +187,6 @@ i{
         #formcard{
             margin-top:20px;
             width: 100%;
-            border: none;
         }
         #row4{
             margin-top:20px;
@@ -215,7 +213,6 @@ i{
         #formcard{
             margin-top:20px;
             width: 100%;
-            border: none;
         }
         #row4{
             margin-top:20px;
@@ -242,7 +239,6 @@ i{
         #formcard{
             margin-top:20px;
             width: 100%;
-            border:none;
         }
         #row4{
             margin-top:20px;
