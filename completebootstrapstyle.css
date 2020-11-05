@@ -2,6 +2,8 @@
 html,body {
     max-width: 100%; /*Disable the horizontal scrollbar and white spacing even in device mode*/
     overflow-x: hidden; /* Hide scrollbars */
+    padding: 0;
+    margin: 0;
 }
 .container-fluid{
     padding-left: 0;
@@ -34,7 +36,7 @@ a:link{
 .navbar ul li a{
     text-decoration: none;
 }
-.card{
+#row5 .card{
     cursor: pointer;
     border: none;
 }
@@ -48,6 +50,7 @@ a:link{
     background: #23968c;
     border-radius: 0;
     overflow: hidden;
+    position: relative;
 }
 #formcard:after{
     content:"";
@@ -56,6 +59,7 @@ a:link{
     border: 30px solid #167f8c;
     border-color: #167f8c #167f8c white white;
     width:0;
+    display: block;
 }
 #form1{
     width: 305px;
@@ -80,6 +84,19 @@ i{
     margin-right: 10px;
     color: lightgray;
 }
+footer{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-align:center;
+    color: #fff;
+    padding: 0px 0;
+}
+
 
 @media only screen 
     and (device-width : 375px) 
