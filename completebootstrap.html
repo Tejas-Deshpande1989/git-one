@@ -90,8 +90,10 @@
 
         <div class="row" id="row4">
             <div class="col-lg-8">
-                <p style="font-size: 18px; margin-bottom: 0; margin-top: 5px; font-weight:bold;">2009</p>
-                <p style="font-size: 16px;">2009 Dodge Ram 1500</p>
+                <img src="images/testimg.png" class="image" style="display: none;" alt="">
+                <p class="videotitle" style="font-size: 18px; margin-bottom: 0; margin-top: 5px; font-weight:bold;">2009
+                </p>
+                <p class="videodesc" style="font-size: 16px;">2009 Dodge Ram 1500</p>
             </div>
             <div class="col-lg-4">
 
@@ -102,15 +104,13 @@
             <!--First Card-->
             <div class="col-lg-3 p-3">
                 <div class="card" id="101" onclick="togglepopup(this.id)">
-                    <img class="card-img-top" src="images/Friends at sunset.png" alt="Card image">
+                    <img class="card-img-top cardimg" src="images/Friends at sunset.png" alt="Card image">
                     <div class="card-body p-0 pt-3">
                         <div class="card-title">
-                            <h5>Tejas</h5>
+                            <h5 class="title">Tejas</h5>
                         </div>
                         <div class="card-text">
-                            <p class="cardDesc" style="font-size: 16px;">Friendship really sooths the heart and
-                                fills it
-                                with joy</p>
+                            <p class="cardDesc" style="font-size: 16px;">Sample Text</p>
                         </div>
                     </div>
                 </div>
@@ -118,14 +118,13 @@
             <!--Second Card-->
             <div class="col-lg-3 p-3">
                 <div class="card " id="102" onclick="togglepopup(this.id)">
-                    <img class="card-img-top" src="images/Jetski at Ocean.png" alt="Card image">
+                    <img class="card-img-top cardimg" src="images/Jetski at Ocean.png" alt="Card image">
                     <div class="card-body p-0 pt-3">
                         <div class="card-title">
-                            <h5>Tejas</h5>
+                            <h5 class="title">Tejas</h5>
                         </div>
                         <div class="card-text">
-                            <p class="cardDesc" style="font-size: 16px;">Life is so much fun if only one knows how to
-                                tap it</p>
+                            <p class="cardDesc" style="font-size: 16px;">Sample Text</p>
                         </div>
                     </div>
                 </div>
@@ -133,14 +132,13 @@
             <!--Third Card-->
             <div class="col-lg-3 p-3">
                 <div class="card " id="103" onclick="togglepopup(this.id)">
-                    <img class="card-img-top" src="images/Houses near Rocks.png" alt="Card image">
+                    <img class="card-img-top cardimg" src="images/Houses near Rocks.png" alt="Card image">
                     <div class="card-body p-0 pt-3">
                         <div class="card-title">
-                            <h5>Tejas</h5>
+                            <h5 class="title">Tejas</h5>
                         </div>
                         <div class="card-text">
-                            <p class="cardDesc" style="font-size: 16px;">People live in such scary places also! so
-                                lonely!!</p>
+                            <p class="cardDesc" style="font-size: 16px;">Sample Text</p>
                         </div>
                     </div>
                 </div>
@@ -148,14 +146,13 @@
             <!--Fourth Card-->
             <div class="col-lg-3 p-3">
                 <div class="card " id="104" onclick="togglepopup(this.id)">
-                    <img class="card-img-top" src="images/Back to school.png" alt="Card image">
+                    <img class="card-img-top cardimg" src="images/Back to school.png" alt="Card image">
                     <div class="card-body p-0 pt-3">
                         <div class="card-title">
-                            <h5>Tejas</h5>
+                            <h5 class="title">Tejas</h5>
                         </div>
                         <div class="card-text">
-                            <p class="cardDesc" style="font-size: 16px;">Friends confiding in one another at school in
-                                difficult times</p>
+                            <p class="cardDesc" style="font-size: 16px;">Sample Text</p>
                         </div>
                     </div>
                 </div>
@@ -163,14 +160,21 @@
         </div>
     </div>
 
-
+    <footer class="bg-info">
+        <p>All rights Reserved by Your Website</p>
+    </footer>
 
     <script>
-
         var video = document.querySelector("#vid");
-        var name1 = document.getElementsByTagName("H5");
-        //var desc = document.getElementsByClassName("card-text");        
+        var image = document.querySelector(".image");
+        var title = document.getElementsByClassName("title");
+        var desc = document.getElementsByClassName("cardDesc");
+        var vidtitle = document.querySelector(".videotitle");
+        var vidDesc = document.querySelector(".videodesc");
+        var cardimg = document.querySelectorAll(".cardimg");
 
+        console.log(title[0].innerHTML);
+        console.log(desc[0].innerHTML);
 
         function onlynumbers(input) {
             var num = /[^0-9]/gi;
@@ -185,41 +189,46 @@
             }
         }
 
-        //to display the chosen card video in the video container
-        function togglepopup(clicked_card) {
-            console.log(clicked_card);
-            if (clicked_card == "101") {
-                video.src = "friends at sunset.mp4";
-            } else if (clicked_card == "102") {
-                video.src = "jetski at ocean.mp4";
-            } else if (clicked_card == "103") {
-                video.src = "houses near rocks.mp4";
-            } else if (clicked_card == "104") {
-                video.src = "back to school.mp4";
-            }
-        }
 
-        //accessing JSON file through AJAX
+        //updating the title and description of the cards through AJAX and JSON
         var ourRequest = new XMLHttpRequest();
-        ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/vidinfo3.json');
+        ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/videoinfo4.json');
         ourRequest.onload = function () {
             var ourData = JSON.parse(ourRequest.responseText);
-            vidData = ourData;
-            renderHTML(ourData);
+            for (var i = 0; i < 4; i++) {
+                title[i].innerHTML = ourData[i].Name;
+                desc[i].innerHTML = ourData[i].Desc;
+            }
         };
         ourRequest.send();
 
-        //to get the data from the JSON file and rendering into HTML
-        function renderHTML(data) {
-            for (var i = 0; i < 4; i++) {
-                name1[i].innerHTML = data[i].Name;
-                //desc[i].innerHTML = data[i].Desc;
-            }
-        }
+        //to change the video in the videobox according to the clicked card
+        function togglepopup(clicked_id) {
+            var ourRequest = new XMLHttpRequest();
+            ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/videoinfo4.json');
+            ourRequest.onload = function () {
+                var ourData = JSON.parse(ourRequest.responseText);
+                for (var i = 0; i < 6; i++) {
+                    if (clicked_id == ourData[i].Id) {
+                        var title1 = vidtitle.innerHTML;
+                        var desc1 = vidDesc.innerHTML;
+                        var image1 = image.src;
 
+                        video.src = ourData[i].Src;
+                        vidtitle.innerHTML = ourData[i].Name;
+                        vidDesc.innerHTML = ourData[i].Desc;
+                        image.src = ourData[i].Img;
+
+                        title[i].innerHTML = title1;
+                        desc[i].innerHTML = desc1;
+                        cardimg[i].src = image1;
+                    }
+                }
+            };
+            ourRequest.send();
+        }
         //for validating the form fields
         function validation() {
-            console.log("You have entered into a function to validate your form");
             var fname = document.getElementById("fname").value;
             var lname = document.getElementById("lname").value;
             var email = document.getElementById("email").value;
