@@ -1,0 +1,227 @@
+[
+    {
+        "ID": 1,
+        "Title": "Sedan",
+        "Make": "Audi",
+        "Model": "A6",
+        "Year": 2019,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Audi-A6.jpg"
+    },
+    {
+        "ID": 2,
+        "Title": "SUV",
+        "Make": "Audi",
+        "Model": "Q8",
+        "Year": 2018,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Audi-Q8.jpg"
+    },
+    {
+        "ID": 3,
+        "Title": "Sedan",
+        "Make": "BMW",
+        "Model": "Z4",
+        "Year": 2019,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/BMW-Z4.jpg"
+    },
+    {
+        "ID": 4,
+        "Title": "SUV",
+        "Make": "BMW",
+        "Model": "X1",
+        "Year": 2015,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/BMW-X1.jpg"
+    },
+    {
+        "ID": 5,
+        "Title": "SUV",
+        "Make": "Ford",
+        "Model": "Endeavour",
+        "Year": 2003,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Ford-Endeavour.jpg"
+    },
+    {
+        "ID": 6,
+        "Title": "Sedan",
+        "Make": "Ford",
+        "Model": "Freestyle",
+        "Year": 2005,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Ford-Freestyle.jpg"
+    },
+    {
+        "ID": 7,
+        "Title": "Sedan",
+        "Make": "Honda",
+        "Model": "Civic",
+        "Year": 1972,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Honda-Civic.jpg"
+    },
+    {
+        "ID": 8,
+        "Title": "SUV",
+        "Make": "Honda",
+        "Model": "WRV",
+        "Year": 2017,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Honda-WRV.jpg"
+    },
+    {
+        "ID": 9,
+        "Title": "SUV",
+        "Make": "Hyundai",
+        "Model": "Creta",
+        "Year": 2015,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Hyundai-Creta.jpg"
+    },
+    {
+        "ID": 10,
+        "Title": "Sedan",
+        "Make": "Hyndai",
+        "Model": "Verna",
+        "Year": 2011,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Hyundai-Verna.jpg"
+    },
+    {
+        "ID": 11,
+        "Title": "Luxury",
+        "Make": "Jaguar",
+        "Model": "XF",
+        "Year": 2007,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Jaguar-XF.jpg"
+    },
+    {
+        "ID": 12,
+        "Title": "SUV",
+        "Make": "Jaguar",
+        "Model": "FPACE",
+        "Year": 2015,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Jaguar-Fpace.jpg"
+    },
+    {
+        "ID": 13,
+        "Title": "SUV",
+        "Make": "Jeep",
+        "Model": "Wrangler",
+        "Year": 1986,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Jeep-Wrangler.jpg"
+    },
+    {
+        "ID": 14,
+        "Title": "SUV",
+        "Make": "Jeep",
+        "Model": "Compass",
+        "Year": 2006,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Jeep-Compass.jpg"
+    },
+    {
+        "ID": 15,
+        "Title": "SUV",
+        "Make": "Kia",
+        "Model": "Seltos",
+        "Year": 2019,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Kia-Seltos.jpg"
+    },
+    {
+        "ID": 16,
+        "Title": "SUV",
+        "Make": "Kia",
+        "Model": "Sonet",
+        "Year": 2020,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Kia-Sonet.jpg"
+    },
+    {
+        "ID": 17,
+        "Title": "Sedan",
+        "Make": "Mercedes-Benz",
+        "Model": "A-Class",
+        "Year": 1997,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/MercedesBenz-Aclass.jpg"
+    },
+    {
+        "ID": 18,
+        "Title": "Sedan",
+        "Make": "Mercedes-Benz",
+        "Model": "AMG GT",
+        "Year": 2014,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/MercedesBenz-AMGGT.jpg"
+    },
+    {
+        "ID": 19,
+        "Title": "Sedan",
+        "Make": "Nissan",
+        "Model": "GT-R",
+        "Year": 2007,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Nissan-GTR.jpg"
+    },
+    {
+        "ID": 20,
+        "Title": "SUV",
+        "Make": "Nissan",
+        "Model": "KICKS",
+        "Year": 2020,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Nissan-Kicks.jpg"
+    },
+    {
+        "ID": 21,
+        "Title": "SUV",
+        "Make": "Suzuki",
+        "Model": "Swift",
+        "Year": 2005,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Suzuki-Swift.jpg"
+    },
+    {
+        "ID": 22,
+        "Title": "SUV",
+        "Make": "Suzuki",
+        "Model": "Baleno",
+        "Year": 2015,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Suzuki-Baleno.jpg"
+    },
+    {
+        "ID": 23,
+        "Title": "SUV",
+        "Make": "Toyota",
+        "Model": "Fortuner",
+        "Year": 2006,
+        "InventoryType": "Used",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Toyota-Fortuner.jpg"
+    },
+    {
+        "ID": 24,
+        "Title": "Minivan",
+        "Make": "Toyota",
+        "Model": "Crysta",
+        "Year": 2016,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Toyota-Crysta.jpg"
+    },
+    {
+        "ID": 25,
+        "Title": "Sedan",
+        "Make": "Volkswagen",
+        "Model": "Vento",
+        "Year": 2010,
+        "InventoryType": "New",
+        "Img": "https://tejas-deshpande1989.github.io/git-one/images/Volkswagen-Vento.jpg"
+    }
+]
