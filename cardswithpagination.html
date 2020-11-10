@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="paginationstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <title>Cards with pagination</title>
 </head>
 
@@ -17,6 +18,31 @@
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
         </div>
+        <div class="filters">
+            <span style="font-weight: Bold; font-size: 18px;">Car Make:</span><select style="margin-left:5px;"
+                name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+                <option value=""></option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Kia">Kia</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+            </select>
+            <span style="font-weight: Bold; margin-left: 10px; font-size: 18px;">Car Model:</span><select
+                style="margin-left:5px;" name="slct2" id="slct2" onchange="modelSelect(this.id)">
+            </select>
+        </div>
+
+        <div class="item">[<span class="start"></span> - <span class="end"></span> of <span class="totalItems"></span>]
+        </div>
         <div class="row">
             <!--1st card-->
             <div class="profile-card">
@@ -25,10 +51,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -39,10 +62,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -53,10 +73,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -67,10 +84,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -81,10 +95,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -95,10 +106,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -109,10 +117,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -123,10 +128,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -137,10 +139,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -151,10 +150,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -165,10 +161,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -179,10 +172,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -193,10 +183,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -207,10 +194,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -221,10 +205,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -235,10 +216,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -249,10 +227,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -263,10 +238,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -277,10 +249,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -291,10 +260,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -305,10 +271,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -319,10 +282,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -333,10 +293,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -347,10 +304,7 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
@@ -361,49 +315,145 @@
                         <img class="cardimg" src="images/Friends at sunset.png" alt="first">
                     </div>
                     <div class="desc">
-                        <p class="make"></p>
-                        <p class="model"></p>
-                        <p class="year"></p>
-                        <p class="type"></p>
+                        <p class="title"></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="pagination">
             <div class="prev">Prev</div>
-            <div class="page">Page<span class="Page-num"></span></div>
+            <div class="page">Page <span class="Page-num"></span> / <span class="total"></span></div>
             <div class="next">Next</div>
         </div>
     </div>
 
     <script>
 
-        var make = document.getElementsByClassName("make");
-        var model = document.getElementsByClassName("model");
-        var year = document.getElementsByClassName("year");
-        var type = document.getElementsByClassName("type");
+        var title = document.getElementsByClassName("title");
         var cardimg = document.querySelectorAll(".cardimg");
         var card = document.getElementsByClassName("profile-card");
+
+        var start = document.querySelector(".start");
+        var end = document.querySelector(".end");
 
         var prev = document.querySelector(".prev");
         var next = document.querySelector(".next");
         var page = document.querySelector(".page-num");
+        var modelCard = [];
+        var make = [];
+        var model = [];
+        var year = [];
+        var type = [];
         const maxItem = 8;
+        let maxcards = maxItem;
+        const totalPages = Math.ceil(card.length / maxItem);
+
+        let rangeStart = 1;
+
         let index = 1;
         const pagination = Math.ceil(card.length / maxItem);
 
         prev.addEventListener("click", goPrev, false);
         next.addEventListener("click", goNext, false);
 
+        document.querySelector(".total").innerHTML = totalPages;
+        document.querySelector(".totalItems").innerHTML = card.length;
+        //function to populate the second select list with the items of the first one
+        function populate(s1, s2) {
+            console.log(s1);
+            var S1 = document.getElementById(s1);
+            var S2 = document.getElementById(s2);
+            S2.innerHTML = "";
+            console.log(S1.value);
+            if (S1.value == "Audi") {
+                var optionArray = ["|", "A6|A6", "Q8|Q8"];
+                display(S1.value);
+            } else if (S1.value == "BMW") {
+                var optionArray = ["|", "Z4|Z4", "X1|X1"];
+                display(S1.value);
+            } else if (S1.value == "Ford") {
+                var optionArray = ["|", "Endeavour|Endeavour", "Freestyle|Freestyle"];
+                display(S1.value);
+            } else if (S1.value == "Honda") {
+                var optionArray = ["|", "Civic|Civic", "WRV|WRV"];
+                display(S1.value);
+            } else if (S1.value == "Hyundai") {
+                var optionArray = ["|", "Creta|Creta", "Verna|Verna"];
+                display(S1.value);
+            } else if (S1.value == "Jaguar") {
+                var optionArray = ["|", "XF|XF", "FPACE|FPACE"];
+                display(S1.value);
+            } else if (S1.value == "Jeep") {
+                var optionArray = ["|", "Wrangler|Wrangler", "Compass|Compass"];
+                display(S1.value);
+            } else if (S1.value == "Kia") {
+                var optionArray = ["|", "Seltos|Seltos", "Sonet|Sonet"];
+                display(S1.value);
+            } else if (S1.value == "Mercedes-Benz") {
+                var optionArray = ["|", "A-Class|A-Class", "AMG GT|AMG GT"];
+                display(S1.value);
+            } else if (S1.value == "Nissan") {
+                var optionArray = ["|", "GT-R|GT-R", "KICKS|KICKS"];
+                display(S1.value);
+            } else if (S1.value == "Suzuki") {
+                var optionArray = ["|", "Swift|Swift", "Baleno|Baleno"];
+                display(S1.value);
+            } else if (S1.value == "Toyota") {
+                var optionArray = ["|", "Fortuner|Fortuner", "Crysta|Crysta"];
+                display(S1.value);
+            } else if (S1.value == "Volkswagen") {
+                var optionArray = ["|", "Vento|Vento"];
+                display(S1.value);
+            }
+            for (var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                S2.options.add(newOption);
+            }
+        }
+
+        //to display only the cards of the selected brand
+        function display(selectedMa) {
+            var newmaxcard = 0;
+            for (var i = 0; i < card.length; i++) {
+                card[i].style.display = "none";
+                if (make[i] == selectedMa) {
+                    card[i].style.display = "block";
+                    //modelCard[i]= model[i];
+                    newmaxcard += 1;
+                }
+            }
+            end.innerHTML = newmaxcard;
+            if (newmaxcard < maxItem) {
+                next.classList.add("disabled");
+            }
+        }
+
+        function modelSelect(selectedMo) {
+            var S3 = document.getElementById(selectedMo);
+            console.log(S3.value);
+            for (var i = 0; i < card.length; i++) {
+                card[i].style.display = "none";
+                if (model[i] == S3.value) {
+                    card[i].style.display = "block";
+                }
+            }
+        }
         //functions for prev and next pagination
         function goPrev() {
             index--;
+            rangeStart = rangeStart - maxItem;
+            maxcards = maxcards - maxItem;
             check();
             showItems();
         }
 
         function goNext() {
             index++;
+            rangeStart = rangeStart + maxItem;
+            maxcards = maxcards + maxItem;
             check();
             showItems();
         }
@@ -411,6 +461,7 @@
         function check() {
             if (index == pagination) {
                 next.classList.add("disabled");
+                maxcards = maxcards - maxItem + 1;
             } else {
                 next.classList.remove("disabled");
             }
@@ -431,6 +482,8 @@
                     card[i].classList.add("show");
                 }
                 page.innerHTML = index;
+                start.innerHTML = rangeStart;
+                end.innerHTML = maxcards;
             }
         }
 
@@ -452,11 +505,12 @@
         //to get the data from the JSON file and rendering into HTML
         function renderHTML(data) {
             for (var i = 0; i < 25; i++) {
-                make[i].innerHTML = "Make: " + data[i].Make;
-                model[i].innerHTML = "Model: " + data[i].Model;
-                year[i].innerHTML = "Year: " + data[i].Year;
-                type[i].innerHTML = "Inventory Type: " + data[i].InventoryType;
+                title[i].innerHTML = data[i].Title;
                 cardimg[i].src = data[i].Img;
+                make[i] = data[i].Make;
+                model[i] = data[i].Model;
+                year[i] = data[i].Year;
+                type[i] = data[i].InventoryType;
             }
 
         }
