@@ -1,7 +1,7 @@
 [
     {
         "ID": 1,
-        "Title": "Sedan",
+        "Title": "Audi A6,2019[New] ",
         "Make": "Audi",
         "Model": "A6",
         "Year": 2019,
@@ -10,7 +10,7 @@
     },
     {
         "ID": 2,
-        "Title": "SUV",
+        "Title": "Audi Q8,2018[New]",
         "Make": "Audi",
         "Model": "Q8",
         "Year": 2018,
@@ -19,7 +19,7 @@
     },
     {
         "ID": 3,
-        "Title": "Sedan",
+        "Title": "BMW Z4,2019[New]",
         "Make": "BMW",
         "Model": "Z4",
         "Year": 2019,
@@ -28,7 +28,7 @@
     },
     {
         "ID": 4,
-        "Title": "SUV",
+        "Title": "BMW X1,2015[Used]",
         "Make": "BMW",
         "Model": "X1",
         "Year": 2015,
@@ -37,7 +37,7 @@
     },
     {
         "ID": 5,
-        "Title": "SUV",
+        "Title": "Ford Endeavour,2003[New]",
         "Make": "Ford",
         "Model": "Endeavour",
         "Year": 2003,
@@ -46,7 +46,7 @@
     },
     {
         "ID": 6,
-        "Title": "Sedan",
+        "Title": "Ford Freestyle,2005[Used]",
         "Make": "Ford",
         "Model": "Freestyle",
         "Year": 2005,
@@ -55,7 +55,7 @@
     },
     {
         "ID": 7,
-        "Title": "Sedan",
+        "Title": "Honda Civic,1972[New]",
         "Make": "Honda",
         "Model": "Civic",
         "Year": 1972,
@@ -64,7 +64,7 @@
     },
     {
         "ID": 8,
-        "Title": "SUV",
+        "Title": "Honda WRV,2017[Used]",
         "Make": "Honda",
         "Model": "WRV",
         "Year": 2017,
@@ -73,7 +73,7 @@
     },
     {
         "ID": 9,
-        "Title": "SUV",
+        "Title": "Hyundai Creta,2015[New]",
         "Make": "Hyundai",
         "Model": "Creta",
         "Year": 2015,
@@ -82,7 +82,7 @@
     },
     {
         "ID": 10,
-        "Title": "Sedan",
+        "Title": "Hyndai Verna,2011[Used]",
         "Make": "Hyundai",
         "Model": "Verna",
         "Year": 2011,
@@ -91,7 +91,7 @@
     },
     {
         "ID": 11,
-        "Title": "Luxury",
+        "Title": "Jaguar XF,2007[New]",
         "Make": "Jaguar",
         "Model": "XF",
         "Year": 2007,
@@ -100,7 +100,7 @@
     },
     {
         "ID": 12,
-        "Title": "SUV",
+        "Title": "Jaguar FPACE,2015[New]",
         "Make": "Jaguar",
         "Model": "FPACE",
         "Year": 2015,
@@ -109,7 +109,7 @@
     },
     {
         "ID": 13,
-        "Title": "SUV",
+        "Title": "Jeep Wrangler,1986[New]",
         "Make": "Jeep",
         "Model": "Wrangler",
         "Year": 1986,
@@ -118,7 +118,7 @@
     },
     {
         "ID": 14,
-        "Title": "SUV",
+        "Title": "Jeep Compass,2006[New]",
         "Make": "Jeep",
         "Model": "Compass",
         "Year": 2006,
@@ -127,7 +127,7 @@
     },
     {
         "ID": 15,
-        "Title": "SUV",
+        "Title": "Kia Seltos,2019[New]",
         "Make": "Kia",
         "Model": "Seltos",
         "Year": 2019,
@@ -136,7 +136,7 @@
     },
     {
         "ID": 16,
-        "Title": "SUV",
+        "Title": "Kia Sonet,2020[New]",
         "Make": "Kia",
         "Model": "Sonet",
         "Year": 2020,
@@ -145,7 +145,7 @@
     },
     {
         "ID": 17,
-        "Title": "Sedan",
+        "Title": "Mercedes-Benz A-Class,1997[New]",
         "Make": "Mercedes-Benz",
         "Model": "A-Class",
         "Year": 1997,
@@ -154,7 +154,7 @@
     },
     {
         "ID": 18,
-        "Title": "Sedan",
+        "Title": "Mercedes-Benz AMG-GT,2014[New]",
         "Make": "Mercedes-Benz",
         "Model": "AMG GT",
         "Year": 2014,
@@ -163,7 +163,7 @@
     },
     {
         "ID": 19,
-        "Title": "Sedan",
+        "Title": "Nissan GTR,2007[Used]",
         "Make": "Nissan",
         "Model": "GT-R",
         "Year": 2007,
@@ -172,7 +172,7 @@
     },
     {
         "ID": 20,
-        "Title": "SUV",
+        "Title": "Nissan KICKS,2020[New]",
         "Make": "Nissan",
         "Model": "KICKS",
         "Year": 2020,
@@ -181,7 +181,7 @@
     },
     {
         "ID": 21,
-        "Title": "SUV",
+        "Title": "Suzuki Swift,2005[New]",
         "Make": "Suzuki",
         "Model": "Swift",
         "Year": 2005,
@@ -190,7 +190,7 @@
     },
     {
         "ID": 22,
-        "Title": "SUV",
+        "Title": "Suzuki Baleno,2015[New]",
         "Make": "Suzuki",
         "Model": "Baleno",
         "Year": 2015,
@@ -199,7 +199,7 @@
     },
     {
         "ID": 23,
-        "Title": "SUV",
+        "Title": "Toyota Fortuner,2006[Used]",
         "Make": "Toyota",
         "Model": "Fortuner",
         "Year": 2006,
@@ -208,7 +208,7 @@
     },
     {
         "ID": 24,
-        "Title": "Minivan",
+        "Title": "Toyota Crysta,2016[New]",
         "Make": "Toyota",
         "Model": "Crysta",
         "Year": 2016,
@@ -217,7 +217,7 @@
     },
     {
         "ID": 25,
-        "Title": "Sedan",
+        "Title": "Volkswagen Vento,2010[New]",
         "Make": "Volkswagen",
         "Model": "Vento",
         "Year": 2010,
