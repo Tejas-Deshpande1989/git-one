@@ -12,16 +12,11 @@
 
 <body>
     <div class="container">
-        <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-        </div>
+
         <div class="filters">
-            <span style="font-weight: Bold; font-size: 18px;">Car Make:</span><select style="margin-left:5px;"
-                name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
-                <option value=""></option>
+            <!--Filter1 for Make-->
+            <select name="slct1" class="select" id="slct1" onchange="populate(this.id,'slct2')">
+                <option value="Make">Make</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
                 <option value="Ford">Ford</option>
@@ -36,13 +31,57 @@
                 <option value="Toyota">Toyota</option>
                 <option value="Volkswagen">Volkswagen</option>
             </select>
-            <span style="font-weight: Bold; margin-left: 10px; font-size: 18px;">Car Model:</span><select
-                style="margin-left:5px;" name="slct2" id="slct2" onchange="modelSelect(this.id)">
+
+            <!--Filter2 for Model-->
+            <select name="slct2" class="select" id="slct2" onchange="modelSelect(this.id)">
+                <option value="Model">Model</option>
+            </select>
+
+            <!--Filter3 for Year-->
+            <select name="slct3" class="select" id="slct3" onchange="yearSelect(this.id)">
+                <option value="Year">Year</option>
+                <option value="1972">1972</option>
+                <option value="1986">1986</option>
+                <option value="1997">1997</option>
+                <option value="2003">2003</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+
+            <!--Filter4 for Inventory Type-->
+            <select name="slct4" class="select" id="slct4" onchange="typeSelect(this.id)">
+                <option value="Inventory Type">Inventory Type</option>
+                <option value="New">New</option>
+                <option value="Used">Used</option>
             </select>
         </div>
 
-        <div class="item">[<span class="start"></span> - <span class="end"></span> of <span class="totalItems"></span>]
+        <!--To display number of Items per page and Sort by-->
+        <div class="item">
+            <div class="numofpages">
+                [<span class="start"></span> - <span class="end"></span> of <span class="totalItems"></span>]
+            </div>
+            <div class="sortelement">
+                <select name="slct5" class="select" id="slct5" onchange="sortCards(this.id)">
+                    <option value="Sort By">Sort By</option>
+                    <option value="Make">Make</option>
+                    <option value="Model">Model</option>
+                    <option value="Year">Year</option>
+                </select>
+            </div>
         </div>
+
+        <!--Cards Begin from here-->
         <div class="row">
             <!--1st card-->
             <div class="profile-card">
@@ -332,13 +371,13 @@
         var title = document.getElementsByClassName("title");
         var cardimg = document.querySelectorAll(".cardimg");
         var card = document.getElementsByClassName("profile-card");
-
         var start = document.querySelector(".start");
         var end = document.querySelector(".end");
 
         var prev = document.querySelector(".prev");
         var next = document.querySelector(".next");
         var page = document.querySelector(".page-num");
+        var item = document.querySelector(".item");
         var modelCard = [];
         var make = [];
         var model = [];
@@ -358,14 +397,52 @@
 
         document.querySelector(".total").innerHTML = totalPages;
         document.querySelector(".totalItems").innerHTML = card.length;
+
+        //function for showing or hiding cards
+        function showItems() {
+            for (var i = 0; i < card.length; i++) {
+                card[i].classList.remove("show");
+                card[i].classList.add("hide");
+                if (i >= (index * maxItem) - maxItem && i < index * maxItem) {
+                    card[i].classList.remove("hide");
+                    card[i].classList.add("show");
+                }
+                page.innerHTML = index;
+                start.innerHTML = rangeStart;
+                end.innerHTML = maxcards;
+            }
+        }
+
+        window.onload = function () {
+            showItems();
+            check();
+        }
+
+        //to disable the next and previous links when we reach the ends
+        function check() {
+            if (index == pagination) {
+                next.classList.add("disabled");
+                maxcards = maxcards - maxItem + 1;
+            } else {
+                next.classList.remove("disabled");
+            }
+
+            if (index == 1) {
+                prev.classList.add("disabled");
+            } else {
+                prev.classList.remove("disabled");
+            }
+        }
         //function to populate the second select list with the items of the first one
         function populate(s1, s2) {
-            console.log(s1);
             var S1 = document.getElementById(s1);
             var S2 = document.getElementById(s2);
             S2.innerHTML = "";
-            console.log(S1.value);
-            if (S1.value == "Audi") {
+            if (S1.value == "Make") {
+                showItems();
+                check();
+                var optionArray = ["Model|Model"];
+            } else if (S1.value == "Audi") {
                 var optionArray = ["|", "A6|A6", "Q8|Q8"];
                 display(S1.value);
             } else if (S1.value == "BMW") {
@@ -418,27 +495,143 @@
         function display(selectedMa) {
             var newmaxcard = 0;
             for (var i = 0; i < card.length; i++) {
-                card[i].style.display = "none";
+                card[i].classList.remove("show");
+                card[i].classList.add("hide");
                 if (make[i] == selectedMa) {
-                    card[i].style.display = "block";
-                    //modelCard[i]= model[i];
+                    card[i].classList.remove("hide");
+                    card[i].classList.add("show");
                     newmaxcard += 1;
                 }
             }
-            end.innerHTML = newmaxcard;
             if (newmaxcard < maxItem) {
                 next.classList.add("disabled");
             }
+            end.innerHTML = newmaxcard;
+            document.querySelector(".total").innerHTML = 1;
         }
 
+        //filter according to the Model
         function modelSelect(selectedMo) {
-            var S3 = document.getElementById(selectedMo);
-            console.log(S3.value);
+            var newmaxcard1 = 0;
+            var newmodel = document.getElementById(selectedMo);
             for (var i = 0; i < card.length; i++) {
-                card[i].style.display = "none";
-                if (model[i] == S3.value) {
-                    card[i].style.display = "block";
+                card[i].classList.remove("show");
+                card[i].classList.add("hide");
+                if (model[i] == newmodel.value) {
+                    card[i].classList.remove("hide");
+                    card[i].classList.add("show");
+                    newmaxcard1 += 1;
                 }
+            }
+            if (newmaxcard1 < maxItem) {
+                next.classList.add("disabled");
+            }
+            end.innerHTML = newmaxcard1;
+            document.querySelector(".total").innerHTML = 1;
+        }
+
+        //filter according to the Year
+        function yearSelect(selectedY) {
+            var newmaxcard2 = 0;
+            var newyear = document.getElementById(selectedY);
+            if (newyear.value == "Year") {
+                showItems();
+                check();
+            } else {
+                for (var i = 0; i < card.length; i++) {
+                    card[i].classList.remove("show");
+                    card[i].classList.add("hide");
+                    if (year[i] == newyear.value) {
+                        card[i].classList.remove("hide");
+                        card[i].classList.add("show");
+                        newmaxcard2 += 1;
+                    }
+                }
+                if (newmaxcard2 < maxItem) {
+                    next.classList.add("disabled");
+                }
+                end.innerHTML = newmaxcard2;
+                document.querySelector(".total").innerHTML = 1;
+            }
+        }
+
+        //filter according to the Type
+        function typeSelect(selectedT) {
+            var newmaxcard3 = 0;
+            var newtype = document.getElementById(selectedT);
+            if (newtype.value == "Inventory Type") {
+                showItems();
+                check();
+            } else {
+                for (var i = 0; i < card.length; i++) {
+                    card[i].classList.remove("show");
+                    card[i].classList.add("hide");
+                    if (type[i] == newtype.value) {
+                        card[i].classList.remove("hide");
+                        card[i].classList.add("show");
+                        newmaxcard3 += 1;
+                    }
+                }
+                next.classList.add("disabled");
+                end.innerHTML = newmaxcard3;
+                document.querySelector(".total").innerHTML = 1;
+            }
+        }
+
+        //function to sort Cards
+        function sortCards(selectedS) {
+            var sortBy = document.getElementById(selectedS);
+            var ourRequest = new XMLHttpRequest();
+            ourRequest.open('GET', 'https://tejas-deshpande1989.github.io/git-one/car-details.json');
+            ourRequest.onload = function () {
+                var ourData = JSON.parse(ourRequest.responseText);
+                if (sortBy.value == "Sort By") {
+                    ourData.sort(byMake);
+                    renderHTML(ourData);
+                } else if (sortBy.value == "Year") {
+                    ourData.sort(byYear);
+                    renderHTML(ourData);
+                } else if (sortBy.value == "Make") {
+                    ourData.sort(byMake);
+                    renderHTML(ourData);
+                } else if (sortBy.value == "Model") {
+                    ourData.sort(byModel);
+                    renderHTML(ourData);
+                }
+            };
+            ourRequest.send();
+        }
+
+        //sort by Year
+        function byYear(a, b) {
+            if (a.Year > b.Year) {
+                return 1;
+            } else if (b.Year > a.Year) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+        //sort by Make
+        function byMake(a, b) {
+            if (a.Make > b.Make) {
+                return 1;
+            } else if (b.Make > a.Make) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+        //sort by Model
+        function byModel(a, b) {
+            if (a.Model > b.Model) {
+                return 1;
+            } else if (b.Model > a.Model) {
+                return -1;
+            } else {
+                return 0;
             }
         }
         //functions for prev and next pagination
@@ -457,41 +650,6 @@
             check();
             showItems();
         }
-
-        function check() {
-            if (index == pagination) {
-                next.classList.add("disabled");
-                maxcards = maxcards - maxItem + 1;
-            } else {
-                next.classList.remove("disabled");
-            }
-
-            if (index == 1) {
-                prev.classList.add("disabled");
-            } else {
-                prev.classList.remove("disabled");
-            }
-        }
-        //function for showing or hiding cards
-        function showItems() {
-            for (var i = 0; i < card.length; i++) {
-                card[i].classList.remove("show");
-                card[i].classList.add("hide");
-                if (i >= (index * maxItem) - maxItem && i < index * maxItem) {
-                    card[i].classList.remove("hide");
-                    card[i].classList.add("show");
-                }
-                page.innerHTML = index;
-                start.innerHTML = rangeStart;
-                end.innerHTML = maxcards;
-            }
-        }
-
-        window.onload = function () {
-            showItems();
-            check();
-        }
-
 
         //accessing JSON file through AJAX
         var ourRequest = new XMLHttpRequest();
@@ -514,10 +672,6 @@
             }
 
         }
-
-
-
-
     </script>
 </body>
 
