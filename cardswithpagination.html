@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="paginationstyle.css">
+    <link rel="stylesheet" href="filterstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -14,8 +14,9 @@
     <div class="container">
 
         <div class="filters">
+            <span id="label">Filters: </span>
             <!--Filter1 for Make-->
-            <select name="slct1" class="select" id="slct1" onchange="populate(this.id,'slct2')">
+            <select name="slct1" class="select" id="slct1" onchange="populate(this.id,'slct2','slct3','slct4')">
                 <option value="Make">Make</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
@@ -64,11 +65,14 @@
                 <option value="New">New</option>
                 <option value="Used">Used</option>
             </select>
+
+            <p class="clearfilters">clear all</p>
+
         </div>
 
         <!--To display number of Items per page and Sort by-->
         <div class="item">
-            <div class="numofpages">
+            <div class="numofpages" id="nop">
                 [<span class="start"></span> - <span class="end"></span> of <span class="totalItems"></span>]
             </div>
             <div class="sortelement">
@@ -80,6 +84,8 @@
                 </select>
             </div>
         </div>
+
+        <ul id="myList"></ul>
 
         <!--Cards Begin from here-->
         <div class="row">
@@ -373,11 +379,23 @@
         var card = document.getElementsByClassName("profile-card");
         var start = document.querySelector(".start");
         var end = document.querySelector(".end");
-
+        var clear = document.querySelector(".clearfilters");
         var prev = document.querySelector(".prev");
         var next = document.querySelector(".next");
         var page = document.querySelector(".page-num");
         var item = document.querySelector(".item");
+        var newcard;
+        var list1 = document.getElementById("slct1");
+        var list2 = document.getElementById("slct2");
+        var list3 = document.getElementById("slct3");
+        var list4 = document.getElementById("slct4");
+        var button1;
+        var button2;
+        var button3;
+        var makeflag = 0;
+        var yearflag = 0;
+        var typeflag = 0;
+
         var modelCard = [];
         var make = [];
         var model = [];
@@ -394,6 +412,8 @@
 
         prev.addEventListener("click", goPrev, false);
         next.addEventListener("click", goNext, false);
+        clear.addEventListener("click", clearall, false);
+
 
         document.querySelector(".total").innerHTML = totalPages;
         document.querySelector(".totalItems").innerHTML = card.length;
@@ -433,53 +453,79 @@
                 prev.classList.remove("disabled");
             }
         }
+
+        //function to clear all filters
+        function clearall() {
+            showItems();
+            check();
+            list1.selectedIndex = 0;
+            list2.selectedIndex = 0;
+            list3.selectedIndex = 0;
+            list4.selectedIndex = 0;
+            if (makeflag == 1) {
+                makeflag = 0;
+                button1.style.display = "none";
+            }
+            if (yearflag == 1) {
+                yearflag = 0;
+                button2.style.display = "none";
+            }
+            if (typeflag == 1) {
+                typeflag = 0;
+                button3.style.display = "none";
+            }
+            clear.style.display = "none";
+        }
+
         //function to populate the second select list with the items of the first one
-        function populate(s1, s2) {
+        function populate(s1, s2, s3, s4) {
             var S1 = document.getElementById(s1);
             var S2 = document.getElementById(s2);
             S2.innerHTML = "";
             if (S1.value == "Make") {
                 showItems();
                 check();
+                list3.selectedIndex = 0;
+                list4.selectedIndex = 0;
                 var optionArray = ["Model|Model"];
             } else if (S1.value == "Audi") {
-                var optionArray = ["|", "A6|A6", "Q8|Q8"];
+                var optionArray = ["Model|Model", "A6|A6", "Q8|Q8"];
                 display(S1.value);
             } else if (S1.value == "BMW") {
-                var optionArray = ["|", "Z4|Z4", "X1|X1"];
+                var optionArray = ["Model|Model", "Z4|Z4", "X1|X1"];
                 display(S1.value);
             } else if (S1.value == "Ford") {
-                var optionArray = ["|", "Endeavour|Endeavour", "Freestyle|Freestyle"];
+                var optionArray = ["Model|Model", "Endeavour|Endeavour", "Freestyle|Freestyle"];
                 display(S1.value);
             } else if (S1.value == "Honda") {
-                var optionArray = ["|", "Civic|Civic", "WRV|WRV"];
+                var optionArray = ["Model|Model", "Civic|Civic", "WRV|WRV"];
                 display(S1.value);
             } else if (S1.value == "Hyundai") {
-                var optionArray = ["|", "Creta|Creta", "Verna|Verna"];
+                var optionArray = ["Model|Model", "Creta|Creta", "Verna|Verna"];
                 display(S1.value);
             } else if (S1.value == "Jaguar") {
-                var optionArray = ["|", "XF|XF", "FPACE|FPACE"];
+                var optionArray = ["Model|Model", "XF|XF", "FPACE|FPACE"];
                 display(S1.value);
             } else if (S1.value == "Jeep") {
-                var optionArray = ["|", "Wrangler|Wrangler", "Compass|Compass"];
+                var optionArray = ["Model|Model", "Wrangler|Wrangler", "Compass|Compass"];
                 display(S1.value);
             } else if (S1.value == "Kia") {
-                var optionArray = ["|", "Seltos|Seltos", "Sonet|Sonet"];
+                var optionArray = ["Model|Model", "Seltos|Seltos", "Sonet|Sonet"];
                 display(S1.value);
             } else if (S1.value == "Mercedes-Benz") {
-                var optionArray = ["|", "A-Class|A-Class", "AMG GT|AMG GT"];
+                var optionArray = ["Model|Model", "A-Class|A-Class", "AMG GT|AMG GT"];
                 display(S1.value);
             } else if (S1.value == "Nissan") {
-                var optionArray = ["|", "GT-R|GT-R", "KICKS|KICKS"];
+                var optionArray = ["Model|Model", "GT-R|GT-R", "KICKS|KICKS"];
                 display(S1.value);
             } else if (S1.value == "Suzuki") {
-                var optionArray = ["|", "Swift|Swift", "Baleno|Baleno"];
+                var optionArray = ["Model|Model", "Swift|Swift", "Baleno|Baleno"];
                 display(S1.value);
             } else if (S1.value == "Toyota") {
-                var optionArray = ["|", "Fortuner|Fortuner", "Crysta|Crysta"];
+                var optionArray = ["Model|Model", "Fortuner|Fortuner", "Crysta|Crysta"];
                 display(S1.value);
             } else if (S1.value == "Volkswagen") {
-                var optionArray = ["|", "Vento|Vento"];
+                var optionArray = ["Model|Model", "Vento|Vento"];
                 display(S1.value);
             }
             for (var option in optionArray) {
@@ -493,7 +539,11 @@
 
         //to display only the cards of the selected brand
         function display(selectedMa) {
+            //to create a button which will clear Make filter
+            // continue with make filter
+            displayreset();
             var newmaxcard = 0;
+            clear.style.display = "block";
             for (var i = 0; i < card.length; i++) {
                 card[i].classList.remove("show");
                 card[i].classList.add("hide");
@@ -532,49 +582,195 @@
 
         //filter according to the Year
         function yearSelect(selectedY) {
+            displayreset();
             var newmaxcard2 = 0;
+            clear.style.display = "block";
             var newyear = document.getElementById(selectedY);
-            if (newyear.value == "Year") {
-                showItems();
-                check();
-            } else {
+
+            //to give the joint result of make and year
+            if (list1.selectedIndex > 0) {
                 for (var i = 0; i < card.length; i++) {
                     card[i].classList.remove("show");
                     card[i].classList.add("hide");
-                    if (year[i] == newyear.value) {
+                    if (make[i] == list1.value && year[i] == list3.value) {
                         card[i].classList.remove("hide");
                         card[i].classList.add("show");
-                        newmaxcard2 += 1;
                     }
                 }
-                if (newmaxcard2 < maxItem) {
-                    next.classList.add("disabled");
+            } else if (list4.selectedIndex > 0) {
+                for (var i = 0; i < card.length; i++) {
+                    card[i].classList.remove("show");
+                    card[i].classList.add("hide");
+                    if (year[i] == list3.value && type[i] == list4.value) {
+                        card[i].classList.remove("hide");
+                        card[i].classList.add("show");
+                    }
                 }
-                end.innerHTML = newmaxcard2;
-                document.querySelector(".total").innerHTML = 1;
+            } else {
+                if (newyear.value == "Year") {
+                    showItems();
+                    check();
+                    list1.selectedIndex = 0;
+                    list2.selectedIndex = 0;
+                    list4.selectedIndex = 0;
+                } else {
+                    for (var i = 0; i < card.length; i++) {
+                        card[i].classList.remove("show");
+                        card[i].classList.add("hide");
+                        if (year[i] == newyear.value) {
+                            card[i].classList.remove("hide");
+                            card[i].classList.add("show");
+                            newmaxcard2 += 1;
+                        }
+                    }
+                    if (newmaxcard2 < maxItem) {
+                        next.classList.add("disabled");
+                    }
+                    end.innerHTML = newmaxcard2;
+                    document.querySelector(".total").innerHTML = 1;
+                }
             }
         }
 
         //filter according to the Type
         function typeSelect(selectedT) {
+            displayreset();
             var newmaxcard3 = 0;
+            clear.style.display = "block";
             var newtype = document.getElementById(selectedT);
-            if (newtype.value == "Inventory Type") {
-                showItems();
-                check();
-            } else {
+
+            //to give the joint result of make and type
+            if (list1.selectedIndex > 0) {
                 for (var i = 0; i < card.length; i++) {
                     card[i].classList.remove("show");
                     card[i].classList.add("hide");
-                    if (type[i] == newtype.value) {
+                    if (make[i] == list1.value && type[i] == list4.value) {
                         card[i].classList.remove("hide");
                         card[i].classList.add("show");
-                        newmaxcard3 += 1;
                     }
                 }
-                next.classList.add("disabled");
-                end.innerHTML = newmaxcard3;
-                document.querySelector(".total").innerHTML = 1;
+            } else if (list3.selectedIndex > 0) {
+                for (var i = 0; i < card.length; i++) {
+                    card[i].classList.remove("show");
+                    card[i].classList.add("hide");
+                    if (type[i] == list4.value && year[i] == list3.value) {
+                        card[i].classList.remove("hide");
+                        card[i].classList.add("show");
+                    }
+                }
+            } else {
+                if (newtype.value == "Inventory Type") {
+                    showItems();
+                    check();
+                    list1.selectedIndex = 0;
+                    list2.selectedIndex = 0;
+                    list3.selectedIndex = 0;
+                } else {
+                    for (var i = 0; i < card.length; i++) {
+                        card[i].classList.remove("show");
+                        card[i].classList.add("hide");
+                        if (type[i] == newtype.value) {
+                            card[i].classList.remove("hide");
+                            card[i].classList.add("show");
+                            newmaxcard3 += 1;
+                        }
+                    }
+                    next.classList.add("disabled");
+                    end.innerHTML = newmaxcard3;
+                    document.querySelector(".total").innerHTML = 1;
+                }
+            }
+
+        }
+
+        //to display clear filter button for each filter
+        function displayreset() {
+            if (list1.selectedIndex > 0 && makeflag == 0) {
+                var mylist = document.getElementById("myList");
+                var node = document.createElement("li");
+                button1 = document.createElement("button");
+                button1.innerHTML = list1.value + "<i class='fas fa-times'></i>";
+                button1.onclick = function () {
+                    list1.selectedIndex = 0;
+                    makeflag = 0;
+                    button1.style.display = "none";
+                    if (yearflag == 1) {
+                        yearSelect(list3.id);
+                    }
+                    else {
+                        if (typeflag == 1) {
+                            typeSelect(list4.id);
+                        }
+                        else {
+                            showItems();
+                            check();
+                            clear.style.display = "none";
+                        }
+                    }
+                };
+
+                node.appendChild(button1);
+                mylist.appendChild(node);
+                makeflag = 1;
+            }
+            if (list3.selectedIndex > 0 && yearflag == 0) {
+                var mylist = document.getElementById("myList");
+                var node = document.createElement("li");
+                button2 = document.createElement("button");
+                button2.innerHTML = list3.value + "<i class='fas fa-times'></i>";
+                button2.onclick = function () {
+                    list3.selectedIndex = 0;
+                    yearflag = 0;
+                    button2.style.display = "none";
+                    if (makeflag == 1) {
+                        display(list1.value);
+                    } else if (typeflag == 1) {
+                        typeSelect(list4.id);
+                    }
+                    else {
+                        showItems();
+                        check();
+                        clear.style.display = "none";
+                    }
+                };
+
+                node.appendChild(button2);
+                mylist.appendChild(node);
+                yearflag = 1;
+            }
+            if (list4.selectedIndex > 0 && typeflag == 0) {
+                var mylist = document.getElementById("myList");
+                var node = document.createElement("li");
+                button3 = document.createElement("button");
+                button3.innerHTML = list4.value + "<i class='fas fa-times'></i>";
+                button3.onclick = function () {
+                    list4.selectedIndex = 0;
+                    typeflag = 0;
+                    button3.style.display = "none";
+                    if (makeflag == 1) {
+                        display(list1.value);
+                    } else if (yearflag == 1) {
+                        yearSelect(list3.id);
+                    }
+                    else {
+                        showItems();
+                        check();
+                        clear.style.display = "none";
+                    }
+
+                };
+                node.appendChild(button3);
+                mylist.appendChild(node);
+                typeflag = 1;
+            }
+            if (makeflag == 1) {
+                button1.innerHTML = list1.value + "<i class='fas fa-times'></i>";
+            }
+            if (yearflag == 1) {
+                button2.innerHTML = list3.value + "<i class='fas fa-times'></i>";
+            }
+            if (typeflag == 1) {
+                button3.innerHTML = list4.value + "<i class='fas fa-times'></i>";
             }
         }
 
