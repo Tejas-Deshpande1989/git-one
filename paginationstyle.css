@@ -12,19 +12,32 @@ body{
     background-color: #f6f6f6;
 }
 
+/*filter styles*/
+
+
 .filters{
     width: 100%;
     margin:auto;
+    background-color: darkseagreen;
     text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0px;
+    
 }
-.select{
+#label{
+    color: white;
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+    margin-top: 20px;
+
+}
+.filters select,#slct5{
     padding: 8px 12px;
+    margin: 10px 0px 10px;
     color: #333333;
     background-color: white;
     border: 1px solid #dddddd;
@@ -34,9 +47,42 @@ body{
     font-size: 17px;
     width: 160px;
 }
+.filters .clearfilters{
+    text-transform: uppercase; 
+    color: maroon; 
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    display: none;
+}
 #slct1,#slct2,#slct3,#slct4{
     margin-left:5px;
 }
+
+button{
+    width: 100px; 
+    border: 1px solid #dddddd;
+    background-color: white;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    padding: 8px 10px;
+}
+button i{
+    color: gray; 
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+ul{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .numofpages{
     margin-top: 6px;
 }
@@ -150,6 +196,12 @@ img{
     and (device-width : 375px) 
     and (device-height : 812px) 
     and (-webkit-device-pixel-ratio : 3) { 
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 330px;
             height: 270px;
@@ -241,6 +293,12 @@ img{
     and (device-width: 360px) 
     and (device-height: 640px)
     and (orientation:portrait){
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 320px;
             height: 270px;
@@ -259,6 +317,12 @@ img{
     and (device-width: 411px) 
     and (device-height: 731px)
     and (orientation:portrait){
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 360px;
             height: 320px;
@@ -295,6 +359,12 @@ img{
     and (device-width: 411px) 
     and (device-height: 823px)
     and (orientation:portrait){
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 360px;
             height: 320px;
@@ -334,6 +404,12 @@ img{
     and (device-width: 320px) 
     and (device-height: 568px)
     and (orientation:portrait){
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 290px;
             height: 240px;
@@ -370,6 +446,12 @@ img{
     and (device-width: 375px) 
     and (device-height: 667px)
     and (orientation:portrait){
+        .filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .profile-card{
             width: 320px;
             height: 270px;
